@@ -7,26 +7,27 @@ associated routes, so the nesting of your bolded components must
 _**exactly**_ match the nesting of your routes.)
 
 * **App**
-  * NotebooksIndex
-    * Search
-    * NotebookIndexItem
-    * NotebookForm
-  * **NotesIndex**
-    * NoteForm
-    * NoteIndexItem
-    * **NoteDetail**
-      * NoteTags
-      * NoteEditArea
-
+  * MenuBar
+    * MenuIndex
+    * MenuIndexItem
+    * NewBoardForm   
+  * **Board**
+    * PinIndex
+      * PinIndexItem
+  * **User**
+    * **Boards**
+      * BoardIndex
+        * BoardIndexItem
+    * **Pins**
+      * PinIndex
+        * PinIndexItem
+  * **PinDetail**
 
 ## Routes
 
 * **component:** `App` **path:** `/`
-  * **component:** `NotesIndex` **path:** index
-  * **component:** `NotesIndex` **path:** `notebooks/:notebookId`
-    * **component:** `NoteDetail` **path:** `notes/:noteId`
-  * **component:** `NotesIndex` **path:** none
-    * **component:** `NoteDetail` **path:** `notes/:noteId`
-
-For Routes that have no `notebookId`, `NotesIndex` will render all
-notes.
+  * **component:** `Board` **path:** `boards/:boardId`
+  * **component:** `User` **path:** `users/:userId`
+    * **component:** `BoardIndex` **path:** `users/:userId/boards`
+    * **component:** `PinIndex` **path:** `users/:userId/pins`
+  * **component:** `Pin` **path:** `pins/:pinId`
