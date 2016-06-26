@@ -102,25 +102,22 @@ user interface.
 Phase 3 adds organization to the Pins. Pins belong to a Board,
 which has its own `Index` view.
 
-### Phase 6: Tags (1 days, W2 Th 12pm)
+### Phase 6: Follows (1 days, W2 Th 12pm)
 
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
+**Objective:** Users can follow other users, and home page shows pins of followed users.
 
-- [ ] create `Tag` model and join table
+- [ ] create `Follow` model and join table
 - build out API, Flux loop, and components for:
-  - [ ] fetching tags for notebook
-  - [ ] adding tags to notebook
-  - [ ] creating tags while adding to notebooks
-  - [ ] searching notebooks by tag
+  - [ ] fetching followers for a user
+  - [ ] fetching followed users of a user
+  - [ ] fetching pins of followed users
 - [ ] Style new elements
 
-### Phase 7: Allow Complex Styling in Notes (0.5 days, W2 Th 6pm)
+### Phase 7: Allow Complex Styling in Pins (0.5 days, W2 Th 6pm)
 
-**objective:** Enable complex styling of notes.
+**objective:** Enable complex styling of pins.
 
-- [ ] Integrate `react-quill` (based on Quill.js).
 - [ ] Use Rails helpers to sanitize HTML before rendering.
-- [ ] Style the new Quill elements.
 
 ### Phase 8: Styling Cleanup and Seeding (1 day, W2 F 6pm)
 
@@ -131,11 +128,10 @@ which has its own `Index` view.
 - [ ] Add modals, transitions, and other styling flourishes.
 
 ### Bonus Features (TBD)
-- [ ] Search through notes for blocks of text
-- [ ] Pagination / infinite scroll for Notes Index
-- [ ] Set reminders on notes
-- [ ] Changelogs for Notes
-- [ ] Multiple sessions
+- [ ] Creating new pins (rather than adding current pins to new board)
+- [ ] Private boards
+- [ ] Search pins and/or boards
+- [ ] Pin likes
 
 [phase-one]: docs/phases/phase1.md
 [phase-two]: docs/phases/phase2.md

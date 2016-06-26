@@ -1,4 +1,4 @@
-# View Wireframes
+# Wireframes
 
 ## New User
 ![new-user]

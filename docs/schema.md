@@ -18,8 +18,16 @@ description | string    |
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-pin_id      | integer   | not null, foreign key (references pins), indexed, unique [tag_id]
+pin_id      | integer   | not null, foreign key (references pins), indexed, unique [board_id]
 board_id    | integer   | not null, foreign key (references boards), indexed
+description | text      |
+
+## follows
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+follower_id | integer   | not null, foreign key (references users), indexed, unique [followee_id]
+followee_id | integer   | not null, foreign key (references boards), indexed
 description | text      |
 
 ## users
