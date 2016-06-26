@@ -26,6 +26,10 @@ what you'll need to do.
   0. `GET /api/pins/:id` is called.
   0. `receiveSinglePin` is set as the callback.
 
+* `createPinning`
+  0. invoked from `PinDetail` 'Pin It' button `onClick`
+  0. `POST api/pinnings` is called.
+
 ### Pins API Response Actions
 
 * `receiveAllPins`
