@@ -9,6 +9,7 @@
 ### Users
 
 - `GET /users/new`
+- `GET /user`
 - `POST /users`
 - `PATCH /users`
 

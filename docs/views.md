@@ -18,6 +18,9 @@
 ## Pin Detail View
 ![pin-detail-view]
 
+## New Pin Form
+![new-pin-form]
+
 ## Profile View
 ![profile]
 
@@ -27,4 +30,5 @@
 [menu]: ./wireframes/menu_pop_out.png
 [new-board-form]: ./wireframes/new_board_form.png
 [pin-detail-view]: ./wireframes/pin_detail.png
+[new-pin-form]: ./wireframes/new_pin_form.png
 [profile]: ./wireframes/profile_view.png

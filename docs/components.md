@@ -22,6 +22,7 @@ _**exactly**_ match the nesting of your routes.)
       * PinIndex
         * PinIndexItem
   * **PinDetail**
+    * PinForm
 
 ## Routes
 
