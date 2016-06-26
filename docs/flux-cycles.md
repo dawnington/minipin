@@ -38,8 +38,8 @@ what you'll need to do.
 
 ### Store Listeners
 
-* `PinIndex` component listens to `Note` store.
-* `PinDetail` component listens to `Note` store.
+* `PinIndex` component listens to `Pin` store.
+* `PinDetail` component listens to `Pin` store.
 
 ## Board Cycles
 
@@ -134,5 +134,5 @@ what you'll need to do.
 
 ### Store Listeners
 
-* `UsersIndex` component listens to `Users` store.
-* `UserDetail` component listens to `Users` store.
+* `UsersIndex` component listens to `User` store.
+* `UserDetail` component listens to `User` store.
