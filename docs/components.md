@@ -11,7 +11,7 @@ _**exactly**_ match the nesting of your routes.)
     * MenuIndex
     * MenuIndexItem
     * NewBoardForm   
-  * **Board**
+  * **BoardDetail**
     * PinIndex
       * PinIndexItem
   * **User**
@@ -26,8 +26,8 @@ _**exactly**_ match the nesting of your routes.)
 ## Routes
 
 * **component:** `App` **path:** `/`
-  * **component:** `Board` **path:** `boards/:boardId`
-  * **component:** `User` **path:** `users/:userId`
+  * **component:** `BoardDetail` **path:** `boards/:boardId`
+  * **component:** `UserDetail` **path:** `users/:userId`
     * **component:** `BoardIndex` **path:** `users/:userId/boards`
     * **component:** `PinIndex` **path:** `users/:userId/pins`
-  * **component:** `Pin` **path:** `pins/:pinId`
+  * **component:** `PinDetail` **path:** `pins/:pinId`
