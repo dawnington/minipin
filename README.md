@@ -1,8 +1,8 @@
 # MiniPin
 
-[Heroku link][heroku] **Note:** This should be a link to your production site
+[Heroku link]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: http://www.minipin.herokuapp.com
 
 ## Minimum Viable Product
 
