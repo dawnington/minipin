@@ -116,10 +116,15 @@ what you'll need to do.
 
 ### Users API Request Actions
 
-* `fetchAllUsers`
+* `fetchAllFollowers`
   0. invoked from `UsersIndex` `didMount`/`willReceiveProps`
   0. `GET /api/users` is called.
-  0. `receiveAllPins` is set as the callback.
+  0. `receiveAllUsers` is set as the callback.
+
+* `fetchAllFollowees`
+  0. invoked from `UsersIndex` `didMount`/`willReceiveProps`
+  0. `GET /api/users` is called.
+  0. `receiveAllUsers` is set as the callback.
 
 * `fetchSingleUser`
   0. invoked from `UserDetail` `didMount`/`willReceiveProps`

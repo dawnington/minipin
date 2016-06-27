@@ -14,7 +14,7 @@ _**exactly**_ match the nesting of your routes.)
   * **BoardDetail**
     * PinIndex
       * PinIndexItem
-  * **User**
+  * **UserDetail**
     * **Boards**
       * BoardIndex
         * BoardIndexItem

@@ -9,7 +9,6 @@
 ### Users
 
 - `GET /users/new`
-- `GET /user`
 - `POST /users`
 - `PATCH /users`
 
@@ -21,11 +20,23 @@
 
 ## JSON API
 
+### Users
+
+- `GET /user/:id`
+- `GET /user/:id/followers`
+- `GET /user/:id/followees`
+
 ### Pins
 
 - `GET /api/pins`
   - Pins index/search
 - `GET /api/pins/:id`
+- `POST /api/pins`
+
+### Pinnings
+ - `POST /api/pinnings`
+ - `PATCH /api/pinnings/:id`
+ - `DELETE /api/pinnings/:id`
 
 ### Boards
 
@@ -34,6 +45,5 @@
 - `GET /api/boards/:id`
 - `PATCH /api/boards/:id`
 - `DELETE /api/boards/:id`
-- `GET /api/boards/:id/pins`
-  - index of all notes for a notebook
-  - accepts pagination params (if I get there)
+- `GET /api/boards/:id/pinnings`
+  - index of all pinnings for a board
