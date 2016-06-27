@@ -1,6 +1,6 @@
 # MiniPin
 
-[Heroku link]
+[Heroku link](heroku)
 
 [heroku]: http://www.minipin.herokuapp.com
 
