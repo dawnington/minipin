@@ -1,8 +1,6 @@
 # MiniPin
 
-[Heroku link](heroku)
-
-[heroku]: http://www.minipin.herokuapp.com
+[Heroku link](http://minipin.herokuapp.com/)
 
 ## Minimum Viable Product
 
