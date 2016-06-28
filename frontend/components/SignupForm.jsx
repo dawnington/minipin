@@ -1,5 +1,6 @@
 const React = require('react');
 const hashHistory = require('react-router').hashHistory;
+import { Link } from 'react-router';
 const ErrorStore = require('../stores/ErrorStore');
 const SessionActions = require('../actions/SessionActions');
 const SessionStore = require('../stores/SessionStore');
@@ -49,7 +50,8 @@ const SignupForm = React.createClass({
   render() {
     return (
       <form className="signup-form" onSubmit={this.login}>
-        <h1>Welcome to MiniPin</h1>
+        <img src="http://res.cloudinary.com/dojinyoct/image/upload/v1467150952/MiniPin-logo_drsuop.png" alt="pin-logo" className="pin-logo" />
+        <br />
         <label htmlFor="name">Name: {this.fieldErrors('name')}</label>
         &nbsp;
         <input
@@ -78,6 +80,8 @@ const SignupForm = React.createClass({
         />
         <br />
         <button>Sign Up</button>
+        <br />
+        Already have an account? <Link to="login">Log In</Link>
       </form>
     );
   },

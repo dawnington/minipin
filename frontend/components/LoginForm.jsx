@@ -1,4 +1,5 @@
 const React = require('react');
+const Link = require('react-router').Link;
 const hashHistory = require('react-router').hashHistory;
 const ErrorStore = require('../stores/ErrorStore');
 const SessionActions = require('../actions/SessionActions');
@@ -24,7 +25,7 @@ const LoginForm = React.createClass({
   },
   redirectIfLoggedIn() {
     if (SessionStore.loggedIn()) {
-      hashHistory.push('/');
+      this.context.router.push('/');
     }
   },
   fieldErrors(field) {
@@ -44,7 +45,8 @@ const LoginForm = React.createClass({
   render() {
     return (
       <form className="login-form" onSubmit={this.login}>
-        <h1>Welcome to MiniPin</h1>
+        <img src="http://res.cloudinary.com/dojinyoct/image/upload/v1467150952/MiniPin-logo_drsuop.png" alt="pin-logo" className="pin-logo" />
+        <br />
         {this.fieldErrors('base')}
         <label htmlFor="username">Username:</label>
         &nbsp;
@@ -65,6 +67,8 @@ const LoginForm = React.createClass({
         />
         <br />
         <button>Log In</button>
+        <br />
+        New user? <Link to="signup">Sign Up</Link>
       </form>
     );
   },

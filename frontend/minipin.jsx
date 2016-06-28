@@ -6,6 +6,7 @@ import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 const SessionActions = require('./actions/SessionActions');
 const SessionStore = require('./stores/SessionStore');
 window.SessionActions = SessionActions;
+window.SessionStore = SessionStore;
 // Components
 const App = require('./components/App');
 const LoginForm = require('./components/LoginForm');
@@ -19,12 +20,14 @@ function ensureLoggedIn(nextState, replace) {
 
 const routes = (
   <Route path="/" component={App}>
-    <Route path="login" component={LoginForm} />
-    <Route path="signup" component={SignupForm} />
+    <Route path="/login" component={LoginForm} />
+    <Route path="/signup" component={SignupForm} />
   </Route>
 );
 
 document.addEventListener('DOMContentLoaded', () => {
-  SessionActions.receiveCurrentUser(window.currentUser);
+  if (window.currentUser) {
+    SessionActions.receiveCurrentUser(window.currentUser);
+  }
   ReactDOM.render(<Router history={hashHistory}>{routes}</Router>, document.getElementById('root'));
 });

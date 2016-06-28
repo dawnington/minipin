@@ -14,12 +14,45 @@
  *= require_self
  */
 
- form {
-   margin: 200px auto 0 auto;
-   width: 500px;
-   text-align: center;
- }
 
- input {
-   margin: 10px 0 10px 0;
- }
+html, body, section, article, h1, h2, p, ul, li {
+  margin: 0;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  text-align: inherit;
+  text-decoration: inherit;
+  color: inherit;
+  background: transparent;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+form {
+ margin: 150px auto 0 auto;
+ width: 500px;
+ text-align: center;
+}
+
+.pin-logo {
+ width: 250px;
+}
+
+input {
+ margin: 10px 0 10px 0;
+}
+
+button {
+  margin-top: 10px;
+  margin-bottom: 10px; 
+  border: none;
+  width: 100px;
+  height: 30px;
+  background-color: #f2d737;
+}
