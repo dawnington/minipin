@@ -1,5 +1,6 @@
 const React = require('react');
 const hashHistory = require('react-router').hashHistory;
+const ErrorStore = require('../stores/ErrorStore');
 const SessionActions = require('../actions/SessionActions');
 const SessionStore = require('../stores/SessionStore');
 
@@ -8,8 +9,12 @@ const SignupForm = React.createClass({
     return { username: '', password: '', name: '' };
   },
   componentDidMount() {
-    SessionStore.addListener(this.checkForUser);
-    this.checkForUser();
+    this.errorListener = ErrorStore.addListener(this.forceUpdate.bind(this));
+    this.sessionListener = SessionStore.addListener(this.redirectIfLoggedIn);
+  },
+  componentWillUnmount() {
+    this.errorListener.remove();
+    this.sessionListener.remove();
   },
   onNameChange(e) {
     this.setState({ name: e.target.value });
@@ -20,10 +25,20 @@ const SignupForm = React.createClass({
   onPasswordChange(e) {
     this.setState({ password: e.target.value });
   },
-  checkForUser() {
+  redirectIfLoggedIn() {
     if (SessionStore.isUserLoggedIn()) {
       hashHistory.push('/');
     }
+  },
+  fieldErrors(field) {
+    const errors = ErrorStore.formErrors('signup');
+    if (!errors[field]) { return; }
+
+    const messages = errors[field].map((errorMsg, i) =>
+      <li key={i}>{errorMsg}</li>
+    );
+
+    return <ul>{messages}</ul>;
   },
   login(e) {
     e.preventDefault();
@@ -35,7 +50,7 @@ const SignupForm = React.createClass({
     return (
       <form className="bench-form" onSubmit={this.login}>
         <h2>Sign Up</h2>
-        <label htmlFor="name">Name:</label>
+        <label htmlFor="name">Name: {this.fieldErrors('name')}</label>
         &nbsp;
         <input
           type="text"
@@ -44,7 +59,7 @@ const SignupForm = React.createClass({
           onChange={this.onNameChange}
         />
         <br />
-        <label htmlFor="username">Username:</label>
+        <label htmlFor="username">Username: {this.fieldErrors('username')}</label>
         &nbsp;
         <input
           type="text"
@@ -53,7 +68,7 @@ const SignupForm = React.createClass({
           onChange={this.onUsernameChange}
         />
         <br />
-        <label htmlFor="password">Password:</label>
+        <label htmlFor="password">Password: {this.fieldErrors('password')}</label>
         &nbsp;
         <input
           type="password"

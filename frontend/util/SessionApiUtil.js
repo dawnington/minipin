@@ -7,7 +7,9 @@ module.exports = {
       url: 'api/users',
       data: { user },
       success: successCb,
-      error: errorCb,
+      error(xhr) {
+        errorCb('signup', xhr.responseJSON);
+      },
     });
   },
   login(user, successCb, errorCb) {
@@ -16,7 +18,9 @@ module.exports = {
       url: 'api/session',
       data: { user },
       success: successCb,
-      error: errorCb,
+      error(xhr) {
+        errorCb('login', xhr.responseJSON);
+      },
     });
   },
   logout(successCb, errorCb) {

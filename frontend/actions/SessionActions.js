@@ -1,4 +1,5 @@
 const Dispatcher = require('../dispatcher/Dispatcher');
+const ErrorActions = require('./ErrorActions');
 const SessionApiUtil = require('../util/SessionApiUtil');
 const SessionConstants = require('../constants/SessionConstants');
 
@@ -15,13 +16,15 @@ module.exports = {
     });
   },
   signup(user) {
-    SessionApiUtil.signup(user, this.receiveCurrentUser);
+    SessionApiUtil.signup(user, this.receiveCurrentUser, ErrorActions.setErrors);
   },
   login(user, callback) {
-    SessionApiUtil.login(user, this.receiveCurrentUser);
-    callback();
+    SessionApiUtil.login(user, this.receiveCurrentUser, ErrorActions.setErrors);
   },
   logout() {
-    SessionApiUtil.logout(this.dispatchLogout);
+    SessionApiUtil.logout(this.dispatchLogout, this.logErrors);
+  },
+  logErrors(resp) {
+    console.log(resp);
   },
 };

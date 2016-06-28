@@ -1,5 +1,6 @@
 const React = require('react');
 const hashHistory = require('react-router').hashHistory;
+const ErrorStore = require('../stores/ErrorStore');
 const SessionActions = require('../actions/SessionActions');
 const SessionStore = require('../stores/SessionStore');
 
@@ -8,8 +9,12 @@ const LoginForm = React.createClass({
     return { username: '', password: '' };
   },
   componentDidMount() {
-    SessionStore.addListener(this.checkForUser);
-    this.checkForUser();
+    this.errorListener = ErrorStore.addListener(this.forceUpdate.bind(this));
+    this.sessionListener = SessionStore.addListener(this.redirectIfLoggedIn);
+  },
+  componentWillUnmount() {
+    this.errorListener.remove();
+    this.sessionListener.remove();
   },
   onUsernameChange(e) {
     this.setState({ username: e.target.value });
@@ -17,21 +22,30 @@ const LoginForm = React.createClass({
   onPasswordChange(e) {
     this.setState({ password: e.target.value });
   },
-  checkForUser() {
+  redirectIfLoggedIn() {
     if (SessionStore.isUserLoggedIn()) {
       hashHistory.push('/');
     }
   },
+  fieldErrors(field) {
+    const errors = ErrorStore.formErrors('login');
+    if (!errors[field]) { return; }
+
+    const messages = errors[field].map((errorMsg, i) =>
+      <li key={i}>{errorMsg}</li>
+    );
+
+    return <ul>{messages}</ul>;
+  },
   login(e) {
     e.preventDefault();
-    SessionActions.login(this.state, () => {
-      hashHistory.push('/');
-    });
+    SessionActions.login(this.state);
   },
   render() {
     return (
       <form className="login-form" onSubmit={this.login}>
         <h2>Log In</h2>
+        {this.fieldErrors('base')}
         <label htmlFor="username">Username:</label>
         &nbsp;
         <input
