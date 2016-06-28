@@ -5,18 +5,27 @@ const SessionActions = require('../actions/SessionActions');
 const SessionStore = require('../stores/SessionStore');
 
 const App = React.createClass({
-  componentDidMount() {
-    SessionStore.addListener(this.forceUpdate.bind(this));
+  getInitialState() {
+    return { user: SessionStore.currentUser() }
   },
-  _handleLogOut() {
+  componentDidMount() {
+    this.sessionListener = SessionStore.addListener(this.onChange);
+  },
+  componentWillUnmount() {
+    this.sessionListener.remove();
+  },
+  onChange() {
+    this.setState({ user: SessionStore.currentUser() });
+  },
+  handleLogOut() {
     SessionActions.logout();
   },
   greeting() {
     if (SessionStore.loggedIn()) {
     	return (
     		<hgroup className="header-group">
-    			<h2 className="header-name">Hi, {SessionStore.currentUser().name}!</h2>
-    			<input className="header-button" type="submit" value="logout" onClick={ this._handleLogOut } />
+    			<h2 className="header-name">Hi, {this.state.user.name}!</h2>
+          <button onClick={this.handleLogOut}>Log Out</button>
     		</hgroup>
     	);
     } else if ( !["/login", "/signup"].includes(this.props.location.pathname) ) {

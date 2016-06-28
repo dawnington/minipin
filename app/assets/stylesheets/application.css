@@ -50,9 +50,10 @@ input {
 
 button {
   margin-top: 10px;
-  margin-bottom: 10px; 
+  margin-bottom: 10px;
   border: none;
   width: 100px;
   height: 30px;
   background-color: #f2d737;
+  cursor: pointer;
 }

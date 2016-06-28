@@ -1,6 +1,7 @@
 const Dispatcher = require('../dispatcher/Dispatcher');
 const Store = require('flux/utils').Store;
 const SessionConstants = require('../constants/SessionConstants');
+const hashHistory = require('react-router').hashHistory;
 
 let _currentUser = {};
 let _loggedIn = false;

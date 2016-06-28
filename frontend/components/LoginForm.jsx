@@ -25,7 +25,7 @@ const LoginForm = React.createClass({
   },
   redirectIfLoggedIn() {
     if (SessionStore.loggedIn()) {
-      this.context.router.push('/');
+      hashHistory.push('/');
     }
   },
   fieldErrors(field) {
