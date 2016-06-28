@@ -18,7 +18,7 @@ module.exports = {
   signup(user) {
     SessionApiUtil.signup(user, this.receiveCurrentUser, ErrorActions.setErrors);
   },
-  login(user, callback) {
+  login(user) {
     SessionApiUtil.login(user, this.receiveCurrentUser, ErrorActions.setErrors);
   },
   logout() {

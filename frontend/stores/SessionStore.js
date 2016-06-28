@@ -3,6 +3,7 @@ const Store = require('flux/utils').Store;
 const SessionConstants = require('../constants/SessionConstants');
 
 let _currentUser = {};
+let _loggedIn = false;
 
 const SessionStore = new Store(Dispatcher);
 
@@ -21,11 +22,13 @@ SessionStore.__onDispatch = function (payload) {
 
 SessionStore.login = function (user) {
   _currentUser = user;
+  _loggedIn = true;
   this.__emitChange();
 };
 
 SessionStore.logout = function () {
   _currentUser = {};
+  _loggedIn = false;
   this.__emitChange();
 };
 
@@ -34,8 +37,8 @@ SessionStore.currentUser = function () {
   return Object.assign(copy, _currentUser);
 };
 
-SessionStore.isUserLoggedIn = function () {
-  return _currentUser.hasOwnProperty('id');
+SessionStore.loggedIn = function () {
+  return _loggedIn;
 };
 
 module.exports = SessionStore;

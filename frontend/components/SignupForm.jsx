@@ -26,7 +26,7 @@ const SignupForm = React.createClass({
     this.setState({ password: e.target.value });
   },
   redirectIfLoggedIn() {
-    if (SessionStore.isUserLoggedIn()) {
+    if (SessionStore.loggedIn()) {
       hashHistory.push('/');
     }
   },
@@ -38,7 +38,7 @@ const SignupForm = React.createClass({
       <li key={i}>{errorMsg}</li>
     );
 
-    return <ul>{messages}</ul>;
+    return <ul className="form-errors">{messages}</ul>;
   },
   login(e) {
     e.preventDefault();
@@ -48,8 +48,8 @@ const SignupForm = React.createClass({
   },
   render() {
     return (
-      <form className="bench-form" onSubmit={this.login}>
-        <h2>Sign Up</h2>
+      <form className="signup-form" onSubmit={this.login}>
+        <h1>Welcome to MiniPin</h1>
         <label htmlFor="name">Name: {this.fieldErrors('name')}</label>
         &nbsp;
         <input

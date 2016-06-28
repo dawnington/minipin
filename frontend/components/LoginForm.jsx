@@ -23,7 +23,7 @@ const LoginForm = React.createClass({
     this.setState({ password: e.target.value });
   },
   redirectIfLoggedIn() {
-    if (SessionStore.isUserLoggedIn()) {
+    if (SessionStore.loggedIn()) {
       hashHistory.push('/');
     }
   },
@@ -35,7 +35,7 @@ const LoginForm = React.createClass({
       <li key={i}>{errorMsg}</li>
     );
 
-    return <ul>{messages}</ul>;
+    return <ul className="form-errors">{messages}</ul>;
   },
   login(e) {
     e.preventDefault();
@@ -44,7 +44,7 @@ const LoginForm = React.createClass({
   render() {
     return (
       <form className="login-form" onSubmit={this.login}>
-        <h2>Log In</h2>
+        <h1>Welcome to MiniPin</h1>
         {this.fieldErrors('base')}
         <label htmlFor="username">Username:</label>
         &nbsp;
