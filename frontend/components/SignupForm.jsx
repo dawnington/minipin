@@ -81,7 +81,7 @@ const SignupForm = React.createClass({
         <br />
         <button>Sign Up</button>
         <br />
-        Already have an account? <Link to="login">Log In</Link>
+        Already have an account? <Link to="/login">Log In</Link>
       </form>
     );
   },

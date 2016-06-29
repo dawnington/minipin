@@ -68,7 +68,7 @@ const LoginForm = React.createClass({
         <br />
         <button>Log In</button>
         <br />
-        New user? <Link to="signup">Sign Up</Link>
+        New user? <Link to="/signup">Sign Up</Link>
       </form>
     );
   },

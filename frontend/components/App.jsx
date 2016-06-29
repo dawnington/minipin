@@ -13,6 +13,7 @@ const App = React.createClass({
   },
   componentDidMount() {
     this.sessionListener = SessionStore.addListener(this.onChange);
+    this.otherSessionListener = SessionStore.addListener(this.redirectIfNotLoggedIn);
   },
   componentWillUnmount() {
     this.sessionListener.remove();
