@@ -14,14 +14,12 @@ module.exports = {
     PinApiUtil.createPin(pin, this.receiveSinglePin, ErrorActions.setErrors);
   },
   receiveAllPins(pins) {
-    console.log(pins);
     Dispatcher.dispatch({
       actionType: PinConstants.PINS_RECEIVED,
       pins,
     });
   },
   receiveSinglePin(pin) {
-    console.log(pin);
     Dispatcher.dispatch({
       actionType: PinConstants.PIN_RECEIVED,
       pin,

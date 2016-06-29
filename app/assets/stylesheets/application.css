@@ -72,6 +72,8 @@ button {
   height: 100%;
   float: left;
   position: fixed;
+  display: flex;
+  flex-direction: column-reverse;
 }
 
 .shown {
@@ -99,4 +101,11 @@ button {
 img {
   width: inherit;
   margin: 5px;
+}
+
+.nav-logout {
+  margin: 0px;
+  width: 50px;
+  align-self: flex-end;
+  /*border: 1px solid grey;*/
 }

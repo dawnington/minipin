@@ -1,7 +1,5 @@
 /* eslint-env jquery */
 
-// TODO: add error callbacks
-
 module.exports = {
   fetchAllPins(successCb) {
     $.ajax({

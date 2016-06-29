@@ -12,13 +12,8 @@ const App = require('./components/App');
 const LoginForm = require('./components/LoginForm');
 const SignupForm = require('./components/SignupForm');
 // Testing
-const PinApiUtil = require('./util/PinApiUtil');
-const PinActions = require('./actions/PinActions');
-const PinStore = require('./stores/PinStore');
-
-window.PinApiUtil = PinApiUtil;
-window.PinActions = PinActions;
-window.PinStore = PinStore;
+const BoardApiUtil = require('./util/BoardApiUtil');
+window.BoardApiUtil = BoardApiUtil;
 
 function ensureLoggedIn(nextState, replace) {
   if (!SessionStore.loggedIn()) {
