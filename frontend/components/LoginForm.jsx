@@ -42,33 +42,36 @@ const LoginForm = React.createClass({
     e.preventDefault();
     SessionActions.login(this.state);
   },
+  guestLogin() {
+    SessionActions.guestLogin();
+  },
   render() {
     return (
       <form className="login-form" onSubmit={this.login}>
         <img src="http://res.cloudinary.com/dojinyoct/image/upload/v1467150952/MiniPin-logo_drsuop.png" alt="pin-logo" className="pin-logo" />
         <br />
         {this.fieldErrors('base')}
-        <label htmlFor="username">Username:</label>
-        &nbsp;
         <input
           type="text"
           value={this.state.username}
           id="username"
           onChange={this.onUsernameChange}
+          placeholder="Username"
         />
         <br />
-        <label htmlFor="password">Password:</label>
-        &nbsp;
         <input
           type="password"
           value={this.state.password}
           id="password"
           onChange={this.onPasswordChange}
+          placeholder="Password"
         />
         <br />
         <button>Log In</button>
         <br />
-        New user? <Link to="/signup">Sign Up</Link>
+        <div id="demo-link-container">
+          New user? <Link to="/signup">Sign Up</Link> or explore with a <a href="#" onClick={this.guestLogin}>Demo Account</a>
+        </div>
       </form>
     );
   },

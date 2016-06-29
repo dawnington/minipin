@@ -24,6 +24,10 @@ module.exports = {
   logout() {
     SessionApiUtil.logout(this.dispatchLogout, this.logErrors);
   },
+  guestLogin() {
+    const user = { username: 'joe', password: 'joejoe' };
+    SessionApiUtil.login(user, this.receiveCurrentUser, ErrorActions.setErrors);
+  },
   logErrors(resp) {
     console.log(resp);
   },

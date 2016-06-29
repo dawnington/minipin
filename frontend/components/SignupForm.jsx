@@ -36,7 +36,7 @@ const SignupForm = React.createClass({
     if (!errors[field]) { return; }
 
     const messages = errors[field].map((errorMsg, i) =>
-      <li key={i}>{errorMsg}</li>
+      <li key={i}>{field} {errorMsg}</li>
     );
 
     return <ul className="form-errors">{messages}</ul>;
@@ -47,41 +47,46 @@ const SignupForm = React.createClass({
       hashHistory.push('/');
     });
   },
+  guestLogin() {
+    SessionActions.guestLogin();
+  },
   render() {
     return (
       <form className="signup-form" onSubmit={this.login}>
         <img src="http://res.cloudinary.com/dojinyoct/image/upload/v1467150952/MiniPin-logo_drsuop.png" alt="pin-logo" className="pin-logo" />
         <br />
-        <label htmlFor="name">Name: {this.fieldErrors('name')}</label>
-        &nbsp;
+        {this.fieldErrors('name')}
         <input
           type="text"
           value={this.state.name}
-          id="username"
+          id="name"
           onChange={this.onNameChange}
+          placeholder="Name"
         />
         <br />
-        <label htmlFor="username">Username: {this.fieldErrors('username')}</label>
-        &nbsp;
+        {this.fieldErrors('username')}
         <input
           type="text"
           value={this.state.username}
           id="username"
           onChange={this.onUsernameChange}
+          placeholder="Username"
         />
         <br />
-        <label htmlFor="password">Password: {this.fieldErrors('password')}</label>
-        &nbsp;
+        {this.fieldErrors('password')}
         <input
           type="password"
           value={this.state.password}
           id="password"
           onChange={this.onPasswordChange}
+          placeholder="Create a Password"
         />
         <br />
         <button>Sign Up</button>
         <br />
-        Already have an account? <Link to="/login">Log In</Link>
+        <div id="demo-link-container">
+          Already have an account? <Link to="/login">Log In</Link> or explore with a <a href="#" onClick={this.guestLogin}>Demo Account</a>
+        </div>
       </form>
     );
   },
