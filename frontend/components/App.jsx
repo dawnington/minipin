@@ -8,6 +8,9 @@ const App = React.createClass({
   getInitialState() {
     return { user: SessionStore.currentUser() }
   },
+  componentWillMount() {
+    this.redirectIfNotLoggedIn();
+  },
   componentDidMount() {
     this.sessionListener = SessionStore.addListener(this.onChange);
   },
@@ -19,6 +22,11 @@ const App = React.createClass({
   },
   handleLogOut() {
     SessionActions.logout();
+  },
+  redirectIfNotLoggedIn() {
+    if (!SessionStore.loggedIn()) {
+      hashHistory.push('/signup');
+    }
   },
   greeting() {
     if (SessionStore.loggedIn()) {
