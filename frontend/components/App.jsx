@@ -3,13 +3,12 @@ const hashHistory = require('react-router').hashHistory;
 const Link = require('react-router').Link;
 const SessionActions = require('../actions/SessionActions');
 const SessionStore = require('../stores/SessionStore');
+const PinIndex = require('./PinIndex');
+const NavBar = require('./NavBar');
 
 const App = React.createClass({
   getInitialState() {
     return { user: SessionStore.currentUser() }
-  },
-  componentWillMount() {
-    this.redirectIfNotLoggedIn();
   },
   componentDidMount() {
     this.sessionListener = SessionStore.addListener(this.onChange);
@@ -26,14 +25,14 @@ const App = React.createClass({
   },
   redirectIfNotLoggedIn() {
     if (!SessionStore.loggedIn()) {
-      hashHistory.push('/signup');
+      hashHistory.push('login');
     }
   },
   greeting() {
     if (SessionStore.loggedIn()) {
     	return (
     		<hgroup className="header-group">
-    			<h2 className="header-name">Hi, {this.state.user.name}!</h2>
+    		  <h2 className="header-name">Hi, {this.state.user.name}!</h2>
           <button onClick={this.handleLogOut}>Log Out</button>
     		</hgroup>
     	);
@@ -42,7 +41,8 @@ const App = React.createClass({
   render() {
     return (
       <div>
-        <header>{this.greeting()}</header>
+        <NavBar user={this.state.user} />
+        <PinIndex />
         {this.props.children}
       </div>
     );

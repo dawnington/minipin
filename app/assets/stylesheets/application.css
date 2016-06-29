@@ -65,3 +65,38 @@ button {
   width: 250px;
   margin: 0 auto 0 auto;
 }
+
+#nav-bar {
+  background-color: #f2d737;
+  width: 55px;
+  height: 100%;
+  float: left;
+  position: fixed;
+}
+
+.shown {
+  display: block;
+  width: 268px;
+}
+
+.hidden {
+  width: 55px;
+}
+
+.pin-index {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  margin-left: 55px;
+  justify-content: space-between;
+  /*flex-direction: column;*/
+}
+
+.pin-index-item {
+  width: 250px;
+}
+
+img {
+  width: inherit;
+  margin: 5px;
+}

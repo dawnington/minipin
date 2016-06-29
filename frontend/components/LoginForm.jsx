@@ -9,9 +9,6 @@ const LoginForm = React.createClass({
   getInitialState() {
     return { username: '', password: '' };
   },
-  componentWillMount() {
-    this.redirectIfLoggedIn();
-  },
   componentDidMount() {
     this.errorListener = ErrorStore.addListener(this.forceUpdate.bind(this));
     this.sessionListener = SessionStore.addListener(this.redirectIfLoggedIn);

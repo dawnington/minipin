@@ -11,23 +11,32 @@ window.SessionStore = SessionStore;
 const App = require('./components/App');
 const LoginForm = require('./components/LoginForm');
 const SignupForm = require('./components/SignupForm');
+// Testing
+const PinApiUtil = require('./util/PinApiUtil');
+const PinActions = require('./actions/PinActions');
+const PinStore = require('./stores/PinStore');
+
+window.PinApiUtil = PinApiUtil;
+window.PinActions = PinActions;
+window.PinStore = PinStore;
 
 function ensureLoggedIn(nextState, replace) {
   if (!SessionStore.loggedIn()) {
-    replace('/login');
+    replace('login');
   }
 }
 
 const routes = (
-  <Route path="/" component={App}>
-    <Route path="/login" component={LoginForm} />
-    <Route path="/signup" component={SignupForm} />
-  </Route>
+  <Router history={hashHistory}>
+    <Route path="/" component={App} onEnter={ensureLoggedIn} />
+    <Route path="login" component={LoginForm} />
+    <Route path="signup" component={SignupForm} />
+  </Router>
 );
 
 document.addEventListener('DOMContentLoaded', () => {
   if (window.currentUser) {
     SessionActions.receiveCurrentUser(window.currentUser);
   }
-  ReactDOM.render(<Router history={hashHistory}>{routes}</Router>, document.getElementById('root'));
+  ReactDOM.render(routes, document.getElementById('root'));
 });

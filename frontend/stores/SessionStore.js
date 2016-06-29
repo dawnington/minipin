@@ -8,30 +8,31 @@ let _loggedIn = false;
 
 const SessionStore = new Store(Dispatcher);
 
+function login(user) {
+  _currentUser = user;
+  _loggedIn = true;
+  SessionStore.__emitChange();
+}
+
+function logout() {
+  _currentUser = {};
+  _loggedIn = false;
+  SessionStore.__emitChange();
+}
+
 SessionStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case SessionConstants.LOGIN:
-      this.login(payload.user);
+      login(payload.user);
       break;
     case SessionConstants.LOGOUT:
-      this.logout();
+      logout();
       break;
     default:
       break;
   }
 };
 
-SessionStore.login = function (user) {
-  _currentUser = user;
-  _loggedIn = true;
-  this.__emitChange();
-};
-
-SessionStore.logout = function () {
-  _currentUser = {};
-  _loggedIn = false;
-  this.__emitChange();
-};
 
 SessionStore.currentUser = function () {
   const copy = {};
