@@ -37,14 +37,6 @@ const App = React.createClass({
           <button onClick={this.handleLogOut}>Log Out</button>
     		</hgroup>
     	);
-    } else if ( !["/login", "/signup"].includes(this.props.location.pathname) ) {
-      return (
-        <nav className="login-signup">
-          <Link to="/login" activeClassName="current">Login</Link>
-          &nbsp;or&nbsp;
-          <Link to="/signup" activeClassName="current">Sign up!</Link>
-        </nav>
-      );
     }
   },
   render() {

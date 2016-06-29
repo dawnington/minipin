@@ -9,6 +9,9 @@ const SignupForm = React.createClass({
   getInitialState() {
     return { username: '', password: '', name: '' };
   },
+  componentWillMount() {
+    this.redirectIfLoggedIn();
+  },
   componentDidMount() {
     this.errorListener = ErrorStore.addListener(this.forceUpdate.bind(this));
     this.sessionListener = SessionStore.addListener(this.redirectIfLoggedIn);
@@ -53,7 +56,7 @@ const SignupForm = React.createClass({
   render() {
     return (
       <form className="signup-form" onSubmit={this.login}>
-        <img src="http://res.cloudinary.com/dojinyoct/image/upload/v1467150952/MiniPin-logo_drsuop.png" alt="pin-logo" className="pin-logo" />
+        <img src="http://res.cloudinary.com/dojinyoct/image/upload/v1467162069/MiniPin-logo_1_pjf9zc.png" alt="pin-logo" className="pin-logo" />
         <br />
         {this.fieldErrors('name')}
         <input
