@@ -21,7 +21,6 @@ const Board = React.createClass({
     this.setState({ board });
   },
   render() {
-    console.log(this.state.board);
     return (
       <div className="board">
         <hgroup>

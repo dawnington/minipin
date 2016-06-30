@@ -66,11 +66,6 @@ button {
   margin: 0 auto 0 auto;
 }
 
-.main {
-  display: flex;
-  justify-content: space-between;
-}
-
 #nav-bar {
   background-color: #f2d737;
   width: 268px;
@@ -81,8 +76,9 @@ button {
   justify-content: space-between;
 }
 
-#nav-bar > a {
+#nav-bar a {
   text-decoration: none;
+  color: black;
 }
 
 .navigation {
@@ -114,6 +110,7 @@ button {
 }
 
 .board {
+  float: right;
 }
 
 .pin-index {
@@ -122,16 +119,40 @@ button {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  margin-left: 55px;
   justify-content: space-between;
   /*flex-direction: column;*/
 }
 
 .pin-index-item {
   width: 250px;
+  position: relative;
 }
 
-img {
+.pin-image {
   width: inherit;
-  margin: 5px;
+}
+
+.comment-overlay {
+  display: none;
+  position: absolute;
+  width: 250px;
+  height: 100%;
+  top: 0px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.pin-index-item:hover .comment-overlay {
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: black;
+  color: white;
+  opacity: 0.6;
+  z-index: 3;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
 }

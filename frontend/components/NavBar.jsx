@@ -16,7 +16,7 @@ const NavBar = React.createClass({
           <div className="nav-item">
             <Link to="/">Feed</Link>
           </div>
-          <h4 className="nav-header">Boards</h4>
+          <h4 className="nav-header">My Boards</h4>
           {
             user.boards.map(board => {
               const boardLink = `/boards/${board.id}`;
