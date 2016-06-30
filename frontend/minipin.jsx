@@ -28,7 +28,8 @@ function ensureLoggedOut(nextState, replace) {
 const routes = (
   <Router history={hashHistory}>
     <Route path="/" component={App} onEnter={ensureLoggedIn}>
-      <Route path="/boards/:boardId" component={Board} />
+      <Route path="boards" component={Board} />
+      <Route path="boards/:boardId" component={Board} />
     </Route>
     <Route path="login" component={LoginForm} onEnter={ensureLoggedOut} />
     <Route path="signup" component={SignupForm} onEnter={ensureLoggedOut} />

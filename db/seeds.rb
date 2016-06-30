@@ -20,3 +20,25 @@ User.create(username: 'joe2', name: 'Joe White', password: 'joejoe')
 User.create(username: 'joe3', name: 'Joe Pink', password: 'joejoe')
 
 IMAGE_URLS.each { |pic| Pin.create(image_url: pic) }
+
+Board.create(user_id: 1, name: 'Inspiration', description: 'Ideas for the house')
+Board.create(user_id: 1, name: 'Travel Ideas', description: 'Our bucket list')
+Board.create(user_id: 2, name: 'Style Wish List', description: 'I want to be like Grace Kelly')
+Board.create(user_id: 3, name: 'Product Design', description: 'Sleek stuff')
+
+Pinning.create(pin_id: 1, board_id: 1, description: 'nice look 1')
+Pinning.create(pin_id: 2, board_id: 1, description: 'nice look 1')
+Pinning.create(pin_id: 3, board_id: 1, description: 'nice look 1')
+Pinning.create(pin_id: 4, board_id: 1, description: 'nice look 1')
+
+Pinning.create(pin_id: 1, board_id: 2, description: 'nice look 2')
+Pinning.create(pin_id: 2, board_id: 2, description: 'nice look 2')
+Pinning.create(pin_id: 3, board_id: 2, description: 'nice look 2')
+Pinning.create(pin_id: 4, board_id: 2, description: 'nice look 2')
+
+Pinning.create(pin_id: 1, board_id: 3, description: 'nice look 3')
+Pinning.create(pin_id: 2, board_id: 3, description: 'nice look 3')
+Pinning.create(pin_id: 3, board_id: 3, description: 'nice look 3')
+Pinning.create(pin_id: 4, board_id: 3, description: 'nice look 3')
+
+Pinning.create(pin_id: 2, board_id: 4, description: 'nice look 4')
