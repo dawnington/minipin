@@ -14,13 +14,9 @@
  *= require_self
  */
 
-.board {
-  float: right;
-}
-
 .pin-index {
   width: inherit;
-  float: right;
+  /*float: right;*/
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;

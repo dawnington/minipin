@@ -12,7 +12,8 @@ const NavBar = React.createClass({
     const user = this.props.user;
     return (
       <div id="nav-bar">
-        <div className="navigation">
+        <i className="fa fa-bars"></i>
+        <div className="nav-content">
           <div className="nav-item">
             <Link to="/">Feed</Link>
           </div>

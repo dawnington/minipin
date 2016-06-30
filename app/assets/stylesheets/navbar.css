@@ -1,45 +1,10 @@
-/*#nav-bar {
-  background-color: #f2d737;
-  width: 268px;
-  height: 100%;
-  position: fixed;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-*/
+div.main {
+  margin-left: 55px;
+  transition: all 0.4s;
+  height: 100vh;
 
-#nav-bar a {
-  text-decoration: none;
-  color: black;
-}
-
-.navigation {
-  width: inherit;
-  margin-top: 30px;
-}
-
-.nav-profile {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
-.nav-item {
-  margin: 0px;
-  padding: 10px 0px 10px 30px;
-  width: 238px;
-  text-align: left;
-  height: 30px;
-}
-
-.nav-item:hover {
-  background-color: #e7c80f;
-}
-
-.nav-header {
-  margin-left: 30px;
-  font-weight: bold;
+  overflow-x: auto;
+  overflow-y: auto;
 }
 
 #nav-bar {
@@ -56,6 +21,47 @@
   overflow-y: auto;
 }
 
+.fa.fa-bars {
+  color: black;
+  font-size: 22px;
+  position: absolute;
+  right: 17px;
+  top: 40px;
+}
+
+#nav-bar a {
+  text-decoration: none;
+  color: black;
+}
+
+.nav-content {
+  width: inherit;
+  margin-top: 60px;
+}
+
+.nav-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.nav-item {
+  padding: 10px 0px 10px 30px;
+  width: 238px;
+  text-align: left;
+  height: 30px;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  background-color: #e7c80f;
+}
+
+.nav-header {
+  margin-left: 30px;
+  font-weight: bold;
+}
+
 #nav-bar:hover + .main {
   margin-left: 268px;
   transition: all 0.4s;
@@ -64,6 +70,11 @@
 #nav-bar:hover {
   left: 0;
 }
-#nav-bar:hover + .navigation {
+
+#nav-bar:hover .fa.fa-bars {
+  display: none;
+}
+
+#nav-bar:hover .navigation {
   display: block;
 }
