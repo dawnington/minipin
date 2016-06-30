@@ -9,6 +9,7 @@
 .pin-index-item {
   width: 250px;
   position: relative;
+  cursor: pointer;
 }
 
 .pin-index-sub {

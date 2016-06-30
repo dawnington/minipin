@@ -10,7 +10,7 @@ const Board = React.createClass({
   getInitialState() {
     this.boardId = parseInt(this.props.params.boardId);
     const board = BoardStore.find(this.boardId) || { name: '', owner: { name: '' }, pins: [] };
-    return { board, owned: false, modalShown: false };
+    return { board, modalShown: false };
   },
   componentDidMount() {
     this.boardListener = BoardStore.addListener(this.onChange);
@@ -27,10 +27,9 @@ const Board = React.createClass({
   },
   checkForOwner() {
     if (SessionStore.currentUser().id === this.state.board.owner.id) {
-      this.setState({ owned: true });
-    } else {
-      this.setState({ owned: false });
+      return true;
     }
+    return false;
   },
   showBoardForm() {
     this.setState({ modalShown: true });
@@ -44,14 +43,14 @@ const Board = React.createClass({
   },
   render() {
     const board = this.state.board;
-    const owner = (this.state.owned ? <i className="fa fa-cog" onClick={this.showBoardForm}></i> : <h3 className="board-owner">by {board.owner.name}</h3>);
+    const owner = (this.checkForOwner() ? <i className="fa fa-cog" onClick={this.showBoardForm}></i> : <h3 className="board-owner">by {board.owner.name}</h3>);
     return (
       <div className="board">
         <hgroup className="board-header">
           <div className="board-heading">
             <div className="board-title">
-              <h1 className="board-name">{board.name}</h1>
-              <h4 className="board-description">{board.description}</h4>
+              <h3 className="board-name">{board.name}</h3>
+              <h5 className="board-description">{board.description}</h5>
             </div>
           </div>
           {owner}

@@ -1,0 +1,20 @@
+.board-form {
+  width: 100%;
+}
+
+.board-input {
+  margin: 10px 10px 10px 0;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid lightgrey;
+}
+
+.board-form-button {
+  border: none;
+  width: 150px;
+  height: 30px;
+  background-color: #f2d737;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+}

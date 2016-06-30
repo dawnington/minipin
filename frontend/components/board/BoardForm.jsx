@@ -45,6 +45,7 @@ const BoardForm = React.createClass({
   },
   render() {
     const header = (this.status === 'editing' ? 'Edit Board' : 'Create a New Board');
+    const buttonText = (this.status === 'editing' ? 'Update Board' : 'Create Board')
     return (
       <div className="board-form">
         <h2>{header}</h2>
@@ -56,6 +57,7 @@ const BoardForm = React.createClass({
             value={this.state.name}
             placeholder="Name"
             onChange={this.onNameChange}
+            className="board-input"
           />
           <textarea
             id="description"
@@ -64,8 +66,9 @@ const BoardForm = React.createClass({
             value={this.state.description}
             placeholder="Description"
             onChange={this.onDescriptionChange}
+            className="board-input"
           ></textarea>
-          <button>Create Board</button>
+        <button className="board-form-button">{buttonText}</button>
         </form>
       </div>
     );
