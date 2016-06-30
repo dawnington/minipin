@@ -13,6 +13,9 @@ module.exports = {
   createBoard(board) {
     BoardApiUtil.createBoard(board, this.receiveSingleBoard, ErrorActions.setErrors);
   },
+  updateBoard(id, board) {
+    BoardApiUtil.updateBoard(id, board, this.receiveSingleBoard, ErrorActions.setErrors);
+  },
   deleteBoard(id) {
     BoardApiUtil.deleteBoard(id, this.boardRemoved);
   },

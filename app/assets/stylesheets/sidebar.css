@@ -34,9 +34,10 @@ div.main {
   color: black;
 }
 
-.nav-content {
+.sidebar-content {
   width: inherit;
   margin-top: 60px;
+  display: none;
 }
 
 .nav-profile {
@@ -75,6 +76,6 @@ div.main {
   display: none;
 }
 
-#nav-bar:hover .navigation {
+#nav-bar:hover .sidebar-content {
   display: block;
 }

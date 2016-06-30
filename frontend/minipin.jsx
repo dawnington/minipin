@@ -11,7 +11,7 @@ window.SessionStore = SessionStore;
 const App = require('./components/App');
 const LoginForm = require('./components/LoginForm');
 const SignupForm = require('./components/SignupForm');
-const Board = require('./components/Board');
+const Board = require('./components/board/Board');
 
 function ensureLoggedIn(nextState, replace) {
   if (!SessionStore.loggedIn()) {

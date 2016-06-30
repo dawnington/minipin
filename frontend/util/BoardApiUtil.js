@@ -26,6 +26,17 @@ module.exports = {
       },
     });
   },
+  updateBoard(id, board, successCb, errorCb) {
+    $.ajax({
+      method: 'PATCH',
+      url: `api/boards/${id}`,
+      data: { board },
+      success: successCb,
+      error(xhr) {
+        errorCb('board', xhr.responseJSON);
+      },
+    });
+  },
   deleteBoard(id, successCb) {
     $.ajax({
       method: 'DELETE',

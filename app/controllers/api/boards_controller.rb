@@ -17,6 +17,16 @@ class Api::BoardsController < ApplicationController
     end
   end
 
+  def update
+    @board = Board.find(params[:id])
+
+    if @board.update(board_params)
+      render :show
+    else
+      render json: @board.errors, status: 422
+    end
+  end
+
   def destroy
     @board = Board.find(params[:id])
     @board.destroy

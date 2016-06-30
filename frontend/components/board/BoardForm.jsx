@@ -1,10 +1,19 @@
+const BoardActions = require('../../actions/BoardActions');
+const ErrorStore = require('../../stores/ErrorStore');
 const React = require('react');
-const BoardActions = require('../actions/BoardActions');
-const ErrorStore = require('../stores/ErrorStore');
 
 const BoardForm = React.createClass({
   getInitialState() {
-    return { user_id: this.props.userId, name: '', description: '' };
+    let state = { user_id: 0, name: '', description: '' }
+    if (this.props.hasOwnProperty('board')) {
+      const board = this.props.board;
+      state = { user_id: board.owner.id, name: board.name, description: board.description };
+      this.status = 'editing';
+    } else {
+      state.user_id = this.props.userId;
+      this.status = 'creating';
+    }
+    return state;
   },
   componentDidMount() {
     this.errorListener = ErrorStore.addListener(this.forceUpdate.bind(this));
@@ -20,20 +29,26 @@ const BoardForm = React.createClass({
     if (!errors[field]) { return; }
 
     const messages = errors[field].map((errorMsg, i) =>
-      <li key={i}>{errorMsg}</li>
+      <li key={i}>{field} {errorMsg}</li>
     );
 
     return <ul className="form-errors">{messages}</ul>;
   },
-  createBoard(e) {
+  handleSubmit(e) {
     e.preventDefault();
-    BoardActions.createBoard(this.state);
+    if (this.status === 'editing') {
+      const board = { name: this.state.name, description: this.state.description };
+      BoardActions.updateBoard(this.props.board.id, board);
+    } else {
+      BoardActions.createBoard(this.state);
+    }
   },
   render() {
+    const header = (this.status === 'editing' ? 'Edit Board' : 'Create a New Board');
     return (
       <div className="board-form">
-        <h2>Create a New Board</h2>
-        <form className="board-form" onSubmit={this.createBoard}>
+        <h2>{header}</h2>
+        <form className="board-form" onSubmit={this.handleSubmit}>
           {this.fieldErrors('name')}
           <input
             type="text"

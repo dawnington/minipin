@@ -1,6 +1,6 @@
+const BoardConstants = require('../constants/BoardConstants');
 const Dispatcher = require('../dispatcher/Dispatcher');
 const Store = require('flux/utils').Store;
-const BoardConstants = require('../constants/BoardConstants');
 
 let _boards = {};
 
