@@ -58,7 +58,7 @@ const Board = React.createClass({
         <PinIndex pins={board.pins} />
           <Modal show={this.state.modalShown} onHide={this.closeBoardForm} >
             <Modal.Body>
-              <BoardForm board={board} />
+              <BoardForm board={board} modalCallback={this.closeBoardForm}/>
             </Modal.Body>
           </Modal>
       </div>

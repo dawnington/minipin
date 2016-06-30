@@ -44,23 +44,55 @@ div.main {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  margin-bottom: 20px;
 }
 
 .nav-item {
-  padding: 10px 0px 10px 30px;
+  padding: 5px 0px 5px 47px;
   width: 238px;
   text-align: left;
-  height: 30px;
+  height: 20px;
   cursor: pointer;
+  position: relative;
+  font-size: 14px;
+}
+
+.nav-item .nav-item-link {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-left: 30px;
 }
 
 .nav-item:hover {
-  background-color: #e7c80f;
+  background-color: #f0d21f;
 }
 
 .nav-header {
-  margin-left: 30px;
-  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding-left: 30px;
+  font-size: 16px;
+  display: flex;
+  align-items: baseline;
+}
+
+.nav-header .nav-header-link {
+  position: absolute;
+  display: block;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding-left: 30px;
+}
+
+.fa.fa-chevron-right {
+  font-size: 10px;
+  margin-right: 10px;
 }
 
 #nav-bar:hover + .main {
@@ -77,5 +109,16 @@ div.main {
 }
 
 #nav-bar:hover .sidebar-content {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.new-board-button {
+  margin-top: 10px;
+}
+
+.feed-link {
+  font-size: 16px;
 }

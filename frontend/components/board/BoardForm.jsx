@@ -1,5 +1,6 @@
 const BoardActions = require('../../actions/BoardActions');
 const ErrorStore = require('../../stores/ErrorStore');
+const hashHistory = require('react-router').hashHistory;
 const React = require('react');
 
 const BoardForm = React.createClass({
@@ -29,10 +30,10 @@ const BoardForm = React.createClass({
     if (!errors[field]) { return; }
 
     const messages = errors[field].map((errorMsg, i) =>
-      <li key={i}>{field} {errorMsg}</li>
+      <li className="form-error" key={i}>{field} {errorMsg}</li>
     );
 
-    return <ul className="form-errors">{messages}</ul>;
+    return <ul>{messages}</ul>;
   },
   handleSubmit(e) {
     e.preventDefault();
@@ -42,6 +43,7 @@ const BoardForm = React.createClass({
     } else {
       BoardActions.createBoard(this.state);
     }
+    this.props.modalCallback();
   },
   render() {
     const header = (this.status === 'editing' ? 'Edit Board' : 'Create a New Board');
