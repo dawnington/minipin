@@ -17,6 +17,7 @@ function login(user) {
 function logout() {
   _currentUser = {};
   _loggedIn = false;
+  hashHistory.push("login");
   SessionStore.__emitChange();
 }
 

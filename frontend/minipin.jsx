@@ -11,9 +11,7 @@ window.SessionStore = SessionStore;
 const App = require('./components/App');
 const LoginForm = require('./components/LoginForm');
 const SignupForm = require('./components/SignupForm');
-// Testing
-const BoardApiUtil = require('./util/BoardApiUtil');
-window.BoardApiUtil = BoardApiUtil;
+const Board = require('./components/Board');
 
 function ensureLoggedIn(nextState, replace) {
   if (!SessionStore.loggedIn()) {
@@ -21,11 +19,19 @@ function ensureLoggedIn(nextState, replace) {
   }
 }
 
+function ensureLoggedOut(nextState, replace) {
+  if (SessionStore.loggedIn()) {
+    replace('/');
+  }
+}
+
 const routes = (
   <Router history={hashHistory}>
-    <Route path="/" component={App} onEnter={ensureLoggedIn} />
-    <Route path="login" component={LoginForm} />
-    <Route path="signup" component={SignupForm} />
+    <Route path="/" component={App} onEnter={ensureLoggedIn}>
+      <Route path="/boards/:boardId" component={Board} />
+    </Route>
+    <Route path="login" component={LoginForm} onEnter={ensureLoggedOut} />
+    <Route path="signup" component={SignupForm} onEnter={ensureLoggedOut} />
   </Router>
 );
 

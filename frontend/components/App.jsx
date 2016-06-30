@@ -28,21 +28,10 @@ const App = React.createClass({
       hashHistory.push('login');
     }
   },
-  greeting() {
-    if (SessionStore.loggedIn()) {
-    	return (
-    		<hgroup className="header-group">
-    		  <h2 className="header-name">Hi, {this.state.user.name}!</h2>
-          <button onClick={this.handleLogOut}>Log Out</button>
-    		</hgroup>
-    	);
-    }
-  },
   render() {
     return (
-      <div>
+      <div className="main">
         <NavBar user={this.state.user} />
-        <PinIndex />
         {this.props.children}
       </div>
     );

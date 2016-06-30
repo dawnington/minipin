@@ -2,6 +2,7 @@ const Dispatcher = require('../dispatcher/Dispatcher');
 const ErrorActions = require('./ErrorActions');
 const SessionApiUtil = require('../util/SessionApiUtil');
 const SessionConstants = require('../constants/SessionConstants');
+const hashHistory = require('react-router').hashHistory;
 
 module.exports = {
   receiveCurrentUser(user) {

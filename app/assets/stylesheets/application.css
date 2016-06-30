@@ -66,26 +66,59 @@ button {
   margin: 0 auto 0 auto;
 }
 
+.main {
+  display: flex;
+  justify-content: space-between;
+}
+
 #nav-bar {
   background-color: #f2d737;
-  width: 55px;
+  width: 268px;
   height: 100%;
-  float: left;
   position: fixed;
   display: flex;
-  flex-direction: column-reverse;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.shown {
-  display: block;
-  width: 268px;
+#nav-bar > a {
+  text-decoration: none;
 }
 
-.hidden {
-  width: 55px;
+.navigation {
+  width: inherit;
+  margin-top: 30px;
+}
+
+.nav-profile {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.nav-item {
+  margin: 0px;
+  padding: 10px 0px 10px 30px;
+  width: 238px;
+  text-align: left;
+  height: 30px;
+}
+
+.nav-item:hover {
+  background-color: #e7c80f;
+}
+
+.nav-header {
+  margin-left: 30px;
+  font-weight: bold;
+}
+
+.board {
 }
 
 .pin-index {
+  width: inherit;
+  float: right;
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
@@ -101,11 +134,4 @@ button {
 img {
   width: inherit;
   margin: 5px;
-}
-
-.nav-logout {
-  margin: 0px;
-  width: 50px;
-  align-self: flex-end;
-  /*border: 1px solid grey;*/
 }

@@ -21,7 +21,7 @@ const PinIndex = React.createClass({
     return (
       <div className="pin-index">
         {
-          this.state.pins.map(pin =>
+          this.props.pins.map(pin =>
             <PinIndexItem pin={pin} key={pin.id} />
           )
         }
