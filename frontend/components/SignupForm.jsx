@@ -55,8 +55,8 @@ const SignupForm = React.createClass({
   },
   render() {
     return (
-      <form className="signup-form" onSubmit={this.login}>
-        <img src="http://res.cloudinary.com/dojinyoct/image/upload/v1467162069/MiniPin-logo_1_pjf9zc.png" alt="pin-logo" className="pin-logo" />
+      <form className="login-form" onSubmit={this.login}>
+        <img src="http://res.cloudinary.com/dojinyoct/image/upload/v1467162069/MiniPin-logo_1_pjf9zc.png" alt="pin logo" className="login-logo" />
         <br />
         {this.fieldErrors('name')}
         <input
@@ -65,6 +65,7 @@ const SignupForm = React.createClass({
           id="name"
           onChange={this.onNameChange}
           placeholder="Name"
+          className="login-input"
         />
         <br />
         {this.fieldErrors('username')}
@@ -74,6 +75,7 @@ const SignupForm = React.createClass({
           id="username"
           onChange={this.onUsernameChange}
           placeholder="Username"
+          className="login-input"
         />
         <br />
         {this.fieldErrors('password')}
@@ -83,11 +85,12 @@ const SignupForm = React.createClass({
           id="password"
           onChange={this.onPasswordChange}
           placeholder="Create a Password"
+          className="login-input"
         />
         <br />
-        <button>Sign Up</button>
+        <button className="login-button">Sign Up</button>
         <br />
-        <div id="demo-link-container">
+        <div className="demo-link-container">
           Already have an account? <Link to="/login">Log In</Link> or explore with a <a href="#" onClick={this.guestLogin}>Demo Account</a>
         </div>
       </form>

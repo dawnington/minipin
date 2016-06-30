@@ -1,0 +1,35 @@
+.login-form {
+  margin: 100px auto 0 auto;
+  width: 500px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.login-input {
+  margin: 0 10px 10px 10px;
+  padding: 10px;
+  width: 200px;
+  font-size: 16px;
+  border: 1px solid lightgrey;
+}
+
+.login-logo {
+  width: 250px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login-button {
+  margin: 10px;
+  border: none;
+  width: 100px;
+  height: 30px;
+  background-color: #f2d737;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.demo-link-container {
+  width: 250px;
+  margin: 0 auto 0 auto;
+}

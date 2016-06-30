@@ -30,7 +30,6 @@ const NavBar = React.createClass({
         </div>
         <div className="nav-profile">
           <div className="nav-item">{user.name}</div>
-          <br />
           <div className="nav-item" onClick={this.logout}>Log Out</div>
         </div>
       </div>
