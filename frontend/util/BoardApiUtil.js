@@ -21,7 +21,9 @@ module.exports = {
       url: 'api/boards',
       data: { board },
       success: successCb,
-      error: errorCb,
+      error(xhr) {
+        errorCb('board', xhr.responseJSON);
+      },
     });
   },
   deleteBoard(id, successCb) {

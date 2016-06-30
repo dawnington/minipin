@@ -1,7 +1,7 @@
 const React = require('react');
 const BoardStore = require('../stores/BoardStore');
 const BoardActions = require('../actions/BoardActions');
-const PinIndex = require('./PinIndex');
+const PinIndex = require('./pin/PinIndex');
 
 const Board = React.createClass({
   getInitialState() {

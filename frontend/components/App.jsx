@@ -1,14 +1,12 @@
 const React = require('react');
 const hashHistory = require('react-router').hashHistory;
-const Link = require('react-router').Link;
 const SessionActions = require('../actions/SessionActions');
 const SessionStore = require('../stores/SessionStore');
-const PinIndex = require('./PinIndex');
 const NavBar = require('./NavBar');
 
 const App = React.createClass({
   getInitialState() {
-    return { user: SessionStore.currentUser() }
+    return { user: SessionStore.currentUser() };
   },
   componentDidMount() {
     this.sessionListener = SessionStore.addListener(this.onChange);

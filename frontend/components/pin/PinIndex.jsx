@@ -1,6 +1,6 @@
 const React = require('react');
-const PinActions = require('../actions/PinActions');
-const PinStore = require('../stores/PinStore');
+const PinActions = require('../../actions/PinActions');
+const PinStore = require('../../stores/PinStore');
 const PinIndexItem = require('./PinIndexItem');
 
 const PinIndex = React.createClass({

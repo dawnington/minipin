@@ -1,0 +1,44 @@
+.pin-index {
+  width: inherit;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: space-between;
+}
+
+.pin-index-item {
+  width: 250px;
+  position: relative;
+}
+
+.pin-index-sub {
+  width: inherit;
+  height: inherit;
+}
+
+.pin-image {
+  width: inherit;
+}
+
+.comment-overlay {
+  display: none;
+  position: absolute;
+  width: 250px;
+  height: 100%;
+  top: 0px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.pin-index-item:hover .comment-overlay {
+  display: flex;
+  flex-direction: column-reverse;
+  background-color: black;
+  color: white;
+  opacity: 0.6;
+  z-index: 3;
+}
+
+.pin-detail {
+  width: 400px;
+}
