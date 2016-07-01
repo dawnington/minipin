@@ -57,8 +57,6 @@ const NavBar = React.createClass({
               <h3>{user.name}</h3>
             </div>
             <div className="nav-item" onClick={this.redirectToPins}>My Pins</div>
-            <div className="nav-item" onClick={this.logout}>Following</div>
-            <div className="nav-item" onClick={this.logout}>My Followers</div>
             <div className="nav-item nav-log-out" onClick={this.logout}>Log Out</div>
           </div>
         </div>

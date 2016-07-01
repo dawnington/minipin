@@ -1,0 +1,19 @@
+.pin-detail {
+  width: 450px;
+}
+
+.pin-detail-image {
+  margin-bottom: 20px;
+}
+
+.pin-detail-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fa.fa-thumb-tack {
+  /*float: right;*/
+  cursor: pointer;
+  font-size: 35px;
+}

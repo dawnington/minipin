@@ -16,6 +16,9 @@ module.exports = {
   createPin(pin) {
     PinApiUtil.createPin(pin, this.receiveSinglePin, ErrorActions.setErrors);
   },
+  addPin(pinning) {
+    PinApiUtil.createPinning(pinning, this.printSomething, this.printSomething);
+  },
   receiveAllPins(pins) {
     Dispatcher.dispatch({
       actionType: PinConstants.PINS_RECEIVED,
@@ -33,5 +36,8 @@ module.exports = {
       actionType: PinConstants.PINS_RECEIVED,
       pins: user.pins,
     });
+  },
+  printSomething(thing) {
+    console.log(thing);
   },
 };

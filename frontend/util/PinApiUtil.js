@@ -22,6 +22,14 @@ module.exports = {
       error: errorCb,
     });
   },
+  createPinning(pinning, successCb) {
+    $.ajax({
+      method: 'POST',
+      url: 'api/pinnings',
+      data: { pinning },
+      success: successCb,
+    });
+  },
   fetchUserPins(id, successCb) {
     $.ajax({
       url: `api/users/${id}`,

@@ -46,5 +46,5 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Test
-const PinStore = require('./stores/PinStore');
-window.PinStore = PinStore;
+const PinActions = require('./actions/PinActions');
+window.PinActions = PinActions;
