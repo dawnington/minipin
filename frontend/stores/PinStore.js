@@ -12,7 +12,12 @@ function resetPins(pins) {
 }
 
 function updatePin(pin) {
-  _pins[pin.id] = pin;
+  _pins[pin.pinning_id] = pin;
+  PinStore.__emitChange();
+}
+
+function removePin(pin) {
+  delete _pins[pin.pinning_id];
   PinStore.__emitChange();
 }
 
@@ -23,6 +28,9 @@ PinStore.__onDispatch = function (payload) {
       break;
     case PinConstants.PIN_RECEIVED:
       updatePin(payload.pin);
+      break;
+    case PinConstants.PINNING_REMOVED:
+      removePin(payload.pinning);
       break;
     default:
       break;

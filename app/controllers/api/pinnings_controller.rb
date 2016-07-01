@@ -12,7 +12,7 @@ class Api::PinningsController < ApplicationController
   def destroy
     @pinning = Pinning.find(params[:id])
     @pinning.destroy
-    render json: {}
+    render "api/pinnings/show"
   end
 
   private

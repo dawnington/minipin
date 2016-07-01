@@ -22,7 +22,10 @@ module.exports = {
     PinApiUtil.createPin(pin, this.receiveSinglePin, ErrorActions.setErrors);
   },
   addPin(pinning) {
-    PinApiUtil.createPinning(pinning, this.printSomething, this.printSomething);
+    PinApiUtil.createPinning(pinning, this.receiveSinglePin);
+  },
+  deletePinning(id) {
+    PinApiUtil.deletePinning(id, this.removePinning);
   },
   receiveAllPins(pins) {
     Dispatcher.dispatch({
@@ -48,7 +51,10 @@ module.exports = {
       pins: board.pins,
     });
   },
-  printSomething(thing) {
-    console.log(thing);
+  removePinning(pinning) {
+    Dispatcher.dispatch({
+      actionType: PinConstants.PINNING_REMOVED,
+      pinning,
+    });
   },
 };

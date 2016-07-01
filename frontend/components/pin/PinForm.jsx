@@ -13,9 +13,6 @@ const PinForm = React.createClass({
   onBoardIdChange(e) {
     this.setState({ board_id: parseInt(e.target.value) });
   },
-  handleCancel() {
-    this.props.modalCallback();
-  },
   handleSubmit(e) {
     e.preventDefault();
     PinActions.addPin(this.state);

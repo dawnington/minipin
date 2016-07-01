@@ -1,16 +1,16 @@
 /* eslint-env jquery */
 
 module.exports = {
-  fetchAllPins(successCb) {
+  fetchAllPins(success) {
     $.ajax({
       url: 'api/pins',
-      success: successCb,
+      success,
     });
   },
-  fetchSinglePin(id, successCb) {
+  fetchSinglePin(id, success) {
     $.ajax({
       url: `api/pins/${id}`,
-      success: successCb,
+      success,
     });
   },
   createPin(pin, successCb, errorCb) {
@@ -22,24 +22,31 @@ module.exports = {
       error: errorCb,
     });
   },
-  createPinning(pinning, successCb) {
+  createPinning(pinning, success) {
     $.ajax({
       method: 'POST',
       url: 'api/pinnings',
       data: { pinning },
-      success: successCb,
+      success,
     });
   },
-  fetchUserPins(id, successCb) {
+  deletePinning(id, success) {
+    $.ajax({
+      method: 'DELETE',
+      url: `api/pinnings/${id}`,
+      success,
+    });
+  },
+  fetchUserPins(id, success) {
     $.ajax({
       url: `api/users/${id}`,
-      success: successCb,
+      success,
     });
   },
-  fetchBoardPins(id, successCb) {
+  fetchBoardPins(id, success) {
     $.ajax({
       url: `api/boards/${id}`,
-      success: successCb,
+      success,
     });
   },
 };

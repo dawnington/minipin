@@ -16,6 +16,10 @@ const UserPinPage = require('./components/user/UserPinPage');
 
 // Testing
 const BoardStore = require('./stores/BoardStore');
+const PinActions = require('./actions/PinActions');
+const PinStore = require('./stores/PinStore');
+window.PinActions = PinActions;
+window.PinStore = PinStore;
 window.BoardStore = BoardStore;
 
 function ensureLoggedIn(nextState, replace) {

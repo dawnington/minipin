@@ -30,7 +30,7 @@ class Api::BoardsController < ApplicationController
   def destroy
     @board = Board.find(params[:id])
     @board.destroy
-    render json: {}
+    render 'api/boards/board'
   end
 
   private

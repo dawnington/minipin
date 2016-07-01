@@ -12,9 +12,21 @@
   align-items: center;
 }
 
+.pin-detail-icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .fa.fa-thumb-tack {
   cursor: pointer;
-  font-size: 35px;
+  font-size: 30px;
+}
+
+.fa.fa-trash-o.pin-delete {
+  margin-left: 5px;
+  cursor: pointer;
+  font-size: 30px;
 }
 
 .pin-form-button {

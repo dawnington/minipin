@@ -1,7 +1,7 @@
-const React = require('react');
 const Modal = require('react-bootstrap').Modal;
 const PinDetail = require('./PinDetail');
 const PinForm = require('./PinForm');
+const React = require('react');
 
 const PinIndexItem = React.createClass({
   getInitialState() {
@@ -30,7 +30,7 @@ const PinIndexItem = React.createClass({
 
         <Modal show={this.state.detailShown} onHide={this.closePinDetail} >
           <Modal.Body>
-            <PinDetail pin={pin} detailCallback={this.closePinDetail} showForm={this.openPinForm} hideForm={this.closePinForm} formState={this.state.formShown}/>
+            <PinDetail pin={pin} detailCallback={this.closePinDetail} showForm={this.openPinForm} />
           </Modal.Body>
         </Modal>
 
