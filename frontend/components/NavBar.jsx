@@ -1,25 +1,23 @@
-const BoardActions = require('../actions/BoardActions');
 const BoardForm = require('./board/BoardForm');
-const BoardStore = require('../stores/BoardStore');
 const hashHistory = require('react-router').hashHistory;
 const Link = require('react-router').Link;
 const Modal = require('react-bootstrap').Modal;
 const React = require('react');
 const SessionActions = require('../actions/SessionActions');
+const SessionStore = require('../stores/SessionStore');
 
 const NavBar = React.createClass({
   getInitialState() {
-    return { modalShown: false, boards: BoardStore.all() };
+    return { modalShown: false, boards: SessionStore.currentUser().boards };
   },
   componentDidMount() {
-    this.boardListener = BoardStore.addListener(this.onBoardChange);
-    BoardActions.fetchAllBoards(this.props.user.id);
+    this.sessionListener = SessionStore.addListener(this.onChange);
   },
   componentWillUnmount() {
-    this.boardListener.remove();
+    this.sessionListener.remove();
   },
-  onBoardChange() {
-    this.setState({ boards: BoardStore.all() });
+  onChange() {
+    this.setState({ boards: SessionStore.currentUser().boards });
   },
   showBoardForm() {
     this.setState({ modalShown: true });

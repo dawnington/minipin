@@ -14,6 +14,7 @@ const Board = React.createClass({
   },
   componentDidMount() {
     this.boardListener = BoardStore.addListener(this.onChange);
+    BoardActions.fetchSingleBoard(this.boardId);
   },
   componentWillReceiveProps(newProps) {
     this.boardId = newProps.params.boardId;

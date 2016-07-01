@@ -1,7 +1,8 @@
+const BoardConstants = require('../constants/BoardConstants');
 const Dispatcher = require('../dispatcher/Dispatcher');
-const Store = require('flux/utils').Store;
-const SessionConstants = require('../constants/SessionConstants');
 const hashHistory = require('react-router').hashHistory;
+const SessionConstants = require('../constants/SessionConstants');
+const Store = require('flux/utils').Store;
 
 let _currentUser = {};
 let _loggedIn = false;
@@ -21,6 +22,17 @@ function logout() {
   SessionStore.__emitChange();
 }
 
+function addBoard(board) {
+  _currentUser.boards.push(board);
+  SessionStore.__emitChange();
+}
+
+function removeBoard(board) {
+  const idx = _currentUser.boards.findIndex(x => x.id === board.id);
+  _currentUser.boards.splice(idx, 1);
+  SessionStore.__emitChange();
+}
+
 SessionStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case SessionConstants.LOGIN:
@@ -29,11 +41,16 @@ SessionStore.__onDispatch = function (payload) {
     case SessionConstants.LOGOUT:
       logout();
       break;
+    case BoardConstants.NEW_BOARD:
+      addBoard(payload.board);
+      break;
+    case BoardConstants.BOARD_REMOVED:
+      removeBoard(payload.board);
+      break;
     default:
       break;
   }
 };
-
 
 SessionStore.currentUser = function () {
   const copy = {};

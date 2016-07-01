@@ -11,7 +11,7 @@ module.exports = {
     BoardApiUtil.fetchSingleBoard(id, this.receiveSingleBoard);
   },
   createBoard(board) {
-    BoardApiUtil.createBoard(board, this.receiveSingleBoard, ErrorActions.setErrors);
+    BoardApiUtil.createBoard(board, this.addBoardToUser, ErrorActions.setErrors);
   },
   updateBoard(id, board) {
     BoardApiUtil.updateBoard(id, board, this.receiveSingleBoard, ErrorActions.setErrors);
@@ -34,6 +34,12 @@ module.exports = {
   boardRemoved(board) {
     Dispatcher.dispatch({
       actionType: BoardConstants.BOARD_REMOVED,
+      board,
+    });
+  },
+  addBoardToUser(board) {
+    Dispatcher.dispatch({
+      actionType: BoardConstants.NEW_BOARD,
       board,
     });
   },
