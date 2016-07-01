@@ -10,6 +10,9 @@ module.exports = {
   fetchSinglePin(id) {
     PinApiUtil.fetchSinglePin(id, this.receiveSinglePin);
   },
+  fetchUserPins(id) {
+    PinApiUtil.fetchUserPins(id, this.receiveUserPins);
+  },
   createPin(pin) {
     PinApiUtil.createPin(pin, this.receiveSinglePin, ErrorActions.setErrors);
   },
@@ -23,6 +26,12 @@ module.exports = {
     Dispatcher.dispatch({
       actionType: PinConstants.PIN_RECEIVED,
       pin,
+    });
+  },
+  receiveUserPins(user) {
+    Dispatcher.dispatch({
+      actionType: PinConstants.PINS_RECEIVED,
+      pins: user.pins,
     });
   },
 };

@@ -15,6 +15,10 @@ const NavBar = React.createClass({
   closeBoardForm() {
     this.setState({ modalShown: false });
   },
+  redirectToPins() {
+    const pinPath = `users/${this.props.user.id}/pins`;
+    hashHistory.push(pinPath);
+  },
   logout() {
     SessionActions.logout();
     hashHistory.push("/");
@@ -27,7 +31,8 @@ const NavBar = React.createClass({
         <div className="sidebar-content">
           <div className="nav-content">
             <div className="nav-item feed-link">
-              <Link to="/">Feed</Link>
+              Feed
+              <Link to="/" className="nav-item-link"></Link>
             </div>
             <div className="nav-header">
               <i className="fa fa-chevron-right"></i>
@@ -47,17 +52,23 @@ const NavBar = React.createClass({
             <div className="nav-item new-board-button" onClick={this.showBoardForm}>New Board</div>
           </div>
           <div className="nav-profile">
-            <div className="nav-item">{user.name}</div>
-            <div className="nav-item" onClick={this.logout}>Log Out</div>
+            <div className="nav-header">
+              <i className="fa fa-chevron-right"></i>
+              <h3>{user.name}</h3>
+            </div>
+            <div className="nav-item" onClick={this.redirectToPins}>My Pins</div>
+            <div className="nav-item" onClick={this.logout}>Following</div>
+            <div className="nav-item" onClick={this.logout}>My Followers</div>
+            <div className="nav-item nav-log-out" onClick={this.logout}>Log Out</div>
           </div>
         </div>
         <Modal show={this.state.modalShown} onHide={this.closeBoardForm} >
           <Modal.Body>
-            <BoardForm userId={user.id} state="creating" modalCallback={this.closeBoardForm}/>
+            <BoardForm userId={user.id} state="creating" modalCallback={this.closeBoardForm} />
           </Modal.Body>
         </Modal>
       </div>
-    )
+    );
   },
 });
 

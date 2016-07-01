@@ -22,4 +22,10 @@ module.exports = {
       error: errorCb,
     });
   },
+  fetchUserPins(id, successCb) {
+    $.ajax({
+      url: `api/users/${id}`,
+      success: successCb,
+    });
+  },
 };

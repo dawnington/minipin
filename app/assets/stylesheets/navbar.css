@@ -55,6 +55,7 @@ div.main {
   cursor: pointer;
   position: relative;
   font-size: 14px;
+  color: #96820a;
 }
 
 .nav-item .nav-item-link {
@@ -117,8 +118,15 @@ div.main {
 
 .new-board-button {
   margin-top: 10px;
+  color: black;
 }
 
 .feed-link {
   font-size: 16px;
+  color: black;
+}
+
+.nav-log-out {
+  font-size: 16px;
+  color: black;
 }
