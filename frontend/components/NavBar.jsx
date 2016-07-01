@@ -74,7 +74,7 @@ const NavBar = React.createClass({
         </div>
         <Modal show={this.state.modalShown} onHide={this.closeBoardForm} >
           <Modal.Body>
-            <BoardForm userId={user.id} state="creating" modalCallback={this.closeBoardForm} />
+            <BoardForm userId={user.id} modalCallback={this.closeBoardForm} />
           </Modal.Body>
         </Modal>
       </div>

@@ -30,7 +30,7 @@ const PinIndexItem = React.createClass({
 
         <Modal show={this.state.detailShown} onHide={this.closePinDetail} >
           <Modal.Body>
-            <PinDetail pin={pin} detailCallback={this.closePinDetail} showForm={this.openPinForm} />
+            <PinDetail pin={pin} modalCallback={this.closePinDetail} showForm={this.openPinForm} />
           </Modal.Body>
         </Modal>
 

@@ -13,9 +13,11 @@ const PinDetail = React.createClass({
     return <div></div>
   },
   deletePin() {
-    // confirm('Are you sure you want to delete this pin?');
-    PinActions.deletePinning(this.props.pin.pinning_id);
-    this.props.detailCallback();
+    const checkDelete = confirm('Are you sure you want to delete this pin?');
+    if (checkDelete) {
+      PinActions.deletePinning(this.props.pin.pinning_id);
+      this.props.modalCallback();
+    }
   },
   render() {
     const pin = this.props.pin;

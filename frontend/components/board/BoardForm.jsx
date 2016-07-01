@@ -43,7 +43,6 @@ const BoardForm = React.createClass({
       BoardActions.updateBoard(this.props.board.id, board);
     } else {
       BoardActions.createBoard(this.state);
-      hashHistory.push("/");
     }
     this.props.modalCallback();
   },
@@ -51,9 +50,12 @@ const BoardForm = React.createClass({
     this.props.modalCallback();
   },
   deleteBoard() {
-    BoardActions.deleteBoard(this.props.board.id);
-    this.props.modalCallback();
-    hashHistory.push("/");
+    const deleteBoard = confirm('Delete board?');
+    if (deleteBoard) {
+      BoardActions.deleteBoard(this.props.board.id);
+      this.props.modalCallback();
+      hashHistory.push("/");
+    }
   },
   deleteButtonText() {
     if (this.status === 'editing') {

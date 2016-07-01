@@ -1,5 +1,6 @@
 const BoardConstants = require('../constants/BoardConstants');
 const Dispatcher = require('../dispatcher/Dispatcher');
+const hashHistory = require('react-router').hashHistory;
 const Store = require('flux/utils').Store;
 
 let _boards = {};

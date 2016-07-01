@@ -33,7 +33,6 @@
 
 ### Boards
 
-- `GET /api/boards`
 - `POST /api/boards`
 - `GET /api/boards/:id`
 - `PATCH /api/boards/:id`

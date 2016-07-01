@@ -8,20 +8,23 @@ const SessionStore = require('../../stores/SessionStore');
 
 const Board = React.createClass({
   getInitialState() {
-    this.boardId = parseInt(this.props.params.boardId);
-    const board = BoardStore.find(this.boardId) || { name: '', owner: { name: '' } };
+    this.boardId = this.props.params.boardId;
+    const board = BoardStore.find(this.boardId) || { owner: {} };
     return { board, modalShown: false };
   },
   componentDidMount() {
     this.boardListener = BoardStore.addListener(this.onChange);
-    BoardActions.fetchSingleBoard(this.boardId); // TODO: trying to fetch board before params have boardId?
   },
   componentWillReceiveProps(newProps) {
-    this.boardId = parseInt(newProps.params.boardId);
+    this.boardId = newProps.params.boardId;
     BoardActions.fetchSingleBoard(this.boardId);
   },
   componentWillUnmount() {
     this.boardListener.remove();
+  },
+  onChange() {
+    const board = BoardStore.find(this.boardId);
+    this.setState({ board });
   },
   showBoardForm() {
     this.setState({ modalShown: true });
@@ -29,19 +32,14 @@ const Board = React.createClass({
   closeBoardForm() {
     this.setState({ modalShown: false });
   },
-  onChange() {
-    const board = BoardStore.find(this.boardId);
-    this.setState({ board });
-  },
-  checkForOwner() {
+  ownerButton() {
     if (SessionStore.currentUser().id === this.state.board.owner.id) {
-      return true;
+      return <i className="fa fa-cog" onClick={this.showBoardForm}></i>;
     }
-    return false;
+    return <h3 className="board-owner">by {this.state.board.owner.name}</h3>;
   },
   render() {
     const board = this.state.board;
-    const owner = (this.checkForOwner() ? <i className="fa fa-cog" onClick={this.showBoardForm}></i> : <h3 className="board-owner">by {board.owner.name}</h3>);
     return (
       <div className="board">
         <hgroup className="board-header">
@@ -51,7 +49,7 @@ const Board = React.createClass({
               <h5 className="board-description">{board.description}</h5>
             </div>
           </div>
-          {owner}
+          {this.ownerButton()}
         </hgroup>
         <PinIndex boardId={board.id} />
           <Modal show={this.state.modalShown} onHide={this.closeBoardForm} >

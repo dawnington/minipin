@@ -6,41 +6,39 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-IMAGE_URLS = [
-  'https://s-media-cache-ak0.pinimg.com/564x/fd/05/51/fd055142e2981415ca888cd518180fad.jpg',
-  'https://s-media-cache-ak0.pinimg.com/564x/0e/4e/90/0e4e90c680e24d6a2db8c17a3e4eda5d.jpg',
-  'https://s-media-cache-ak0.pinimg.com/564x/3e/a7/0a/3ea70a9ea182faf7e460bafa402d476e.jpg',
-  'https://s-media-cache-ak0.pinimg.com/564x/6f/05/e9/6f05e93f64302cef69aa03ab0c4861e0.jpg',
-  'https://s-media-cache-ak0.pinimg.com/564x/05/7d/ad/057dad143f7696e4da62f2ccd096f1cc.jpg',
-  'https://s-media-cache-ak0.pinimg.com/564x/7c/77/4c/7c774c235a335e93fdbdf4c89c8ca3c5.jpg'
-]
+INSPIRATION = {
+  'Love this look' => 'http://res.cloudinary.com/dojinyoct/image/upload/v1467408813/madewell_wf2y89.jpg',
+  "Who doesn't love peonies?" => 'http://res.cloudinary.com/dojinyoct/image/upload/v1467408814/14261392044_5309dd92a3_k_t0lmhv.jpg',
+  'Amazing and grogeous detail' => 'http://res.cloudinary.com/dojinyoct/image/upload/v1467408814/stairs_pfn35b.jpg',
+  'Love the granite and the whole minimalist vibe' => 'http://res.cloudinary.com/dojinyoct/image/upload/v1467408813/kitchen_jpthne.jpg',
+  'Love the pop of color from the armchairs' => 'http://res.cloudinary.com/dojinyoct/image/upload/v1467408813/living_room_jzimas.jpg'
+}
+
+TRAVEL = {
+  'Norway looks so beautiful!' => 'http://res.cloudinary.com/dojinyoct/image/upload/v1467408865/norway_gyfhkw.jpg',
+  "Let's go camping here" => 'http://res.cloudinary.com/dojinyoct/image/upload/v1467408821/valley_kaqbyz.jpg',
+  'Anyone up for a hike?' => 'http://res.cloudinary.com/dojinyoct/image/upload/v1467408817/hills_b5ejad.jpg',
+  'Looks like it would be a beautiful venue for a wedding' => 'http://res.cloudinary.com/dojinyoct/image/upload/v1467408812/glassrestaurant_ysnxk0.jpg',
+  'I would love to go to Morocco someday' => 'http://res.cloudinary.com/dojinyoct/image/upload/v1467408813/marrakesh_ws8ffm.jpg',
+  'Big Sur!' => 'http://res.cloudinary.com/dojinyoct/image/upload/v1467408812/bed_igmdbs.jpg'
+}
 
 User.create(username: 'joe', name: 'Joe Black', password: 'joejoe')
 User.create(username: 'joe2', name: 'Joe White', password: 'joejoe')
 User.create(username: 'joe3', name: 'Joe Pink', password: 'joejoe')
 
-IMAGE_URLS.each { |pic| Pin.create(image_url: pic) }
 
 Board.create(user_id: 1, name: 'Inspiration', description: 'Ideas for the house')
 Board.create(user_id: 1, name: 'Travel Ideas', description: 'Our bucket list')
 Board.create(user_id: 2, name: 'Style Wish List', description: 'I want to be like Grace Kelly')
 Board.create(user_id: 3, name: 'Product Design', description: 'Sleek stuff')
 
-Pinning.create(pin_id: 1, board_id: 1, description: 'nice look 1')
-Pinning.create(pin_id: 2, board_id: 1, description: 'nice look 1')
-Pinning.create(pin_id: 3, board_id: 1, description: 'nice look 1')
-Pinning.create(pin_id: 4, board_id: 1, description: 'nice look 1')
-Pinning.create(pin_id: 5, board_id: 1, description: 'nice look 1')
-Pinning.create(pin_id: 6, board_id: 1, description: 'nice look 1')
+INSPIRATION.each do |desc, pic|
+  pin = Pin.create(image_url: pic)
+  Pinning.create(pin_id: pin.id, description: desc, board_id: 1)
+end
 
-Pinning.create(pin_id: 1, board_id: 2, description: 'I want to be there')
-Pinning.create(pin_id: 2, board_id: 2, description: 'I want to be there')
-Pinning.create(pin_id: 6, board_id: 2, description: 'I want to be there')
-Pinning.create(pin_id: 5, board_id: 2, description: 'I want to be there')
-
-Pinning.create(pin_id: 1, board_id: 3, description: 'nice look 3')
-Pinning.create(pin_id: 2, board_id: 3, description: 'nice look 3')
-Pinning.create(pin_id: 5, board_id: 3, description: 'nice look 3')
-Pinning.create(pin_id: 6, board_id: 3, description: 'nice look 3')
-
-Pinning.create(pin_id: 2, board_id: 4, description: 'nice look 4')
+TRAVEL.each do |desc, pic|
+  pin = Pin.create(image_url: pic)
+  Pinning.create(pin_id: pin.id, description: desc, board_id: 2)
+end
