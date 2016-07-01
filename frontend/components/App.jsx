@@ -1,8 +1,8 @@
-const React = require('react');
 const hashHistory = require('react-router').hashHistory;
+const NavBar = require('./NavBar');
+const React = require('react');
 const SessionActions = require('../actions/SessionActions');
 const SessionStore = require('../stores/SessionStore');
-const NavBar = require('./NavBar');
 
 const App = React.createClass({
   getInitialState() {

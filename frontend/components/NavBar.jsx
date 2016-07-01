@@ -14,7 +14,6 @@ const NavBar = React.createClass({
   },
   closeBoardForm() {
     this.setState({ modalShown: false });
-    hashHistory.push("/");
   },
   logout() {
     SessionActions.logout();

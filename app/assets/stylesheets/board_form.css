@@ -3,7 +3,7 @@
 }
 
 .board-input {
-  margin: 10px 10px 10px 0;
+  margin: 10px 0 10px 0;
   padding: 10px;
   font-size: 14px;
   border: 1px solid lightgrey;
@@ -17,4 +17,10 @@
   cursor: pointer;
   font-size: 14px;
   text-align: center;
+}
+
+.form-icon {
+  float: right;
+  margin-top: 5px;
+  cursor: pointer;
 }

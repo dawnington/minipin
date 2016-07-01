@@ -42,12 +42,22 @@ const BoardForm = React.createClass({
       BoardActions.updateBoard(this.props.board.id, board);
     } else {
       BoardActions.createBoard(this.state);
+      hashHistory.push("/");
     }
     this.props.modalCallback();
+  },
+  handleCancel() {
+    this.props.modalCallback();
+  },
+  deleteBoard() {
+    BoardActions.deleteBoard(this.props.board.id);
+    this.props.modalCallback();
+    hashHistory.push("/");
   },
   render() {
     const header = (this.status === 'editing' ? 'Edit Board' : 'Create a New Board');
     const buttonText = (this.status === 'editing' ? 'Update Board' : 'Create Board')
+    const deleteButton = (this.status === 'editing' ? <i className="fa fa-trash-o form-icon" onClick={this.deleteBoard}></i> : <i className="fa fa-times form-icon" onClick={this.handleCancel}></i>)
     return (
       <div className="board-form">
         <h2>{header}</h2>
@@ -71,6 +81,7 @@ const BoardForm = React.createClass({
             className="board-input"
           ></textarea>
         <button className="board-form-button">{buttonText}</button>
+        {deleteButton}
         </form>
       </div>
     );
