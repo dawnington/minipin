@@ -4,11 +4,21 @@ const SessionStore = require('../../stores/SessionStore');
 
 const PinForm = React.createClass({
   getInitialState() {
-    const board_id = SessionStore.currentUser().boards[0].id;
+    const board_id = this.getInitialBoardId();
     return { pin_id: this.props.pin.pin_id, description: '', board_id };
   },
   onDescriptionChange(e) {
     this.setState({ description: e.target.value });
+  },
+  getInitialBoardId() {
+    let boardId = 0;
+    SessionStore.currentUser().boards.forEach(board => {
+      if (board.id !== this.props.pin.board_id) {
+        boardId = board.id;
+        return;
+      }
+    })
+    return boardId;
   },
   onBoardIdChange(e) {
     this.setState({ board_id: parseInt(e.target.value) });
@@ -18,8 +28,8 @@ const PinForm = React.createClass({
   },
   handleSubmit(e) {
     e.preventDefault();
-    console.log(this.state);
     PinActions.addPin(this.state);
+    this.props.modalCallback();
   },
   render() {
     const pin = this.props.pin;
