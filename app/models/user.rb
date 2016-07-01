@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
   before_validation :ensure_session_token
 
-  has_many :boards
+  has_many :boards, dependent: :destroy
   has_many :pinnings, through: :boards
   has_many :pins, through: :boards
 

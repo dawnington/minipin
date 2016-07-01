@@ -36,7 +36,7 @@
   padding: 10px;
 }
 
-.pin-index-item:hover .comment-overlay {
+.pin-index-sub:hover .comment-overlay {
   display: flex;
   flex-direction: column-reverse;
   background-color: black;
