@@ -13,10 +13,10 @@ module.exports = {
     PinApiUtil.fetchSinglePin(id, this.receiveSinglePin);
   },
   fetchUserPins(id) {
-    PinApiUtil.fetchUserPins(id, this.receiveUserPins);
+    PinApiUtil.fetchUserPins(id, this.receiveAllPins);
   },
   fetchBoardPins(id) {
-    PinApiUtil.fetchBoardPins(id, this.receiveBoardPins);
+    PinApiUtil.fetchBoardPins(id, this.receiveAllPins);
   },
   createPin(pin) {
     PinApiUtil.createPin(pin, this.receiveSinglePin, ErrorActions.setErrors);
@@ -37,18 +37,6 @@ module.exports = {
     Dispatcher.dispatch({
       actionType: PinConstants.PIN_RECEIVED,
       pin,
-    });
-  },
-  receiveUserPins(user) {
-    Dispatcher.dispatch({
-      actionType: PinConstants.PINS_RECEIVED,
-      pins: user.pins,
-    });
-  },
-  receiveBoardPins(board) {
-    Dispatcher.dispatch({
-      actionType: PinConstants.PINS_RECEIVED,
-      pins: board.pins,
     });
   },
   removePinning(pinning) {

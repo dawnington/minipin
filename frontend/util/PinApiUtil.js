@@ -7,12 +7,6 @@ module.exports = {
       success,
     });
   },
-  fetchSinglePin(id, success) {
-    $.ajax({
-      url: `api/pins/${id}`,
-      success,
-    });
-  },
   createPin(pin, successCb, errorCb) {
     $.ajax({
       method: 'POST',
@@ -39,13 +33,13 @@ module.exports = {
   },
   fetchUserPins(id, success) {
     $.ajax({
-      url: `api/users/${id}`,
+      url: `api/users/${id}/pinnings`,
       success,
     });
   },
   fetchBoardPins(id, success) {
     $.ajax({
-      url: `api/boards/${id}`,
+      url: `api/boards/${id}/pinnings`,
       success,
     });
   },

@@ -26,13 +26,6 @@
 - `GET /user/:id/followers`
 - `GET /user/:id/followees`
 
-### Pins
-
-- `GET /api/pins`
-  - Pins index/search
-- `GET /api/pins/:id`
-- `POST /api/pins`
-
 ### Pinnings
  - `POST /api/pinnings`
  - `PATCH /api/pinnings/:id`

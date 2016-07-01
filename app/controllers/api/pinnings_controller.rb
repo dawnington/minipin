@@ -9,6 +9,14 @@ class Api::PinningsController < ApplicationController
     end
   end
 
+  def index
+    if params[:user_id]
+      @pinnings = User.find(params[:user_id]).pinnings
+    elsif params[:board_id]
+      @pinnings = Board.find(params[:board_id]).pinnings
+    end
+  end
+
   def destroy
     @pinning = Pinning.find(params[:id])
     @pinning.destroy
