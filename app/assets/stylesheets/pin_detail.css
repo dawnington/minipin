@@ -17,3 +17,14 @@
   cursor: pointer;
   font-size: 35px;
 }
+
+.pin-form-button {
+  float: right;
+  border: none;
+  width: 80px;
+  height: 30px;
+  background-color: #f2d737;
+  cursor: pointer;
+  font-size: 14px;
+  text-align: center;
+}

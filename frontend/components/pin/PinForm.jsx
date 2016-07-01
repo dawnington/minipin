@@ -56,7 +56,7 @@ const PinForm = React.createClass({
               })
             }
           </select>
-          <button className="board-form-button">Add Pin</button>
+          <button className="pin-form-button">Add Pin</button>
         </form>
       </div>
     );
