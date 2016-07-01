@@ -34,7 +34,8 @@ ActiveRecord::Schema.define(version: 20160629191534) do
     t.datetime "updated_at",  null: false
   end
 
-  add_index "pinnings", ["board_id", "pin_id"], name: "index_pinnings_on_board_id_and_pin_id", unique: true, using: :btree
+  add_index "pinnings", ["board_id"], name: "index_pinnings_on_board_id", using: :btree
+  add_index "pinnings", ["pin_id"], name: "index_pinnings_on_pin_id", using: :btree
 
   create_table "pins", force: :cascade do |t|
     t.string   "image_url",  null: false

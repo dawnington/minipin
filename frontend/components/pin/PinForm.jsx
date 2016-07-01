@@ -4,21 +4,11 @@ const SessionStore = require('../../stores/SessionStore');
 
 const PinForm = React.createClass({
   getInitialState() {
-    const board_id = this.getInitialBoardId();
+    const board_id = SessionStore.currentUser().boards[0].id;
     return { pin_id: this.props.pin.pin_id, description: '', board_id };
   },
   onDescriptionChange(e) {
     this.setState({ description: e.target.value });
-  },
-  getInitialBoardId() {
-    let boardId = 0;
-    SessionStore.currentUser().boards.forEach(board => {
-      if (board.id !== this.props.pin.board_id) {
-        boardId = board.id;
-        return;
-      }
-    })
-    return boardId;
   },
   onBoardIdChange(e) {
     this.setState({ board_id: parseInt(e.target.value) });
@@ -49,11 +39,9 @@ const PinForm = React.createClass({
           ></textarea>
           <select onChange={this.onBoardIdChange}>
             {
-              SessionStore.currentUser().boards.map(board => {
-                if (board.id !== pin.board_id) {
-                  return <option value={board.id} key={board.id}>{board.name}</option>;
-                }
-              })
+              SessionStore.currentUser().boards.map(board =>
+                <option value={board.id} key={board.id}>{board.name}</option>
+              )
             }
           </select>
           <button className="pin-form-button">Add Pin</button>

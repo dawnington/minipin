@@ -3,6 +3,8 @@ const ErrorActions = require('./ErrorActions');
 const PinApiUtil = require('../util/PinApiUtil');
 const PinConstants = require('../constants/PinConstants');
 
+// TODO: replace printSomething
+
 module.exports = {
   fetchAllPins() {
     PinApiUtil.fetchAllPins(this.receiveAllPins);
@@ -12,6 +14,9 @@ module.exports = {
   },
   fetchUserPins(id) {
     PinApiUtil.fetchUserPins(id, this.receiveUserPins);
+  },
+  fetchBoardPins(id) {
+    PinApiUtil.fetchBoardPins(id, this.receiveBoardPins);
   },
   createPin(pin) {
     PinApiUtil.createPin(pin, this.receiveSinglePin, ErrorActions.setErrors);
@@ -35,6 +40,12 @@ module.exports = {
     Dispatcher.dispatch({
       actionType: PinConstants.PINS_RECEIVED,
       pins: user.pins,
+    });
+  },
+  receiveBoardPins(board) {
+    Dispatcher.dispatch({
+      actionType: PinConstants.PINS_RECEIVED,
+      pins: board.pins,
     });
   },
   printSomething(thing) {

@@ -4,7 +4,7 @@ class Api::BoardsController < ApplicationController
   end
 
   def index
-    @boards = Board.all
+    @boards = User.find(params[:user_id]).boards
   end
 
   def create

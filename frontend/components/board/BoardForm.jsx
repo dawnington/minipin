@@ -2,6 +2,7 @@ const BoardActions = require('../../actions/BoardActions');
 const ErrorStore = require('../../stores/ErrorStore');
 const hashHistory = require('react-router').hashHistory;
 const React = require('react');
+const SessionActions = require('../../actions/SessionActions');
 
 const BoardForm = React.createClass({
   getInitialState() {
@@ -54,10 +55,15 @@ const BoardForm = React.createClass({
     this.props.modalCallback();
     hashHistory.push("/");
   },
+  deleteButtonText() {
+    if (this.status === 'editing') {
+      return <i className="fa fa-trash-o form-icon" onClick={this.deleteBoard}></i>;
+    }
+    return <i className="fa fa-times form-icon" onClick={this.handleCancel}></i>;
+  },
   render() {
     const header = (this.status === 'editing' ? 'Edit Board' : 'Create a New Board');
     const buttonText = (this.status === 'editing' ? 'Update Board' : 'Create Board')
-    const deleteButton = (this.status === 'editing' ? <i className="fa fa-trash-o form-icon" onClick={this.deleteBoard}></i> : <i className="fa fa-times form-icon" onClick={this.handleCancel}></i>)
     return (
       <div className="board-form">
         <h2>{header}</h2>
@@ -81,7 +87,7 @@ const BoardForm = React.createClass({
             className="board-input"
           ></textarea>
         <button className="board-form-button">{buttonText}</button>
-        {deleteButton}
+        {this.deleteButtonText()}
         </form>
       </div>
     );

@@ -36,4 +36,10 @@ module.exports = {
       success: successCb,
     });
   },
+  fetchBoardPins(id, successCb) {
+    $.ajax({
+      url: `api/boards/${id}`,
+      success: successCb,
+    });
+  },
 };

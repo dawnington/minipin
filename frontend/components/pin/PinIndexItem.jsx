@@ -25,7 +25,7 @@ const PinIndexItem = React.createClass({
       <div className="pin-index-item">
         <div className="pin-index-sub" onClick={this.openPinDetail}>
           <div className="comment-overlay">{pin.description}</div>
-          <img src={pin.image_url} key={pin.id} alt="a hipster" className="pin-image" />
+          <img src={pin.image_url} key={pin.pinning_id} alt="a hipster" className="pin-image" />
         </div>
 
         <Modal show={this.state.detailShown} onHide={this.closePinDetail} >

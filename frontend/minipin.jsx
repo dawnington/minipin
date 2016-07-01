@@ -12,7 +12,11 @@ const App = require('./components/App');
 const Board = require('./components/board/Board');
 const LoginForm = require('./components/LoginForm');
 const SignupForm = require('./components/SignupForm');
-const UserPinIndex = require('./components/user/UserPinIndex');
+const UserPinPage = require('./components/user/UserPinPage');
+
+// Testing
+const BoardStore = require('./stores/BoardStore');
+window.BoardStore = BoardStore;
 
 function ensureLoggedIn(nextState, replace) {
   if (!SessionStore.loggedIn()) {
@@ -31,7 +35,7 @@ const routes = (
     <Route path="/" component={App} onEnter={ensureLoggedIn}>
       <Route path="boards" component={Board} />
       <Route path="boards/:boardId" component={Board} />
-      <Route path="users/:userId/pins" component={UserPinIndex} />
+      <Route path="users/:userId/pins" component={UserPinPage} />
     </Route>
     <Route path="login" component={LoginForm} onEnter={ensureLoggedOut} />
     <Route path="signup" component={SignupForm} onEnter={ensureLoggedOut} />
@@ -44,7 +48,3 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   ReactDOM.render(routes, document.getElementById('root'));
 });
-
-// Test
-const PinActions = require('./actions/PinActions');
-window.PinActions = PinActions;

@@ -1,4 +1,6 @@
+const BoardActions = require('../actions/BoardActions');
 const BoardForm = require('./board/BoardForm');
+const BoardStore = require('../stores/BoardStore');
 const hashHistory = require('react-router').hashHistory;
 const Link = require('react-router').Link;
 const Modal = require('react-bootstrap').Modal;
@@ -7,7 +9,17 @@ const SessionActions = require('../actions/SessionActions');
 
 const NavBar = React.createClass({
   getInitialState() {
-    return { modalShown: false };
+    return { modalShown: false, boards: BoardStore.all() };
+  },
+  componentDidMount() {
+    this.boardListener = BoardStore.addListener(this.onBoardChange);
+    BoardActions.fetchAllBoards(this.props.user.id);
+  },
+  componentWillUnmount() {
+    this.boardListener.remove();
+  },
+  onBoardChange() {
+    this.setState({ boards: BoardStore.all() });
   },
   showBoardForm() {
     this.setState({ modalShown: true });
@@ -39,7 +51,7 @@ const NavBar = React.createClass({
               <h3>My Boards</h3>
             </div>
             {
-              user.boards.map(board => {
+              this.state.boards.map(board => {
                 const boardLink = `/boards/${board.id}`;
                 return (
                   <div className="nav-item" key={board.id}>

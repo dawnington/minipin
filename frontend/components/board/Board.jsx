@@ -9,27 +9,19 @@ const SessionStore = require('../../stores/SessionStore');
 const Board = React.createClass({
   getInitialState() {
     this.boardId = parseInt(this.props.params.boardId);
-    const board = BoardStore.find(this.boardId) || { name: '', owner: { name: '' }, pins: [] };
+    const board = BoardStore.find(this.boardId) || { name: '', owner: { name: '' } };
     return { board, modalShown: false };
   },
   componentDidMount() {
     this.boardListener = BoardStore.addListener(this.onChange);
-    BoardActions.fetchSingleBoard(this.boardId);
-    this.checkForOwner();
+    BoardActions.fetchSingleBoard(this.boardId); // TODO: trying to fetch board before params have boardId?
   },
   componentWillReceiveProps(newProps) {
     this.boardId = parseInt(newProps.params.boardId);
     BoardActions.fetchSingleBoard(this.boardId);
-    this.checkForOwner();
   },
   componentWillUnmount() {
     this.boardListener.remove();
-  },
-  checkForOwner() {
-    if (SessionStore.currentUser().id === this.state.board.owner.id) {
-      return true;
-    }
-    return false;
   },
   showBoardForm() {
     this.setState({ modalShown: true });
@@ -40,6 +32,12 @@ const Board = React.createClass({
   onChange() {
     const board = BoardStore.find(this.boardId);
     this.setState({ board });
+  },
+  checkForOwner() {
+    if (SessionStore.currentUser().id === this.state.board.owner.id) {
+      return true;
+    }
+    return false;
   },
   render() {
     const board = this.state.board;
@@ -55,7 +53,7 @@ const Board = React.createClass({
           </div>
           {owner}
         </hgroup>
-        <PinIndex pins={board.pins} />
+        <PinIndex boardId={board.id} />
           <Modal show={this.state.modalShown} onHide={this.closeBoardForm} >
             <Modal.Body>
               <BoardForm board={board} modalCallback={this.closeBoardForm}/>
