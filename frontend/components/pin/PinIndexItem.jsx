@@ -24,7 +24,12 @@ const PinIndexItem = React.createClass({
     return (
       <div className="pin-index-item">
         <div className="pin-index-sub" onClick={this.openPinDetail}>
-          <div className="comment-overlay">{pin.description}</div>
+          <div className="comment-overlay">
+            <div className="comment">
+              <i className="fa fa-commenting-o"></i>
+              <h4>{pin.description}</h4>
+            </div>
+          </div>
           <img src={pin.image_url} key={pin.pinning_id} alt="a hipster" className="pin-image" />
         </div>
 

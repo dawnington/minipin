@@ -1,5 +1,9 @@
 .pin-detail {
-  width: 450px;
+  min-width: 450px;
+}
+
+.pin-detail-sub {
+  height: 100%;
 }
 
 .pin-detail-image {
