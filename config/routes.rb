@@ -5,6 +5,8 @@ Rails.application.routes.draw do
     resources :users, only: [:create, :show] do
       resources :boards, only: [:index]
       resources :pinnings, only: [:index]
+      get 'followers', on: :member
+      get 'following', on: :member
     end
     resource :session, only: [:create, :destroy]
     resources :pins, only: [:create]
