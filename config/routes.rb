@@ -8,11 +8,15 @@ Rails.application.routes.draw do
       get 'followers', on: :member
       get 'following', on: :member
     end
-    resource :session, only: [:create, :destroy]
-    resources :pins, only: [:create]
-    resources :pinnings, only: [:create, :destroy]
+
     resources :boards, only: [:create, :destroy, :show, :update] do
       resources :pinnings, only: [:index]
     end
+
+    resources :follows, only: [:create]
+    resources :pins, only: [:create]
+    resources :pinnings, only: [:create, :destroy]
+    resource :session, only: [:create, :destroy]
+
   end
 end
