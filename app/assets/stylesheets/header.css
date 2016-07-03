@@ -8,6 +8,18 @@
 .header-title {
   display: flex;
   align-items: baseline;
+  margin-bottom: 10px;
+}
+
+.header-link {
+  text-decoration: none;
+  color: gray;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.active {
+  color: #f2d737;
 }
 
 .board-name {
@@ -19,10 +31,6 @@
 .board-owner {
   font-size: 14px;
   color: grey;
-}
-
-.board-description {
-  margin-bottom: 10px;
 }
 
 .fa.fa-cog {

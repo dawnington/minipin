@@ -18,10 +18,8 @@ const SignupForm = require('./components/SignupForm');
 // const UserPinPage = require('./components/user/UserPinPage');
 
 // Testing
-const UserActions = require('./actions/UserActions');
-const UserStore = require('./stores/UserStore');
-window.UserActions = UserActions;
-window.UserStore = UserStore;
+const BoardStore = require('./stores/BoardStore');
+window.BoardStore = BoardStore;
 
 function ensureLoggedIn(nextState, replace) {
   if (!SessionStore.loggedIn()) {

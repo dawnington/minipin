@@ -23,8 +23,8 @@ const PinIndex = React.createClass({
   fetchPins(properties) {
     if (properties.hasOwnProperty('boardId')) {
       PinActions.fetchBoardPins(properties.boardId);
-    } else if (properties.hasOwnProperty('user')) {
-      PinActions.fetchUserPins(properties.user.id);
+    } else if (properties.hasOwnProperty('userId')) {
+      PinActions.fetchUserPins(properties.userId);
     }
   },
   render() {
