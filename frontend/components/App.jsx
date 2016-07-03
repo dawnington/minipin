@@ -30,9 +30,7 @@ const App = React.createClass({
     return (
       <div>
         <NavBar user={this.state.user} />
-        <div className="main">
-          {this.props.children}
-        </div>
+        {this.props.children}
       </div>
     );
   },

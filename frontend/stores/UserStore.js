@@ -33,7 +33,7 @@ UserStore.all = function () {
   return Object.keys(_users).map(id => _users[id]);
 };
 
-UserStore.findUser = function (id) {
+UserStore.find = function (id) {
   return _users[id];
 };
 

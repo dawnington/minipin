@@ -25,9 +25,9 @@ const NavBar = React.createClass({
   closeBoardForm() {
     this.setState({ modalShown: false });
   },
-  redirectToPins() {
-    const pinPath = `users/${this.props.user.id}/pins`;
-    hashHistory.push(pinPath);
+  redirectToProfile() {
+    const profilePath = `users/${this.props.user.id}`;
+    hashHistory.push(profilePath);
   },
   logout() {
     SessionActions.logout();
@@ -40,7 +40,7 @@ const NavBar = React.createClass({
         <i className="fa fa-bars"></i>
         <div className="sidebar-content">
           <div className="nav-content">
-            <div className="nav-item feed-link">
+            <div className="nav-item nav-button">
               Feed
               <Link to="/" className="nav-item-link"></Link>
             </div>
@@ -62,12 +62,8 @@ const NavBar = React.createClass({
             <div className="nav-item new-board-button" onClick={this.showBoardForm}>New Board</div>
           </div>
           <div className="nav-profile">
-            <div className="nav-header">
-              <i className="fa fa-chevron-right"></i>
-              <h3>{user.name}</h3>
-            </div>
-            <div className="nav-item" onClick={this.redirectToPins}>My Pins</div>
-            <div className="nav-item nav-log-out" onClick={this.logout}>Log Out</div>
+            <div className="nav-item nav-button" onClick={this.redirectToProfile}>{user.name}</div>
+            <div className="nav-item nav-button" onClick={this.logout}>Log Out</div>
           </div>
         </div>
         <Modal show={this.state.modalShown} onHide={this.closeBoardForm} >

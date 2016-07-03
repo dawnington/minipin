@@ -10,10 +10,12 @@ window.SessionStore = SessionStore;
 // Components
 const App = require('./components/App');
 const Board = require('./components/board/Board');
+const BoardIndex = require('./components/board/BoardIndex');
 const LoginForm = require('./components/LoginForm');
+const PinIndex = require('./components/pin/PinIndex');
 const Profile = require('./components/user/Profile');
 const SignupForm = require('./components/SignupForm');
-const UserPinPage = require('./components/user/UserPinPage');
+// const UserPinPage = require('./components/user/UserPinPage');
 
 // Testing
 const UserActions = require('./actions/UserActions');
@@ -36,10 +38,10 @@ function ensureLoggedOut(nextState, replace) {
 const routes = (
   <Router history={hashHistory}>
     <Route path="/" component={App} onEnter={ensureLoggedIn}>
-      <Route path="boards" component={Board} />
       <Route path="boards/:boardId" component={Board} />
       <Route path="users/:userId" component={Profile}>
-        <Route path="pins" component={UserPinPage} />
+        <IndexRoute component={BoardIndex} />
+        <Route path="pins" component={PinIndex} />
       </Route>
     </Route>
     <Route path="login" component={LoginForm} onEnter={ensureLoggedOut} />

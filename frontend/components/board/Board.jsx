@@ -42,7 +42,7 @@ const Board = React.createClass({
   render() {
     const board = this.state.board;
     return (
-      <div className="board">
+      <div className="main">
         <hgroup className="header">
           <div className="header-title">
             <h3 className="board-name">{board.name}</h3>

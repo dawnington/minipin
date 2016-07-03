@@ -23,13 +23,13 @@ const PinIndex = React.createClass({
   fetchPins(properties) {
     if (properties.hasOwnProperty('boardId')) {
       PinActions.fetchBoardPins(properties.boardId);
-    } else if (properties.hasOwnProperty('userId')) {
-      PinActions.fetchUserPins(properties.userId);
+    } else if (properties.hasOwnProperty('user')) {
+      PinActions.fetchUserPins(properties.user.id);
     }
   },
   render() {
     return (
-      <div className="pin-index">
+      <div className="card-index">
         {
           this.state.pins.map(pin =>
             <PinIndexItem pin={pin} key={pin.pinning_id} />
