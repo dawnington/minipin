@@ -43,12 +43,10 @@ const Board = React.createClass({
     const board = this.state.board;
     return (
       <div className="board">
-        <hgroup className="board-header">
-          <div className="board-heading">
-            <div className="board-title">
-              <h3 className="board-name">{board.name}</h3>
-              <h5 className="board-description">{board.description}</h5>
-            </div>
+        <hgroup className="header">
+          <div className="header-title">
+            <h3 className="board-name">{board.name}</h3>
+            <h5 className="board-description">{board.description}</h5>
           </div>
           {this.ownerButton()}
         </hgroup>

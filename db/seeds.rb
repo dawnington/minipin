@@ -9,7 +9,7 @@
 INSPIRATION = {
   'Love this look' => 'http://res.cloudinary.com/dojinyoct/image/upload/v1467408813/madewell_wf2y89.jpg',
   "Who doesn't love peonies?" => 'http://res.cloudinary.com/dojinyoct/image/upload/v1467408814/14261392044_5309dd92a3_k_t0lmhv.jpg',
-  'Amazing and grogeous detail' => 'http://res.cloudinary.com/dojinyoct/image/upload/v1467408814/stairs_pfn35b.jpg',
+  'Amazing and gorgeous detail' => 'http://res.cloudinary.com/dojinyoct/image/upload/v1467408814/stairs_pfn35b.jpg',
   'Love the granite and the whole minimalist vibe' => 'http://res.cloudinary.com/dojinyoct/image/upload/v1467408813/kitchen_jpthne.jpg',
   'Love the pop of color from the armchairs' => 'http://res.cloudinary.com/dojinyoct/image/upload/v1467408813/living_room_jzimas.jpg'
 }

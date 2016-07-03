@@ -20,6 +20,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-left: 10px;
 }
 
 .fa.fa-thumb-tack {
@@ -27,7 +28,7 @@
   font-size: 30px;
 }
 
-.fa.fa-trash-o.pin-delete {
+.fa.fa-trash.pin-delete {
   margin-left: 5px;
   cursor: pointer;
   font-size: 30px;

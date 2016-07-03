@@ -2,38 +2,3 @@
   padding-left: 20px;
   padding-right: 20px;
 }
-
-.board-header {
-  display: flex;
-  padding-top: 10px;
-  justify-content: space-between;
-  align-items: baseline;
-}
-
-.board-title {
-  display: flex;
-  align-items: baseline;
-}
-
-.board-name {
-  font-size: 20px;
-  margin-right: 10px;
-  margin-top: 10px;
-}
-
-.board-owner {
-  font-size: 14px;
-  color: grey;
-}
-
-.board-description {
-  margin-bottom: 10px;
-}
-
-.fa.fa-cog {
-  color: grey;
-  font-size: 22px;
-  margin: 10px;
-  align-self: flex-end;
-  cursor: pointer;
-}

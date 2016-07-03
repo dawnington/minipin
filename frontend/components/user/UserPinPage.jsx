@@ -17,15 +17,7 @@ const UserPinIndex = React.createClass({
   },
   render() {
     return (
-      <div className="board">
-        <hgroup className="board-header">
-          <div className="board-heading">
-            <div className="board-title">
-              <h3 className="board-name">My Pins</h3>
-              <h5 className="board-description">All of the things that inspire me</h5>
-            </div>
-          </div>
-        </hgroup>
+      <div>
         <PinIndex userId={this.state.user.id} />
       </div>
     );
@@ -33,3 +25,11 @@ const UserPinIndex = React.createClass({
 });
 
 module.exports = UserPinIndex;
+
+
+// <hgroup className="header">
+//   <div className="header-title">
+//     <h3 className="board-name">My Pins</h3>
+//     <h5 className="board-description">All of the things that inspire me</h5>
+//   </div>
+// </hgroup>

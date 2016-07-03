@@ -11,18 +11,15 @@ window.SessionStore = SessionStore;
 const App = require('./components/App');
 const Board = require('./components/board/Board');
 const LoginForm = require('./components/LoginForm');
+const Profile = require('./components/user/Profile');
 const SignupForm = require('./components/SignupForm');
 const UserPinPage = require('./components/user/UserPinPage');
 
 // Testing
-const BoardStore = require('./stores/BoardStore');
-const PinActions = require('./actions/PinActions');
-const PinStore = require('./stores/PinStore');
-const FollowApiUtil = require('./util/FollowApiUtil');
-window.FollowApiUtil = FollowApiUtil;
-window.PinActions = PinActions;
-window.PinStore = PinStore;
-window.BoardStore = BoardStore;
+const UserActions = require('./actions/UserActions');
+const UserStore = require('./stores/UserStore');
+window.UserActions = UserActions;
+window.UserStore = UserStore;
 
 function ensureLoggedIn(nextState, replace) {
   if (!SessionStore.loggedIn()) {
@@ -41,7 +38,9 @@ const routes = (
     <Route path="/" component={App} onEnter={ensureLoggedIn}>
       <Route path="boards" component={Board} />
       <Route path="boards/:boardId" component={Board} />
-      <Route path="users/:userId/pins" component={UserPinPage} />
+      <Route path="users/:userId" component={Profile}>
+        <Route path="pins" component={UserPinPage} />
+      </Route>
     </Route>
     <Route path="login" component={LoginForm} onEnter={ensureLoggedOut} />
     <Route path="signup" component={SignupForm} onEnter={ensureLoggedOut} />

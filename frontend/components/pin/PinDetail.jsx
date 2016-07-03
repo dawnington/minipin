@@ -8,7 +8,7 @@ const PinDetail = React.createClass({
   },
   checkForOwner() {
     if (SessionStore.currentUser().id === this.props.pin.owner_id) {
-      return <i className="fa fa-trash-o pin-delete" onClick={this.deletePin}></i>;
+      return <i className="fa fa-trash pin-delete" onClick={this.deletePin}></i>;
     }
     return <div></div>
   },
