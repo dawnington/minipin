@@ -9,6 +9,9 @@ module.exports = {
   fetchAllPins() {
     PinApiUtil.fetchAllPins(this.receiveAllPins);
   },
+  fetchFeed(id) {
+    PinApiUtil.fetchFeed(id, this.receiveAllPins);
+  },
   fetchUserPins(id) {
     PinApiUtil.fetchUserPins(id, this.receiveAllPins);
   },

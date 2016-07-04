@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       resources :pinnings, only: [:index]
       get 'followers', on: :member
       get 'following', on: :member
+      get 'feed', on: :member
     end
 
     resources :boards, only: [:create, :destroy, :show, :update] do

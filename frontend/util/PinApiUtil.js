@@ -7,6 +7,12 @@ module.exports = {
       success,
     });
   },
+  fetchFeed(id, success) {
+    $.ajax({
+      url: `api/users/${id}/feed`,
+      success,
+    });
+  },
   createPin(pin, successCb, errorCb) {
     $.ajax({
       method: 'POST',

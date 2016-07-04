@@ -29,6 +29,12 @@ class Api::UsersController < ApplicationController
     @follows = @user.out_follows
   end
 
+  def feed
+    user = User.find(params[:id])
+    @pinnings = user.feed
+    render 'api/pinnings/index'
+  end
+
   private
 
   def user_params

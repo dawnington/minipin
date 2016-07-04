@@ -30,7 +30,7 @@ const App = React.createClass({
     return (
       <div>
         <NavBar user={this.state.user} />
-        {this.props.children}
+        {React.cloneElement(this.props.children, { userId: this.state.user.id })}
       </div>
     );
   },

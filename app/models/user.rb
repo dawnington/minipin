@@ -14,6 +14,15 @@ class User < ActiveRecord::Base
   has_many :followers, through: :in_follows, source: :follower
   has_many :followees, through: :out_follows, source: :followee
 
+  def feed
+    pinnings = []
+    followees = self.followees
+    followees.each do |followee|
+      followee.pinnings.each { |pinning| pinnings.push(pinning) }
+    end
+    pinnings
+  end
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
