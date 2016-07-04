@@ -1,5 +1,6 @@
 const BoardConstants = require('../constants/BoardConstants');
 const Dispatcher = require('../dispatcher/Dispatcher');
+const FollowConstants = require('../constants/FollowConstants');
 const hashHistory = require('react-router').hashHistory;
 const SessionConstants = require('../constants/SessionConstants');
 const Store = require('flux/utils').Store;
@@ -33,6 +34,16 @@ function removeBoard(board) {
   SessionStore.__emitChange();
 }
 
+function addFollow(follow) {
+  _currentUser.follows[follow.user_id] = follow;
+  SessionStore.__emitChange();
+}
+
+function removeFollow(follow) {
+  delete _currentUser.follows[follow.user_id];
+  SessionStore.__emitChange();
+}
+
 SessionStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case SessionConstants.LOGIN:
@@ -46,6 +57,12 @@ SessionStore.__onDispatch = function (payload) {
       break;
     case BoardConstants.BOARD_REMOVED:
       removeBoard(payload.board);
+      break;
+    case FollowConstants.NEW_FOLLOW:
+      addFollow(payload.follow);
+      break;
+    case FollowConstants.FOLLOW_REMOVED:
+      removeFollow(payload.follow);
       break;
     default:
       break;

@@ -10,15 +10,27 @@ module.exports = {
     FollowApiUtil.fetchFollowees(id, this.receiveFollows);
   },
   addFollow(follow) {
-    FollowApiUtil.createFollow(follow, this.printSomething, this.printSomething);
+    FollowApiUtil.createFollow(follow, this.receiveFollow, this.printSomething);
   },
   deleteFollow(id) {
-    FollowApiUtil.deleteFollow(id, this.printSomething, this.printSomething);
+    FollowApiUtil.deleteFollow(id, this.removeFollow, this.printSomething);
   },
   receiveFollows(follows) {
     Dispatcher.dispatch({
       actionType: FollowConstants.FOLLOWS_RECEIVED,
       follows,
+    });
+  },
+  receiveFollow(follow) {
+    Dispatcher.dispatch({
+      actionType: FollowConstants.NEW_FOLLOW,
+      follow,
+    });
+  },
+  removeFollow(follow) {
+    Dispatcher.dispatch({
+      actionType: FollowConstants.FOLLOW_REMOVED,
+      follow,
     });
   },
   printSomething(thing) {

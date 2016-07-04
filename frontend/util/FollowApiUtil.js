@@ -17,6 +17,7 @@ module.exports = {
     $.ajax({
       method: 'POST',
       url: 'api/follows',
+      data: { follow },
       success,
       error,
     });

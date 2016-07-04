@@ -1,7 +1,8 @@
-const Link = require('react-router').Link;
-const React = require('react');
 const FollowActions = require('../../actions/FollowActions');
 const FollowStore = require('../../stores/FollowStore');
+const Link = require('react-router').Link;
+const React = require('react');
+const UserIndexItem = require('./UserIndexItem');
 
 const FollowIndex = React.createClass({
   getInitialState() {
@@ -34,10 +35,9 @@ const FollowIndex = React.createClass({
       <div>
         <ul>
           {
-            this.state.follows.map(follow => {
-              const userPath = `users/${follow.user_id}`;
-              return <Link to={userPath} key={follow.id}>{follow.name}</Link>;
-            })
+            this.state.follows.map(follow =>
+              <UserIndexItem follow={follow} key={follow.id} />
+            )
           }
         </ul>
       </div>

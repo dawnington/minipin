@@ -1,3 +1,25 @@
 .profile-main {
   padding: 20px;
 }
+
+.user-index-item {
+  background-color: lightgray;
+  border-radius: 5px;
+  height: 30px;
+  margin: 5px;
+  text-align: center;
+  padding: 10px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.follow-button {
+  background-color: gray;
+  color: white;
+  width: 70px;
+  text-align: center;
+  border-radius: 5px;
+  padding: 5px;
+}
