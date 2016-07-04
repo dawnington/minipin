@@ -1,6 +1,7 @@
 const BoardActions = require('../../actions/BoardActions');
 const BoardForm = require('./BoardForm');
 const BoardStore = require('../../stores/BoardStore');
+const hashHistory = require('react-router').hashHistory;
 const Modal = require('react-bootstrap').Modal;
 const PinIndex = require('../pin/PinIndex');
 const React = require('react');
@@ -27,6 +28,10 @@ const Board = React.createClass({
     const board = BoardStore.find(this.boardId);
     this.setState({ board });
   },
+  goToOwner() {
+    const profilePath = `users/${this.state.board.owner.id}`;
+    hashHistory.push(profilePath);
+  },
   showBoardForm() {
     this.setState({ modalShown: true });
   },
@@ -37,7 +42,7 @@ const Board = React.createClass({
     if (SessionStore.currentUser().id === this.state.board.owner.id) {
       return <i className="fa fa-cog" onClick={this.showBoardForm}></i>;
     }
-    return <h3 className="board-owner">by {this.state.board.owner.name}</h3>;
+    return <h3 className="board-owner" onClick={this.goToOwner}>by {this.state.board.owner.name}</h3>;
   },
   render() {
     const board = this.state.board;

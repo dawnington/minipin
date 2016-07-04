@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       resources :pinnings, only: [:index]
     end
 
-    resources :follows, only: [:create]
+    resources :follows, only: [:create, :destroy]
     resources :pins, only: [:create]
     resources :pinnings, only: [:create, :destroy]
     resource :session, only: [:create, :destroy]

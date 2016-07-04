@@ -16,6 +16,7 @@ const PinIndex = React.createClass({
   },
   componentWillUnmount() {
     this.pinListener.remove();
+    PinActions.emptyStore();
   },
   onChange() {
     this.setState({ pins: PinStore.all() });

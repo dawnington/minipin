@@ -8,3 +8,7 @@
   height: 150px;
   margin: 5px;
 }
+
+.board-owner {
+  cursor: pointer;
+}

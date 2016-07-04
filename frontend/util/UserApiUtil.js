@@ -19,4 +19,20 @@ module.exports = {
       success,
     });
   },
+  createFollow(follow, success, error) {
+    $.ajax({
+      method: 'POST',
+      url: 'api/follows',
+      success,
+      error,
+    });
+  },
+  deleteFollow(id, success, error) {
+    $.ajax({
+      method: 'DELETE',
+      url: `api/follows/${id}`,
+      success,
+      error,
+    });
+  },
 };

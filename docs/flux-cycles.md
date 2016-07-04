@@ -126,7 +126,7 @@ what you'll need to do.
   0. `GET /api/users` is called.
   0. `receiveAllUsers` is set as the callback.
 
-* `fetchSingleUser`
+* `fetchUserProfile`
   0. invoked from `UserDetail` `didMount`/`willReceiveProps`
   0. `GET /api/users/:id` is called.
   0. `receiveSingleUser` is set as the callback.

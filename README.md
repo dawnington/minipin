@@ -127,12 +127,13 @@ which has its own `Index` view.
 - implement each component
   - [ ] `FeedIndex`
   - [ ] `UsersIndex` (for displaying followers and followees)
-- [ ] Finish styling profile page and style new elements
+- [ ] Finish styling profile page and sgtyle new elements
 
 ### Phase 8: Styling Cleanup and Seeding (1 day, W2 T 6pm)
 
 **objective:** Make the site feel more cohesive and awesome.
 
+- [ ] add infinite scrolling and masonry
 - [ ] make user interface more intuitive
 - [ ] Get feedback on my UI from others
 - [ ] Refactor HTML classes & CSS rules

@@ -11,15 +11,11 @@ window.SessionStore = SessionStore;
 const App = require('./components/App');
 const Board = require('./components/board/Board');
 const BoardIndex = require('./components/board/BoardIndex');
+const FollowIndex = require('./components/user/FollowIndex');
 const LoginForm = require('./components/LoginForm');
 const PinIndex = require('./components/pin/PinIndex');
 const Profile = require('./components/user/Profile');
 const SignupForm = require('./components/SignupForm');
-// const UserPinPage = require('./components/user/UserPinPage');
-
-// Testing
-const BoardStore = require('./stores/BoardStore');
-window.BoardStore = BoardStore;
 
 function ensureLoggedIn(nextState, replace) {
   if (!SessionStore.loggedIn()) {
@@ -40,6 +36,8 @@ const routes = (
       <Route path="users/:userId" component={Profile}>
         <IndexRoute component={BoardIndex} />
         <Route path="pins" component={PinIndex} />
+        <Route path="followers" component={FollowIndex} />
+        <Route path="following" component={FollowIndex} />
       </Route>
     </Route>
     <Route path="login" component={LoginForm} onEnter={ensureLoggedOut} />

@@ -42,4 +42,9 @@ module.exports = {
       pinning,
     });
   },
+  emptyStore() {
+    Dispatcher.dispatch({
+      actionType: PinConstants.EMPTY_STORE,
+    });
+  },
 };

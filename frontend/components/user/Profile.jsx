@@ -1,4 +1,4 @@
-const hashHistory = require('react-router').hashHistory;
+// const hashHistory = require('react-router').hashHistory;
 const IndexLink = require('react-router').IndexLink;
 const Link = require('react-router').Link;
 const React = require('react');
@@ -8,22 +8,22 @@ const UserStore = require('../../stores/UserStore');
 const Profile = React.createClass({
   getInitialState() {
     this.userId = this.props.params.userId;
-    const user = UserStore.find(this.userId) || {};
+    const user = UserStore.profile() || {};
     return { user };
   },
   componentDidMount() {
     this.userListener = UserStore.addListener(this.onChange);
-    UserActions.fetchSingleUser(this.userId);
+    UserActions.fetchUserProfile(this.userId);
   },
   componentWillReceiveProps(newProps) {
     this.userId = newProps.params.userId;
-    UserActions.fetchSingleUser(this.userId);
+    UserActions.fetchUserProfile(this.userId);
   },
   componentWillUnmount() {
     this.userListener.remove();
   },
   onChange() {
-    const user = UserStore.find(this.userId);
+    const user = UserStore.profile();
     this.setState({ user });
   },
   render() {

@@ -21,6 +21,10 @@ function removePin(pin) {
   PinStore.__emitChange();
 }
 
+function emptyStore() {
+  _pins = {};
+}
+
 PinStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case PinConstants.PINS_RECEIVED:
@@ -31,6 +35,9 @@ PinStore.__onDispatch = function (payload) {
       break;
     case PinConstants.PINNING_REMOVED:
       removePin(payload.pinning);
+      break;
+    case PinConstants.EMPTY_STORE:
+      emptyStore();
       break;
     default:
       break;
