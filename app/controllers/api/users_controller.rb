@@ -22,13 +22,11 @@ class Api::UsersController < ApplicationController
   def followers
     @user = User.find(params[:id])
     @follows = @user.in_follows
-    render 'api/follows/index'
   end
 
   def following
     @user = User.find(params[:id])
     @follows = @user.out_follows
-    render 'api/follows/index'
   end
 
   private

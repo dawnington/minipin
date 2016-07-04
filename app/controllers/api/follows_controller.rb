@@ -10,6 +10,12 @@ class Api::FollowsController < ApplicationController
     end
   end
 
+  def destroy
+    @follow = Follow.find(params[:id])
+    @follow.destroy
+    render :show
+  end
+
   private
 
   def follow_params
