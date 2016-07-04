@@ -51,24 +51,18 @@ MiniPin is a web application inspired by Pinterest that will be built using Ruby
 - [ ] user signup/signin pages
 - [ ] blank landing page after signin
 
-### Phase 2: Pins Model, API, and basic APIUtil (1.5 days, W1 Th 12pm)
+### Phase 2: Pin Model, API, APIUtil, Flux Architecture, and Router (1 day, W1 W 6pm)
 
-**Objective:** Pins can be read and Pinnings can be created through
-the API.
+**Objective:** Pins can be read through
+the API and user interface
 
 - [ ] create `Pin` model
 - [ ] seed the database with a small amount of test data
-- [ ] CRUD API for boards (`PinsController`)
+- [ ] CRUD API for pins (`PinsController`)
 - [ ] jBuilder views for pins
 - [ ] setup Webpack & Flux scaffold
 - [ ] setup `APIUtil` to interact with the API
 - [ ] test out API interaction in the console.
-
-### Phase 3: Flux Architecture and Router (1.5 days, W1 F 6pm)
-
-**Objective:** Pins can be read and Pinnings can be created with the
-user interface.
-
 - [ ] setup the flux loop with skeleton files
 - [ ] setup React Router
 - implement each Pin component, building out the flux loop as needed.
@@ -77,21 +71,18 @@ user interface.
   - [ ] `PinDetail`
   - [ ] `PinForm`
 
-### Phase 4: Start Styling (0.5 days, W2 M 12pm)
+### Phase 3: Pinnings and Board Model, API, APIUtil, Flux Architecture and Router (1 day, W1 Th 6pm)
 
-**Objective:** Existing pages (including signup/signin) will look good.
+**Objective:** Boards can be read, created, edited, and destroyed through the user interface. Pinnings can be created and destroyed through the user interface.
 
-- [ ] create a basic style guide
-- [ ] position elements on the page
-- [ ] add basic colors & styles
-
-### Phase 5: Boards (1 day, W2 Tu 12pm)
-
-**Objective:** Pins belong to Boards, and can be viewed by Board.
-
-- [ ] create `Board` model
+- [ ] create `Board` and `Pinning` model
+- [ ] seed the database with test data
+- [ ] CRUD API for boards and pinnings (`BoardsController` and `PinningsController`)
+- [ ] jBuilder view for Boards and Pinnings
+- implement each Board Component
+  - [ ] `Board`
+  - [ ] `BoardForm`
 - build out API, Flux loop, and components for:
-  - [ ] Board CRUD
   - [ ] adding pins requires a board
   - [ ] moving pins to a different board
   - [ ] viewing pins by board
@@ -100,27 +91,49 @@ user interface.
 Phase 3 adds organization to the Pins. Pins belong to a Board,
 which has its own `Index` view.
 
-### Phase 6: Follows (1 days, W2 Th 12pm)
+### Phase 4: Start Styling (0.5 day, W1 F 12pm)
+
+**Objective:** Existing pages (including signup/signin) will look good.
+
+- [ ] create a basic style guide
+- [ ] position elements on the page
+- [ ] add basic colors & styles
+
+### Phase 5: Follows (0.5 day, W1 F 6pm)
+
+**Objective:** Users can follow other users. Users have followers and followees.
+
+- [ ] create `Follow` model and join table
+- [ ] specify model associations (user has many followers and followees)
+- [ ] create `users/:id/followers` and `users/:id/following` routes and actions
+
+### Phase 6: User Profile
+
+**Objective:** Users have a profile page, which displays a user's boards, pins, followers, and followees (0.5 day, W2 Su 12pm)
+
+- implement each Profile component
+  - [ ] `Profile`
+  - [ ] `BoardIndex` displays a user's boards
+- [ ] set up React Router, including IndexLink and Links
+
+### Phase 7: Follows APIUtil, Flux Architecture and Router  (1 day, W2 M 6pm)
 
 **Objective:** Users can follow other users, and home page shows pins of followed users.
 
-- [ ] create `Follow` model and join table
-- build out API, Flux loop, and components for:
-  - [ ] fetching followers for a user
-  - [ ] fetching followed users of a user
+- build out API, Flux loop, and routes for:
+  - [ ] following a user
+  - [ ] unfollowing a user
   - [ ] fetching pins of followed users
-- [ ] Style new elements
+- implement each component
+  - [ ] `FeedIndex`
+  - [ ] `UsersIndex` (for displaying followers and followees)
+- [ ] Finish styling profile page and style new elements
 
-### Phase 7: Allow Complex Styling in Pins (0.5 days, W2 Th 6pm)
-
-**objective:** Enable complex styling of pins.
-
-- [ ] Use Rails helpers to sanitize HTML before rendering.
-
-### Phase 8: Styling Cleanup and Seeding (1 day, W2 F 6pm)
+### Phase 8: Styling Cleanup and Seeding (1 day, W2 T 6pm)
 
 **objective:** Make the site feel more cohesive and awesome.
 
+- [ ] make user interface more intuitive
 - [ ] Get feedback on my UI from others
 - [ ] Refactor HTML classes & CSS rules
 - [ ] Add modals, transitions, and other styling flourishes.
