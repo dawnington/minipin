@@ -29,7 +29,7 @@ const PinIndex = React.createClass({
   },
   render() {
     return (
-      <div className="card-index">
+      <div className="card-index pin-index">
         {
           this.state.pins.map(pin =>
             <PinIndexItem pin={pin} key={pin.pinning_id} />

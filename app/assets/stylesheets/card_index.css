@@ -1,0 +1,13 @@
+.card-index {
+  width: inherit;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  /*justify-content: space-between;*/
+}
+
+.card-index-item {
+  width: 250px;
+  position: relative;
+  cursor: pointer;
+}

@@ -36,18 +36,28 @@ const Profile = React.createClass({
       <div className="main">
         <hgroup className="header">
           <div className="header-title">
-            <h3 className="board-name">{user.name}</h3>
+            <h3 className="header-name">{user.name}</h3>
             <div className="header-nav">
               <IndexLink
                 to={indexPath}
                 className="header-link"
                 activeClassName="active"
-              >
-                  Boards
-              </IndexLink>
-              <Link to={pinPath} className="header-link" activeClassName="active">Pins</Link>
-              <Link to={followersPath} className="header-link" activeClassName="active">Followers</Link>
-              <Link to={followingPath} className="header-link" activeClassName="active">Following</Link>
+              >Boards</IndexLink>
+              <Link
+                to={pinPath}
+                className="header-link"
+                activeClassName="active"
+              >Pins</Link>
+              <Link
+                to={followersPath}
+                className="header-link"
+                activeClassName="active"
+              >Followers</Link>
+              <Link
+                to={followingPath}
+                className="header-link"
+                activeClassName="active"
+              >Following</Link>
             </div>
           </div>
         </hgroup>

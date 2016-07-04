@@ -22,7 +22,7 @@ const BoardIndex = React.createClass({
   },
   render() {
     return (
-      <div className="card-index">
+      <div className="card-index board-index">
         {
           this.state.boards.map(board =>
             <BoardIndexItem board={board} key={board.id} />

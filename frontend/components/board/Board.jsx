@@ -45,7 +45,7 @@ const Board = React.createClass({
       <div className="main">
         <hgroup className="header">
           <div className="header-title">
-            <h3 className="board-name">{board.name}</h3>
+            <h3 className="header-name">{board.name}</h3>
             <h5 className="board-description">{board.description}</h5>
           </div>
           {this.ownerButton()}
