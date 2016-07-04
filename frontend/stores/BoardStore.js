@@ -22,6 +22,10 @@ function removeBoard(board) {
   BoardStore.__emitChange();
 }
 
+function emptyStore() {
+  _boards = {};
+}
+
 BoardStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case BoardConstants.BOARDS_RECEIVED:
@@ -32,6 +36,9 @@ BoardStore.__onDispatch = function (payload) {
       break;
     case BoardConstants.BOARD_REMOVED:
       removeBoard(payload.board);
+      break;
+    case BoardConstants.EMPTY_STORE:
+      emptyStore();
       break;
     default:
       break;

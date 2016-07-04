@@ -31,7 +31,6 @@ const NavBar = React.createClass({
   },
   logout() {
     SessionActions.logout();
-    hashHistory.push("/");
   },
   render() {
     const user = this.props.user;

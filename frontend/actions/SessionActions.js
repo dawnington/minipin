@@ -10,7 +10,7 @@ module.exports = {
       user,
     });
   },
-  dispatchLogout() {
+  receiveLogout() {
     Dispatcher.dispatch({
       actionType: SessionConstants.LOGOUT,
     });
@@ -22,7 +22,7 @@ module.exports = {
     SessionApiUtil.login(user, this.receiveCurrentUser, ErrorActions.setErrors);
   },
   logout() {
-    SessionApiUtil.logout(this.dispatchLogout, this.logErrors);
+    SessionApiUtil.logout(this.receiveLogout, this.logErrors);
   },
   guestLogin() {
     const user = { username: 'joe', password: 'joejoe' };

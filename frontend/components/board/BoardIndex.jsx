@@ -16,6 +16,7 @@ const BoardIndex = React.createClass({
   },
   componentWillUnmount() {
     this.boardListener.remove();
+    BoardActions.emptyStore();
   },
   onChange() {
     this.setState({ boards: BoardStore.all() });

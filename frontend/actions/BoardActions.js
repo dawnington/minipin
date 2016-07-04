@@ -19,6 +19,11 @@ module.exports = {
   deleteBoard(id) {
     BoardApiUtil.deleteBoard(id, this.boardRemoved);
   },
+  emptyStore() {
+    Dispatcher.dispatch({
+      actionType: BoardConstants.EMPTY_STORE,
+    });
+  },
   receiveAllBoards(boards) {
     Dispatcher.dispatch({
       actionType: BoardConstants.BOARDS_RECEIVED,

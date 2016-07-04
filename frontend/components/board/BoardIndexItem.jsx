@@ -11,8 +11,8 @@ const BoardIndexItem = React.createClass({
     return (
       <div className="card-index-item" onClick={this.redirectToBoard}>
         <div className="board-index-item">
-          {board.name}
-          {board.description}
+          <h3>{board.name}</h3>
+          <h5>{board.description}</h5>
         </div>
       </div>
     );

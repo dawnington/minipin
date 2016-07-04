@@ -2,7 +2,6 @@ const BoardActions = require('../../actions/BoardActions');
 const ErrorStore = require('../../stores/ErrorStore');
 const hashHistory = require('react-router').hashHistory;
 const React = require('react');
-const SessionActions = require('../../actions/SessionActions');
 
 const BoardForm = React.createClass({
   getInitialState() {
