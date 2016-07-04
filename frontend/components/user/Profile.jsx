@@ -54,8 +54,8 @@ const Profile = React.createClass({
   },
   isFollowed() {
     const currentUserFollows = this.state.currentUser.follows;
-    if (currentUserFollows[this.state.user.id]) {
-      return 'Unfollow';
+    if (currentUserFollows && currentUserFollows[this.state.user.id]) {
+        return 'Unfollow';
     }
     return 'Follow';
   },

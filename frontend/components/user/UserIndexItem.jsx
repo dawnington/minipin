@@ -17,7 +17,6 @@ const UserIndexItem = React.createClass({
     this.setState({ currentUser: SessionStore.currentUser() });
   },
   redirectToProfile(e) {
-    e.stopPropagation();
     const profilePath = `users/${this.props.follow.user_id}`;
     hashHistory.push(profilePath);
   },

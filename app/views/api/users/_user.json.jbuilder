@@ -5,6 +5,7 @@ json.boards user.boards.each do |board|
   json.name board.name
 end
 
+json.follows({})
 json.follows do
   user.out_follows.each do |follow|
     json.set! follow.followee_id do

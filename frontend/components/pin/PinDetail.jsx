@@ -32,7 +32,7 @@ const PinDetail = React.createClass({
           <img src={pin.image_url} alt="a hipster" className="pin-detail-image"/>
           <div className="pin-detail-container">
             <div className="pin-description">
-              <h4>{pin.description}</h4>
+              <h3>{pin.description}</h3>
               <h5 className="board-owner" onClick={this.goToOwner}>{pin.owner}</h5>
             </div>
             <div className="pin-detail-icons">
