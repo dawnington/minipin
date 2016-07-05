@@ -1,6 +1,5 @@
 const FollowActions = require('../../actions/FollowActions');
 const FollowStore = require('../../stores/FollowStore');
-const Link = require('react-router').Link;
 const React = require('react');
 const UserIndexItem = require('./UserIndexItem');
 

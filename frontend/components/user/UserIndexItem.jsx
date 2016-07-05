@@ -39,14 +39,22 @@ const UserIndexItem = React.createClass({
     }
     return 'Follow';
   },
+  followButton() {
+    if (this.state.currentUser.id === this.props.follow.user_id) {
+      return <div></div>;
+    }
+    return (
+      <button className="follow-button" onClick={this.toggleFollow}>
+        <h4>{this.isFollowed()}</h4>
+      </button>
+    );
+  },
   render() {
     const follow = this.props.follow;
     return (
       <div className="user-index-item">
         <h3 onClick={this.redirectToProfile}>{follow.name}</h3>
-        <button className="follow-button" onClick={this.toggleFollow}>
-          <h4>{this.isFollowed()}</h4>
-        </button>
+        {this.followButton()}
       </div>
     );
   },
