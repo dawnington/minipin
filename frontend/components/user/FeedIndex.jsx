@@ -1,7 +1,8 @@
-const React = require('react');
+const Masonry = require('react-masonry-component');
 const PinActions = require('../../actions/PinActions');
 const PinStore = require('../../stores/PinStore');
 const PinIndexItem = require('../pin/PinIndexItem');
+const React = require('react');
 
 const FeedIndex = React.createClass({
   getInitialState() {
@@ -23,13 +24,13 @@ const FeedIndex = React.createClass({
   },
   render() {
     return (
-      <div className="card-index pin-index">
+      <Masonry className="pin-index">
         {
           this.state.pins.map(pin =>
             <PinIndexItem pin={pin} key={pin.pinning_id} />
           )
         }
-      </div>
+      </Masonry>
     );
   },
 });

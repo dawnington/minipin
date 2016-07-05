@@ -6,10 +6,12 @@
   background-color: lightgray;
   border-radius: 5px;
   height: 30px;
-  margin: 5px;
+  width: 250px;
+  cursor: pointer;
+  margin-right: 5px;
   text-align: center;
   padding: 10px;
-  color: white;
+  color: black;
   display: flex;
   justify-content: space-between;
   align-items: center;

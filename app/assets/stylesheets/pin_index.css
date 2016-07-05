@@ -1,11 +1,16 @@
 .pin-index {
-  justify-content: space-between;
+  position: relative;
 }
 
 .pin-index-item {
   width: inherit;
   height: inherit;
   position: relative;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 300px;
+  position: relative;
+  cursor: pointer;
 }
 
 .pin-image {
