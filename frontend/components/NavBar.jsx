@@ -40,7 +40,7 @@ const NavBar = React.createClass({
         <div className="sidebar-content">
           <div className="nav-content">
             <div className="nav-item nav-button">
-              Feed
+              <h3>Feed</h3>
               <Link to="/" className="nav-item-link"></Link>
             </div>
             <div className="nav-header">

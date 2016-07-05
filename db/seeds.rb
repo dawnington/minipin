@@ -7,7 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 INSPIRATION = {
-  'Love this look' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467408813/madewell_wf2y89.jpg',
   "Who doesn't love peonies?" => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467408814/14261392044_5309dd92a3_k_t0lmhv.jpg',
   'Our own little indoor garden' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467737490/cacti_ilbxl3.jpg',
   'Amazing and gorgeous detail' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467408814/stairs_pfn35b.jpg',
@@ -17,7 +16,16 @@ INSPIRATION = {
   'Love the simple curtains and the light' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467737493/curtainedwindows_fb93wh.jpg',
   'Love the clean shape of these leaves' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467739056/leaves_l6eevy.jpg',
   'Sometimes a clean look is nice (if you can keep it clean)' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467740059/chairandbasket_q3zmho.jpg',
-  "Can't have a home without a kitten!" => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467741151/kitten_jdneme.jpg'
+  "Can't have a home without a kitten!" => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467741151/kitten_jdneme.jpg',
+  'This vase is so delicate' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467756744/cutoutvase_c4zkzc.jpg',
+  'Perfect work-from-home setup' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467756742/deskwithplants_x6cxkl.jpg',
+  'New seedlings for spring' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467760701/seedlings_olagrc.jpg',
+  'Books and magazines to spend the day with' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467760972/booksandfeet_comtv1.jpg',
+  'Colorful cacti' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467760977/colorfulcacti_llhzjg.jpg',
+  'Great natural light' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467760974/lightroom_ah3mmc.jpg',
+  'Need these lights for the patio!' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467760983/patiolights_mgwmha.jpg',
+  'How did they make cement look cozy?' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467762033/cozycement_pcd3bf.jpg',
+  'What kind of mailbox should we get?' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467762038/mailboxes_qd4n1p.jpg'
 }
 
 TRAVEL = {
@@ -38,6 +46,15 @@ TRAVEL = {
   'The Northern Lights are definitely on my bucket list' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467740394/northernlights_qraw4z.jpg',
   'This is gorgeous' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467741058/crazyvalley_odlv0n.jpg',
   'Fushimi Inari Shrine, Japan' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467741065/fushiki_sorr1i.jpg',
+  'Nothing like cooking over a campfire grill' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467756751/campfire_pytmme.jpg',
+  'The mosques in Turkey look beautiful' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467756745/turkey_qjvjpm.jpg',
+  'I can already feel the wind in my hair' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467760705/cliffcloseup_z8hpbk.jpg',
+  'I love night markets!' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467760698/paperlantern_ipmefo.jpg',
+  'The hills are alive with the sound of music' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467760698/rivervalley_lda2sa.jpg',
+  'Breathtaking' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467760973/mountainclimbing_qv4uqk.jpg',
+  'Amazing view' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467760982/ricepaddies_rx57ns.jpg',
+  'Great place for a meeting' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467761667/powow_zunsyl.jpg',
+  'Gorgeous sand dunes' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467762032/sanddunes_awyoui.jpg'
 }
 
 CARS = {
@@ -51,7 +68,11 @@ CARS = {
   'Gotta love those buses' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467739059/coffeebus_mgywmi.jpg',
   'Nothing like riding a motorcycle on a gorgeous day' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467740068/hondamotorcycle_byprgc.jpg',
   'Airports look amazing from above' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467741150/airport_xezkhy.jpg',
-  'Great racks!' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467741150/beetle2_sperp7.jpg'
+  'Great racks!' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467741150/beetle2_sperp7.jpg',
+  'Gray on gray' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467760693/planeinthesky_sreoqp.jpg',
+  'Nice touch' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467761681/ford_sknbjz.jpg',
+  'Getting ready for a ride' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467762032/motorcyclist_gbddeg.jpg',
+  'Gotta love the simplicity of a skateboard' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467762036/skateboard_qglndk.jpg'
 }
 
 ARCHITECTURE = {
@@ -75,7 +96,15 @@ ARCHITECTURE = {
   'Reminds me of a slinky' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467740397/slinkybuilding_hufygl.jpg',
   'Amazing details' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467741054/detailedbrickbuilding_ztamys.jpg',
   'Stockholm looks like a beautiful city' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467741059/finland_b5djs5.jpg',
-  'Sharp angles!' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467741057/sharpbuilding_nmguzx.jpg'
+  'Sharp angles!' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467741057/sharpbuilding_nmguzx.jpg',
+  'Intersections' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467756738/intersectionbuilding_c0jznc.jpg',
+  'I love plants on balconies' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467756749/plantbuilding_l3ujya.jpg',
+  'Love the combination of curves and clean lines' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467756740/wavymiamiishbuilding_kygqjv.jpg',
+  'This one really looms over you' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467760705/dominantbuilding_ggfrtt.jpg',
+  'Love the colors and lines' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467761663/colorfullines_mnehdv.jpg',
+  'That color really pops!' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467761672/primarycolorsbuilding_xxqqwa.jpg',
+  'Another great gradient' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467761665/rainbowbuilding_usoo97.jpg',
+  'Love the way the mural frames the plant' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467762039/planthairframe_mdx8gz.jpg'
 }
 
 User.create(username: 'janeDoe9000', name: 'Jane Doe', password: 'joejoe')

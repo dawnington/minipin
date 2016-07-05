@@ -1,12 +1,11 @@
-div.main {
+.main {
   margin-left: 55px;
   transition: all 0.4s;
   height: 100vh;
   padding-left: 20px;
   padding-right: 20px;
-
-  overflow-x: auto;
-  overflow-y: auto;
+  /*overflow-x: auto;
+  overflow-y: auto;*/
 }
 
 #nav-bar {

@@ -7,7 +7,7 @@ const React = require('react');
 
 const PinIndex = React.createClass({
   getInitialState() {
-    return { pins: PinStore.all(), shownPins: PinStore.all().slice(0, 15) };
+    return { pins: PinStore.all(), shownPins: PinStore.all().slice(0, 20) };
   },
   componentDidMount() {
     this.pinListener = PinStore.addListener(this.onChange);
@@ -21,7 +21,7 @@ const PinIndex = React.createClass({
     PinActions.emptyStore();
   },
   onChange() {
-    this.setState({ pins: PinStore.all(), shownPins: PinStore.all().slice(0, 15) });
+    this.setState({ pins: PinStore.all(), shownPins: PinStore.all().slice(0, 20) });
   },
   fetchPins(properties) {
     if (properties.hasOwnProperty('boardId')) {
@@ -33,7 +33,7 @@ const PinIndex = React.createClass({
   loadMore(pageNum) {
     console.log('is this running?');
     const allPins = PinStore.all();
-    this.setState({ shownPins: allPins.slice(0, 15 * (pageNum + 1)) });
+    this.setState({ shownPins: allPins.slice(0, 20 * (pageNum + 1)) });
   },
   render() {
     let infiniteScroll = '';
@@ -43,6 +43,7 @@ const PinIndex = React.createClass({
           pageStart={0}
           loadMore={this.loadMore}
           hasMore={this.state.pins.length > this.state.shownPins.length}
+          useWindow={false}
         >
           <Masonry className="pin-index">
             {
