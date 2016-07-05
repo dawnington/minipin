@@ -55,7 +55,7 @@ const Board = React.createClass({
           </div>
           {this.ownerButton()}
         </hgroup>
-        <PinIndex boardId={board.id} />
+        <PinIndex boardId={this.boardId} />
           <Modal show={this.state.modalShown} onHide={this.closeBoardForm} >
             <Modal.Body>
               <BoardForm board={board} modalCallback={this.closeBoardForm}/>

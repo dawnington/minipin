@@ -95,7 +95,7 @@ const Profile = React.createClass({
           </div>
           {this.isCurrentUser()}
         </hgroup>
-        {React.cloneElement(this.props.children, { userId: this.state.user.id })}
+        {React.cloneElement(this.props.children, { userId: this.userId })}
       </div>
     );
   },
