@@ -1,9 +1,9 @@
+const InfiniteScroll = require('react-infinite-scroller');
 const Masonry = require('react-masonry-component');
 const PinActions = require('../../actions/PinActions');
 const PinStore = require('../../stores/PinStore');
 const PinIndexItem = require('../pin/PinIndexItem');
 const React = require('react');
-const InfiniteScroll = require('react-infinite-scroller');
 
 const FeedIndex = React.createClass({
   getInitialState() {
@@ -23,7 +23,7 @@ const FeedIndex = React.createClass({
   onChange() {
     this.setState({ pins: PinStore.all(), shownPins: PinStore.all().slice(0, 15) });
   },
-  loadFunc(pageNum) {
+  loadMore(pageNum) {
     const allPins = PinStore.all();
     this.setState({ shownPins: allPins.slice(0, 15 * (pageNum + 1)) });
   },
@@ -31,7 +31,11 @@ const FeedIndex = React.createClass({
     let infiniteScroll = '';
     if (this.state.pins.length > 0) {
       infiniteScroll = (
-        <InfiniteScroll pageStart={0} loadMore={this.loadFunc} hasMore={this.state.pins.length > this.state.shownPins.length} >
+        <InfiniteScroll
+          pageStart={0}
+          loadMore={this.loadMore}
+          hasMore={this.state.pins.length > this.state.shownPins.length}
+        >
           <Masonry className="pin-index">
             {
               this.state.shownPins.map(pin =>
