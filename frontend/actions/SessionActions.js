@@ -11,9 +11,11 @@ module.exports = {
     });
   },
   receiveLogout() {
-    Dispatcher.dispatch({
-      actionType: SessionConstants.LOGOUT,
-    });
+    setTimeout(() => {
+      Dispatcher.dispatch({
+        actionType: SessionConstants.LOGOUT,
+      });
+    }, 0);
   },
   signup(user) {
     SessionApiUtil.signup(user, this.receiveCurrentUser, ErrorActions.setErrors);

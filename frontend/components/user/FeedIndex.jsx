@@ -24,7 +24,6 @@ const FeedIndex = React.createClass({
     this.setState({ pins: PinStore.all(), shownPins: PinStore.all().slice(0, 10) });
   },
   loadFunc(pageNum) {
-    console.log('loading more!');
     const allPins = PinStore.all();
     this.setState({ shownPins: allPins.slice(0, 10 * (pageNum + 1)) });
   },
@@ -36,6 +35,7 @@ const FeedIndex = React.createClass({
           pageStart={0}
           loadMore={this.loadFunc}
           hasMore={this.state.pins.length > this.state.shownPins.length}
+          threshold={100}
         >
           <Masonry className="pin-index" elementType={'div'}>
             {

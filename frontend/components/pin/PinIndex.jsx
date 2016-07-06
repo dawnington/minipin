@@ -31,7 +31,6 @@ const PinIndex = React.createClass({
     }
   },
   loadMore(pageNum) {
-    console.log('is this running?');
     const allPins = PinStore.all();
     this.setState({ shownPins: allPins.slice(0, 20 * (pageNum + 1)) });
   },
@@ -43,7 +42,6 @@ const PinIndex = React.createClass({
           pageStart={0}
           loadMore={this.loadMore}
           hasMore={this.state.pins.length > this.state.shownPins.length}
-          useWindow={false}
         >
           <Masonry className="pin-index">
             {

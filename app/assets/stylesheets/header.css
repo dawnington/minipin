@@ -1,9 +1,9 @@
 .header {
   display: flex;
   padding-top: 10px;
+  padding-right: 10px;
   justify-content: space-between;
   align-items: baseline;
-  margin-right: 15px;
 }
 
 .header-title {
