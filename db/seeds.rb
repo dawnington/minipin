@@ -25,7 +25,11 @@ INSPIRATION = {
   'Great natural light' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467760974/lightroom_ah3mmc.jpg',
   'Need these lights for the patio!' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467760983/patiolights_mgwmha.jpg',
   'How did they make cement look cozy?' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467762033/cozycement_pcd3bf.jpg',
-  'What kind of mailbox should we get?' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467762038/mailboxes_qd4n1p.jpg'
+  'What kind of mailbox should we get?' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467762038/mailboxes_qd4n1p.jpg',
+  'Looks great for a Jane Austen themed party' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467766808/backyard_ngy0mq.jpg',
+  'More peonies!' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467766804/morepeonies_cejiz9.jpg',
+  'I love antiques around the house' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467766805/vintagesewingmachine_mn1k0c.jpg',
+  'Looks like a well-equipped kitchen' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467766801/wellusedkitchen_ca3hxq.jpg'
 }
 
 TRAVEL = {
@@ -72,7 +76,11 @@ CARS = {
   'Gray on gray' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467760693/planeinthesky_sreoqp.jpg',
   'Nice touch' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467761681/ford_sknbjz.jpg',
   'Getting ready for a ride' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467762032/motorcyclist_gbddeg.jpg',
-  'Gotta love the simplicity of a skateboard' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467762036/skateboard_qglndk.jpg'
+  'Gotta love the simplicity of a skateboard' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467762036/skateboard_qglndk.jpg',
+  'Nice shade of blue' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467774318/bluecar_ssfyo3.jpg',
+  'Thai tuk tuk' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467774300/tuktuk_dsviqd.jpg',
+  'Those missiles look like matches' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467774335/warplane_yupbbs.jpg',
+  'Love the antique white' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467774346/whitebus_tclgte.jpg'
 }
 
 ARCHITECTURE = {
@@ -104,7 +112,11 @@ ARCHITECTURE = {
   'Love the colors and lines' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467761663/colorfullines_mnehdv.jpg',
   'That color really pops!' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467761672/primarycolorsbuilding_xxqqwa.jpg',
   'Another great gradient' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467761665/rainbowbuilding_usoo97.jpg',
-  'Love the way the mural frames the plant' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467762039/planthairframe_mdx8gz.jpg'
+  'Love the way the mural frames the plant' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467762039/planthairframe_mdx8gz.jpg',
+  'So solitary' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467766808/solitarybuilding_qnxfi1.jpg',
+  'Unique use of color' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467774319/colorblock_fo4tor.jpg',
+  'Can I live there?' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467774352/library_ac5msd.jpg',
+  'Needle' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467774309/needle_kwtsos.jpg'
 }
 
 User.create(username: 'janeDoe9000', name: 'Jane Doe', password: 'joejoe')
