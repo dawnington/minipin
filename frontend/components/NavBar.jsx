@@ -1,5 +1,6 @@
 const BoardForm = require('./board/BoardForm');
 const hashHistory = require('react-router').hashHistory;
+const IndexLink = require('react-router').IndexLink;
 const Link = require('react-router').Link;
 const Modal = require('react-bootstrap').Modal;
 const React = require('react');
@@ -41,7 +42,7 @@ const NavBar = React.createClass({
           <div className="nav-content">
             <div className="nav-item nav-button">
               <h3>Feed</h3>
-              <Link to="/" className="nav-item-link"></Link>
+              <IndexLink to="/" className="nav-item-link" activeClassName="active-nav-link"></IndexLink>
             </div>
             <div className="nav-header">
               <i className="fa fa-chevron-right"></i>
@@ -53,7 +54,7 @@ const NavBar = React.createClass({
                 return (
                   <div className="nav-item" key={board.id}>
                     {board.name}
-                    <Link key={board.id} to={boardLink} className="nav-item-link"></Link>
+                    <Link key={board.id} to={boardLink} className="nav-item-link" activeClassName="active-nav-link"></Link>
                   </div>
                 );
               })

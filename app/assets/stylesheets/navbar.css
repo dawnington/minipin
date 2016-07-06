@@ -72,11 +72,15 @@
   background-color: #f0d21f;
 }
 
+.active-nav-link {
+  background-color: #f0d21f;
+}
+
 .nav-header {
   margin-top: 10px;
   margin-bottom: 5px;
   padding-left: 30px;
-  font-size: 16px;
+  font-size: 14px;
   display: flex;
   align-items: baseline;
 }
