@@ -8,7 +8,7 @@ const BoardForm = React.createClass({
     let state = { user_id: 0, name: '', description: '', private: false };
     if (this.props.hasOwnProperty('board')) {
       const board = this.props.board;
-      state = { user_id: board.owner.id, name: board.name, description: board.description };
+      state = { user_id: board.owner.id, name: board.name, description: board.description, private: board.private };
       this.status = 'editing';
     } else {
       state.user_id = this.props.userId;
@@ -25,6 +25,9 @@ const BoardForm = React.createClass({
   onDescriptionChange(e) {
     this.setState({ description: e.target.value });
   },
+  togglePrivate() {
+    this.setState({ private: !this.state.private });
+  },
   fieldErrors(field) {
     const errors = ErrorStore.formErrors('board');
     if (!errors[field]) { return; }
@@ -38,7 +41,7 @@ const BoardForm = React.createClass({
   handleSubmit(e) {
     e.preventDefault();
     if (this.status === 'editing') {
-      const board = { name: this.state.name, description: this.state.description };
+      const board = { name: this.state.name, description: this.state.description, private: this.state.private };
       BoardActions.updateBoard(this.props.board.id, board);
     } else {
       BoardActions.createBoard(this.state);
@@ -87,8 +90,18 @@ const BoardForm = React.createClass({
             onChange={this.onDescriptionChange}
             className="board-input"
           ></textarea>
-        <button className="board-form-button">{buttonText}</button>
-        {this.deleteButtonText()}
+          <div className="private-options">
+            <input
+              type="radio"
+              name="private"
+              value={this.state.private}
+              onChange={this.togglePrivate}
+              checked={this.state.private}
+            />
+            <label htmlFor="private" className="private-label"><h5>Private Board</h5></label>
+          </div>
+          <button className="board-form-button">{buttonText}</button>
+          {this.deleteButtonText()}
         </form>
       </div>
     );

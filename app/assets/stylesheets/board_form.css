@@ -24,3 +24,13 @@
   margin-top: 5px;
   cursor: pointer;
 }
+
+.private-options {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.private-label {
+  margin-left: 10px;
+}
