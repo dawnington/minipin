@@ -47,34 +47,38 @@ const LoginForm = React.createClass({
   },
   render() {
     return (
-      <form className="login-form" onSubmit={this.login}>
-        <img src="http://res.cloudinary.com/dojinyoct/image/upload/v1467162069/MiniPin-logo_1_pjf9zc.png" alt="pin logo" className="login-logo" />
-        <br />
-        {this.fieldErrors('base')}
-        <input
-          type="text"
-          value={this.state.username}
-          id="username"
-          onChange={this.onUsernameChange}
-          placeholder="Username"
-          className="login-input"
-        />
-        <br />
-        <input
-          type="password"
-          value={this.state.password}
-          id="password"
-          onChange={this.onPasswordChange}
-          placeholder="Password"
-          className="login-input"
-        />
-        <br />
-        <button className="login-button">Log In</button>
-        <br />
-        <div className="demo-link-container">
-          New user? <Link to="/signup">Sign Up</Link> or explore with a <a href="#" onClick={this.guestLogin}>Demo Account</a>
+      <div className="background">
+        <div className="form-container">
+          <form className="login-form" onSubmit={this.login}>
+            <img src="http://res.cloudinary.com/dojinyoct/image/upload/v1467162069/MiniPin-logo_1_pjf9zc.png" alt="pin logo" className="login-logo" />
+            <br />
+            {this.fieldErrors('base')}
+            <input
+              type="text"
+              value={this.state.username}
+              id="username"
+              onChange={this.onUsernameChange}
+              placeholder="Username"
+              className="login-input"
+            />
+            <br />
+            <input
+              type="password"
+              value={this.state.password}
+              id="password"
+              onChange={this.onPasswordChange}
+              placeholder="Password"
+              className="login-input"
+            />
+            <br />
+            <button className="login-button">Log In</button>
+            <br />
+            <div className="demo-link-container">
+              New user? <Link to="/signup">Sign Up</Link> or explore with a <a href="#" onClick={this.guestLogin}>Demo Account</a>
+            </div>
+          </form>
         </div>
-      </form>
+      </div>
     );
   },
 });

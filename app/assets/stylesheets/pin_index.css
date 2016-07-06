@@ -4,18 +4,16 @@
 }
 
 .pin-index-item {
-  width: inherit;
-  height: inherit;
+  width: 24%;
   position: relative;
   margin-right: 10px;
   margin-bottom: 10px;
-  width: 305px;
   position: relative;
   cursor: pointer;
 }
 
 .pin-image {
-  width: inherit;
+  width: 100%;
 }
 
 .comment {

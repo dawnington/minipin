@@ -22,8 +22,8 @@ const PinIndexItem = React.createClass({
   render() {
     const pin = this.props.pin;
     return (
-      <div>
-        <div className="pin-index-item" onClick={this.openPinDetail}>
+      <div className="pin-index-item" onClick={this.openPinDetail}>
+        <div>
           <div className="comment-overlay">
             <div className="comment">
               <i className="fa fa-commenting-o"></i>

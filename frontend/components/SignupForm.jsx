@@ -55,45 +55,49 @@ const SignupForm = React.createClass({
   },
   render() {
     return (
-      <form className="login-form" onSubmit={this.login}>
-        <img src="http://res.cloudinary.com/dojinyoct/image/upload/v1467162069/MiniPin-logo_1_pjf9zc.png" alt="pin logo" className="login-logo" />
-        <br />
-        {this.fieldErrors('name')}
-        <input
-          type="text"
-          value={this.state.name}
-          id="name"
-          onChange={this.onNameChange}
-          placeholder="Name"
-          className="login-input"
-        />
-        <br />
-        {this.fieldErrors('username')}
-        <input
-          type="text"
-          value={this.state.username}
-          id="username"
-          onChange={this.onUsernameChange}
-          placeholder="Username"
-          className="login-input"
-        />
-        <br />
-        {this.fieldErrors('password')}
-        <input
-          type="password"
-          value={this.state.password}
-          id="password"
-          onChange={this.onPasswordChange}
-          placeholder="Create a Password"
-          className="login-input"
-        />
-        <br />
-        <button className="login-button">Sign Up</button>
-        <br />
-        <div className="demo-link-container">
-          Already have an account? <Link to="/login">Log In</Link> or explore with a <a href="#" onClick={this.guestLogin}>Demo Account</a>
+      <div className="background">
+        <div className="form-container">
+          <form className="login-form" onSubmit={this.login}>
+            <img src="http://res.cloudinary.com/dojinyoct/image/upload/v1467162069/MiniPin-logo_1_pjf9zc.png" alt="pin logo" className="login-logo" />
+            <br />
+            {this.fieldErrors('name')}
+            <input
+              type="text"
+              value={this.state.name}
+              id="name"
+              onChange={this.onNameChange}
+              placeholder="Name"
+              className="login-input"
+              />
+            <br />
+            {this.fieldErrors('username')}
+            <input
+              type="text"
+              value={this.state.username}
+              id="username"
+              onChange={this.onUsernameChange}
+              placeholder="Username"
+              className="login-input"
+              />
+            <br />
+            {this.fieldErrors('password')}
+            <input
+              type="password"
+              value={this.state.password}
+              id="password"
+              onChange={this.onPasswordChange}
+              placeholder="Create a Password"
+              className="login-input"
+              />
+            <br />
+            <button className="login-button">Sign Up</button>
+            <br />
+            <div className="demo-link-container">
+              Already have an account? <Link to="/login">Log In</Link> or explore with a <a href="#" onClick={this.guestLogin}>Demo Account</a>
+          </div>
+        </form>
         </div>
-      </form>
+      </div>
     );
   },
 });
