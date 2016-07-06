@@ -10,10 +10,10 @@ module.exports = {
     FollowApiUtil.fetchFollowees(id, this.receiveFollows);
   },
   addFollow(follow) {
-    FollowApiUtil.createFollow(follow, this.receiveFollow, this.printSomething);
+    FollowApiUtil.createFollow(follow, this.receiveFollow);
   },
   deleteFollow(id) {
-    FollowApiUtil.deleteFollow(id, this.removeFollow, this.printSomething);
+    FollowApiUtil.deleteFollow(id, this.removeFollow);
   },
   receiveFollows(follows) {
     Dispatcher.dispatch({
@@ -33,7 +33,9 @@ module.exports = {
       follow,
     });
   },
-  printSomething(thing) {
-    console.log(thing);
+  emptyStore() {
+    Dispatcher.dispatch({
+      actionType: FollowConstants.EMPTY_STORE,
+    });
   },
 };

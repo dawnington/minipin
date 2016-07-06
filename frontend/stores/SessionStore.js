@@ -19,8 +19,9 @@ function login(user) {
 function logout() {
   _currentUser = {};
   _loggedIn = false;
-  hashHistory.push("login");
-  SessionStore.__emitChange();
+  setTimeout(() => {
+    hashHistory.push("login");
+  }, 0);
 }
 
 function addBoard(board) {

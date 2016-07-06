@@ -11,10 +11,18 @@ function resetFollows(follows) {
   FollowStore.__emitChange();
 }
 
+function emptyStore() {
+  _follows = {};
+  FollowStore.__emitChange();
+}
+
 FollowStore.__onDispatch = function (payload) {
   switch (payload.actionType) {
     case FollowConstants.FOLLOWS_RECEIVED:
       resetFollows(payload.follows);
+      break;
+    case FollowConstants.EMPTY_STORE:
+      emptyStore();
       break;
     default:
       break;

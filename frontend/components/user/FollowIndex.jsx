@@ -16,6 +16,7 @@ const FollowIndex = React.createClass({
   },
   componentWillUnmount() {
     this.followListener.remove();
+    FollowActions.emptyStore();
   },
   onChange() {
     this.setState({ follows: FollowStore.all() });

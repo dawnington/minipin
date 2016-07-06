@@ -18,7 +18,4 @@ module.exports = {
       user,
     });
   },
-  printSomething(thing) {
-    console.log(thing);
-  },
 };
