@@ -5,7 +5,7 @@ const React = require('react');
 
 const BoardForm = React.createClass({
   getInitialState() {
-    let state = { user_id: 0, name: '', description: '' }
+    let state = { user_id: 0, name: '', description: '', private: false };
     if (this.props.hasOwnProperty('board')) {
       const board = this.props.board;
       state = { user_id: board.owner.id, name: board.name, description: board.description };

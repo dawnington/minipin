@@ -18,6 +18,10 @@ const PinIndex = require('./components/pin/PinIndex');
 const Profile = require('./components/user/Profile');
 const SignupForm = require('./components/SignupForm');
 
+// Testing
+const BoardActions = require('./actions/BoardActions');
+window.BoardActions = BoardActions;
+
 function ensureLoggedIn(nextState, replace) {
   if (!SessionStore.loggedIn()) {
     replace('login');

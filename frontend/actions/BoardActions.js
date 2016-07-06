@@ -11,7 +11,7 @@ module.exports = {
     BoardApiUtil.fetchSingleBoard(id, this.receiveSingleBoard);
   },
   createBoard(board) {
-    BoardApiUtil.createBoard(board, this.addBoardToUser, ErrorActions.setErrors);
+    BoardApiUtil.createBoard(board, this.addBoardToUser, this.printThings);
   },
   updateBoard(id, board) {
     BoardApiUtil.updateBoard(id, board, this.receiveSingleBoard, ErrorActions.setErrors);
@@ -47,5 +47,9 @@ module.exports = {
       actionType: BoardConstants.NEW_BOARD,
       board,
     });
+  },
+  printThings(thing, thing2) {
+    console.log(thing);
+    console.log(thing2);
   },
 };
