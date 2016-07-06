@@ -1,5 +1,3 @@
-# json.partial!('api/users/user', user: @user, boards: @boards)
-
 json.extract! @user, :id, :username, :name
 
 json.boards @boards.each do |board|

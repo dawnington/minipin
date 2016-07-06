@@ -69,12 +69,13 @@ const NavBar = React.createClass({
         <i className="fa fa-bars"></i>
         <div className="sidebar-content">
           <div className="nav-content">
-            <div className="nav-item nav-button">
+            <div className="nav-item feed-button">
+              <i className="fa fa-chevron-right"></i>
               <h3>Feed</h3>
               <IndexLink to="/" className="nav-item-link"></IndexLink>
             </div>
             <div className="nav-header">
-              <i className="fa fa-chevron-right"></i>
+              <i className="fa fa-chevron-down"></i>
               <h3>My Boards</h3>
             </div>
             {

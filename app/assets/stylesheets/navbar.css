@@ -91,6 +91,11 @@
   padding-left: 30px;
 }
 
+.fa.fa-chevron-down {
+  font-size: 10px;
+  margin-right: 10px;
+}
+
 .fa.fa-chevron-right {
   font-size: 10px;
   margin-right: 10px;
@@ -132,4 +137,15 @@
 .nav-button {
   font-size: 16px;
   color: black;
+}
+
+.feed-button {
+  font-size: 16px;
+  color: black;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  padding-left: 30px;
+  font-size: 14px;
+  display: flex;
+  align-items: baseline;
 }
