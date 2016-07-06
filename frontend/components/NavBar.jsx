@@ -48,9 +48,6 @@ const NavBar = React.createClass({
             that.setState({ pinCreated: true });
             PinActions.createPin(pin);
           }
-        } else {
-          console.log("Upload failed in upload_photos_button.jsx");
-          console.log(error);
         }
       }
     );

@@ -43,7 +43,7 @@
 
 #cloudinary-navbar .source.active {
   background: none;
-  border-bottom: 3px solid #037FCB;
+  border-bottom: 3px solid #f2d737;
 }
 
 #cloudinary-navbar .source.active .label {
@@ -73,9 +73,9 @@
 
 #cloudinary-widget .button, #cloudinary-widget .button.small_button {
   box-sizing: border-box;
-  color: #037FCB;
+  color: #f2d737;
   background: none;
-  border: 2px solid #037FCB;
+  border: 2px solid #f2d737;
 }
 
 #cloudinary-widget .button {
@@ -91,7 +91,7 @@
 }
 
 #cloudinary-widget .button:hover, #cloudinary-widget .button.small_button:hover, #cloudinary-widget .upload_button_holder:hover .button {
-  background: #037FCB;
+  background: #f2d737;
   color: #fff;
 }
 
@@ -104,7 +104,7 @@
 }
 
 #cloudinary-widget .panel.local .drag_area .drag_content .label {
-  color: #00619D;
+  color: #000;
   font-size: 22px;
 }
 
