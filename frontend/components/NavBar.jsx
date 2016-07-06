@@ -42,7 +42,7 @@ const NavBar = React.createClass({
           <div className="nav-content">
             <div className="nav-item nav-button">
               <h3>Feed</h3>
-              <IndexLink to="/" className="nav-item-link" activeClassName="active-nav-link"></IndexLink>
+              <IndexLink to="/" className="nav-item-link"></IndexLink>
             </div>
             <div className="nav-header">
               <i className="fa fa-chevron-right"></i>
@@ -54,7 +54,7 @@ const NavBar = React.createClass({
                 return (
                   <div className="nav-item" key={board.id}>
                     {board.name}
-                    <Link key={board.id} to={boardLink} className="nav-item-link" activeClassName="active-nav-link"></Link>
+                    <Link key={board.id} to={boardLink} className="nav-item-link"></Link>
                   </div>
                 );
               })

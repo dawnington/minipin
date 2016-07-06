@@ -22,3 +22,12 @@
   text-align: center;
   padding: 5px;
 }
+
+.icon-name {
+  display: flex;
+  align-items: baseline;
+}
+
+.fa.fa-user {
+  margin-right: 10px;
+}

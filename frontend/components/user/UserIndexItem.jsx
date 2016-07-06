@@ -53,7 +53,10 @@ const UserIndexItem = React.createClass({
     const follow = this.props.follow;
     return (
       <div className="user-index-item">
-        <h3 onClick={this.redirectToProfile}>{follow.name}</h3>
+        <div className="icon-name">
+          <i className="fa fa-user"></i>
+          <h3 onClick={this.redirectToProfile}>{follow.name}</h3>
+        </div>
         {this.followButton()}
       </div>
     );
