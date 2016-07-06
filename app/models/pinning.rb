@@ -5,4 +5,8 @@ class Pinning < ActiveRecord::Base
   belongs_to :pin
   has_one :owner, through: :board
 
+  def is_private?
+    self.board.private
+  end
+
 end

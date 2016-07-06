@@ -4,7 +4,11 @@ class Api::BoardsController < ApplicationController
   end
 
   def index
-    @boards = User.find(params[:user_id]).boards
+    @user = User.find(params[:user_id])
+    @boards = @user.boards
+    unless current_user.id == @user.id
+      @boards = @boards.select { |board| !board.private }
+    end
   end
 
   def create

@@ -18,7 +18,7 @@ class User < ActiveRecord::Base
     pinnings = []
     followees = self.followees
     followees.each do |followee|
-      followee.pinnings.each { |pinning| pinnings.push(pinning) }
+      followee.pinnings.each { |pinning| pinnings.push(pinning) unless pinning.is_private? }
     end
     pinnings
   end
