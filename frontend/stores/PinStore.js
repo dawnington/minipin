@@ -3,6 +3,7 @@ const Store = require('flux/utils').Store;
 const PinConstants = require('../constants/PinConstants');
 
 let _pins = {};
+let _newPin = {};
 
 const PinStore = new Store(Dispatcher);
 
@@ -13,6 +14,11 @@ function resetPins(pins) {
 
 function updatePin(pin) {
   _pins[pin.pinning_id] = pin;
+  PinStore.__emitChange();
+}
+
+function addNewPin(pin) {
+  _newPin = pin;
   PinStore.__emitChange();
 }
 
@@ -33,6 +39,9 @@ PinStore.__onDispatch = function (payload) {
     case PinConstants.PIN_RECEIVED:
       updatePin(payload.pin);
       break;
+    case PinConstants.NEW_PIN_RECEIVED:
+      addNewPin(payload.pin);
+      break;
     case PinConstants.PINNING_REMOVED:
       removePin(payload.pinning);
       break;
@@ -48,6 +57,10 @@ PinStore.all = function () {
   return Object.keys(_pins).map(id =>
     _pins[id]
   );
+};
+
+PinStore.newPin = function () {
+  return _newPin;
 };
 
 PinStore.find = function (id) {

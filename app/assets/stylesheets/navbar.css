@@ -116,8 +116,11 @@
   height: 100%;
 }
 
-.new-board-button {
+.new-button-container {
   margin-top: 10px;
+}
+
+.new-button {
   color: black;
 }
 
