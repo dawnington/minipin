@@ -108,6 +108,7 @@
 
 #nav-bar:hover {
   left: 0;
+  padding-right: 10px;
 }
 
 #nav-bar:hover .fa.fa-bars {
