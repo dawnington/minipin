@@ -25,12 +25,12 @@ class Api::UsersController < ApplicationController
   end
 
   def followers
-    @user = User.find(params[:id]).includes(:in_follows)
+    @user = User.includes(:in_follows).find(params[:id])
     @follows = @user.in_follows
   end
 
   def following
-    @user = User.find(params[:id]).includes(:out_follows)
+    @user = User.includes(:out_follows).find(params[:id])
     @follows = @user.out_follows
   end
 

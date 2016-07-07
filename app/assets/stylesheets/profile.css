@@ -23,6 +23,10 @@
   cursor: pointer;
 }
 
+.follow-button:hover {
+  background-color: #f2d737;
+}
+
 .icon-name {
   display: flex;
   align-items: baseline;

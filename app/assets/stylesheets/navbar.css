@@ -102,7 +102,7 @@
 }
 
 #nav-bar:hover + .main {
-  margin-left: 268px;
+  margin-left: 288px;
   transition: all 0.4s;
 }
 

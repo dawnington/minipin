@@ -73,22 +73,22 @@ const Profile = React.createClass({
             <div className="header-nav">
               <IndexLink
                 to={indexPath}
-                className="header-link"
+                className="header-link hover-item"
                 activeClassName="active-profile-link"
               >Boards</IndexLink>
               <Link
                 to={pinPath}
-                className="header-link"
+                className="header-link hover-item"
                 activeClassName="active-profile-link"
               >Pins</Link>
               <Link
                 to={followersPath}
-                className="header-link"
+                className="header-link hover-item"
                 activeClassName="active-profile-link"
               >Followers</Link>
               <Link
                 to={followingPath}
-                className="header-link"
+                className="header-link hover-item"
                 activeClassName="active-profile-link"
               >Following</Link>
             </div>

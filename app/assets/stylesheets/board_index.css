@@ -11,6 +11,10 @@
   cursor: pointer;
 }
 
+.board-index-item:hover {
+  background-color: #f2d737;
+}
+
 .board-owner {
   cursor: pointer;
 }
