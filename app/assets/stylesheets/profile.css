@@ -5,7 +5,6 @@
 .user-index-item {
   height: 30px;
   width: 250px;
-  cursor: pointer;
   margin-right: 5px;
   text-align: center;
   padding: 10px;
@@ -21,6 +20,7 @@
   width: 70px;
   text-align: center;
   padding: 5px;
+  cursor: pointer;
 }
 
 .icon-name {
@@ -30,4 +30,8 @@
 
 .fa.fa-user {
   margin-right: 10px;
+}
+
+.user-name {
+  cursor: pointer;
 }
