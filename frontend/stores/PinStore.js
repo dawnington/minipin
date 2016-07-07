@@ -54,9 +54,10 @@ PinStore.__onDispatch = function (payload) {
 };
 
 PinStore.all = function () {
-  return Object.keys(_pins).map(id =>
+  const pins = Object.keys(_pins).map(id =>
     _pins[id]
   );
+  return pins.sort((x, y) => y.pinning_id - x.pinning_id);
 };
 
 PinStore.newPin = function () {

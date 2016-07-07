@@ -125,28 +125,36 @@ User.create(username: 'RetiredAssassin', name: 'Naomi Brooks', password: 'joejoe
 
 
 Board.create(user_id: 1, name: 'Dwell', description: 'Ideas for making a house a home.')
-Board.create(user_id: 1, name: 'Explore', description: 'Our bucket list')
+Board.create(user_id: 2, name: 'Explore', description: 'Our bucket list')
 Board.create(user_id: 2, name: 'Planes, Trains, and Automobiles', description: 'Need for speed yo.')
-Board.create(user_id: 3, name: 'Architecture', description: "'The greatest thing a man can do in this world, is to make the most possible out of the stuff that has been given him.'")
+Board.create(user_id: 1, name: 'Architecture', description: "'The greatest thing a man can do in this world, is to make the most possible out of the stuff that has been given him.'")
 
-INSPIRATION.each do |desc, pic|
-  pin = Pin.create(image_url: pic)
-  Pinning.create(pin_id: pin.id, description: desc, board_id: 1)
+2.times do
+  INSPIRATION.each do |desc, pic|
+    pin = Pin.create(image_url: pic)
+    Pinning.create(pin_id: pin.id, description: desc, board_id: 1)
+  end
 end
 
-TRAVEL.each do |desc, pic|
-  pin = Pin.create(image_url: pic)
-  Pinning.create(pin_id: pin.id, description: desc, board_id: 2)
+2.times do
+  TRAVEL.each do |desc, pic|
+    pin = Pin.create(image_url: pic)
+    Pinning.create(pin_id: pin.id, description: desc, board_id: 2)
+  end
 end
 
-CARS.each do |desc, pic|
-  pin = Pin.create(image_url: pic)
-  Pinning.create(pin_id: pin.id, description: desc, board_id: 3)
+2.times do
+  CARS.each do |desc, pic|
+    pin = Pin.create(image_url: pic)
+    Pinning.create(pin_id: pin.id, description: desc, board_id: 3)
+  end
 end
 
-ARCHITECTURE.each do |desc, pic|
-  pin = Pin.create(image_url: pic)
-  Pinning.create(pin_id: pin.id, description: desc, board_id: 4)
+2.times do
+  ARCHITECTURE.each do |desc, pic|
+    pin = Pin.create(image_url: pic)
+    Pinning.create(pin_id: pin.id, description: desc, board_id: 4)
+  end
 end
 
 Follow.create(follower_id: 1, followee_id: 2)
