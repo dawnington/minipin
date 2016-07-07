@@ -79,7 +79,7 @@ const BoardForm = React.createClass({
             value={this.state.name}
             placeholder="Name"
             onChange={this.onNameChange}
-            className="board-input"
+            className="textarea-input"
           />
           <textarea
             id="description"
@@ -88,7 +88,7 @@ const BoardForm = React.createClass({
             value={this.state.description}
             placeholder="Description"
             onChange={this.onDescriptionChange}
-            className="board-input"
+            className="textarea-input"
           ></textarea>
           <div className="private-options">
             <input

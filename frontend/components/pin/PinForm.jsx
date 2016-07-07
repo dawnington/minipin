@@ -5,13 +5,16 @@ const SessionStore = require('../../stores/SessionStore');
 const PinForm = React.createClass({
   getInitialState() {
     const board_id = SessionStore.currentUser().boards[0].id;
-    return { photo_id: this.props.pin.photo_id, description: '', board_id };
+    return { photo_id: this.props.pin.photo_id, description: '', board_id, tag_list: '' };
   },
   onDescriptionChange(e) {
     this.setState({ description: e.target.value });
   },
   onBoardIdChange(e) {
     this.setState({ board_id: parseInt(e.target.value) });
+  },
+  onTagsChange(e) {
+    this.setState({ tag_list: e.target.value });
   },
   handleSubmit(e) {
     e.preventDefault();
@@ -32,7 +35,16 @@ const PinForm = React.createClass({
             value={this.state.description}
             placeholder="Description"
             onChange={this.onDescriptionChange}
-            className="board-input"
+            className="textarea-input"
+          ></textarea>
+          <textarea
+            id="tags"
+            cols="30"
+            rows="1"
+            placeholder="Tags"
+            value={this.state.tag_list}
+            onChange={this.onTagsChange}
+            className="textarea-input"
           ></textarea>
           <select onChange={this.onBoardIdChange}>
             {

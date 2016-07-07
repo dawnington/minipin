@@ -16,12 +16,13 @@ module.exports = {
       error: errorCb,
     });
   },
-  createPin(pin, success) {
+  createPin(pin, success, error) {
     $.ajax({
       method: 'POST',
       url: 'api/pins',
       data: { pin },
       success,
+      error,
     });
   },
   deletePin(id, success) {

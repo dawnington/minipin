@@ -19,7 +19,7 @@ module.exports = {
     PinApiUtil.createPhoto(photo, this.receiveNewPhoto, ErrorActions.setErrors);
   },
   addPin(pin) {
-    PinApiUtil.createPin(pin);
+    PinApiUtil.createPin(pin, this.printSomething, this.printSomething);
   },
   deletePin(id) {
     PinApiUtil.deletePin(id, this.removePin);
@@ -52,5 +52,8 @@ module.exports = {
     Dispatcher.dispatch({
       actionType: PinConstants.EMPTY_STORE,
     });
+  },
+  printSomething(thing) {
+    console.log(thing);
   },
 };

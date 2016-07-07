@@ -5,7 +5,7 @@ class Api::PinsController < ApplicationController
     if @pin.save
       render json: { base: ['Pin saved!'] }, status: 200
     else
-      render json: { base: ['Pin has already been saved to this board.'] }, status: 422
+      render json: @pin.errors, status: 422
     end
   end
 
@@ -26,7 +26,7 @@ class Api::PinsController < ApplicationController
   private
 
   def pin_params
-    params.require(:pin).permit(:board_id, :photo_id, :description)
+    params.require(:pin).permit(:board_id, :photo_id, :description, :tag_list)
   end
 
 end
