@@ -1,7 +1,12 @@
 class Pin < ActiveRecord::Base
-  validates :image_url, presence: true
+  validates :board_id, :photo_id, presence: true
 
-  has_many :pinnings, dependent: :destroy
-  has_many :boards, through: :pinnings
+  belongs_to :board
+  belongs_to :photo
+  has_one :owner, through: :board
+
+  def is_private?
+    self.board.private
+  end
 
 end

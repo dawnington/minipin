@@ -36,22 +36,22 @@ ActiveRecord::Schema.define(version: 20160706214430) do
 
   add_index "follows", ["follower_id", "followee_id"], name: "index_follows_on_follower_id_and_followee_id", unique: true, using: :btree
 
-  create_table "pinnings", force: :cascade do |t|
+  create_table "photos", force: :cascade do |t|
+    t.string   "image_url",  null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pins", force: :cascade do |t|
     t.integer  "board_id",    null: false
-    t.integer  "pin_id",      null: false
+    t.integer  "photo_id",    null: false
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  add_index "pinnings", ["board_id"], name: "index_pinnings_on_board_id", using: :btree
-  add_index "pinnings", ["pin_id"], name: "index_pinnings_on_pin_id", using: :btree
-
-  create_table "pins", force: :cascade do |t|
-    t.string   "image_url",  null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+  add_index "pins", ["board_id"], name: "index_pins_on_board_id", using: :btree
+  add_index "pins", ["photo_id"], name: "index_pins_on_photo_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "username",        null: false

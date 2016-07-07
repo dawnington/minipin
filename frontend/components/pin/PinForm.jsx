@@ -5,7 +5,7 @@ const SessionStore = require('../../stores/SessionStore');
 const PinForm = React.createClass({
   getInitialState() {
     const board_id = SessionStore.currentUser().boards[0].id;
-    return { pin_id: this.props.pin.pin_id, description: '', board_id };
+    return { photo_id: this.props.pin.photo_id, description: '', board_id };
   },
   onDescriptionChange(e) {
     this.setState({ description: e.target.value });

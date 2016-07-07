@@ -1,51 +1,45 @@
 /* eslint-env jquery */
 
 module.exports = {
-  fetchAllPins(success) {
-    $.ajax({
-      url: 'api/pins',
-      success,
-    });
-  },
   fetchFeed(id, success) {
     $.ajax({
       url: `api/users/${id}/feed`,
       success,
     });
   },
-  createPin(pin, successCb, errorCb) {
+  createPhoto(photo, successCb, errorCb) {
     $.ajax({
       method: 'POST',
-      url: 'api/pins',
-      data: { pin },
+      url: 'api/photos',
+      data: { photo },
       success: successCb,
       error: errorCb,
     });
   },
-  createPinning(pinning, success) {
+  createPin(pin, success) {
     $.ajax({
       method: 'POST',
-      url: 'api/pinnings',
-      data: { pinning },
+      url: 'api/pins',
+      data: { pin },
       success,
     });
   },
-  deletePinning(id, success) {
+  deletePin(id, success) {
     $.ajax({
       method: 'DELETE',
-      url: `api/pinnings/${id}`,
+      url: `api/pins/${id}`,
       success,
     });
   },
   fetchUserPins(id, success) {
     $.ajax({
-      url: `api/users/${id}/pinnings`,
+      url: `api/users/${id}/pins`,
       success,
     });
   },
   fetchBoardPins(id, success) {
     $.ajax({
-      url: `api/boards/${id}/pinnings`,
+      url: `api/boards/${id}/pins`,
       success,
     });
   },

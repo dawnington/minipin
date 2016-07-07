@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   before_validation :ensure_session_token
 
   has_many :boards, dependent: :destroy
-  has_many :pinnings, through: :boards
+  has_many :pins, through: :boards
   has_many :pins, through: :boards
 
   has_many :in_follows, class_name: "Follow", foreign_key: "followee_id"
@@ -15,12 +15,12 @@ class User < ActiveRecord::Base
   has_many :followees, through: :out_follows, source: :followee
 
   def feed
-    pinnings = []
+    pins = []
     followees = self.followees
     followees.each do |followee|
-      followee.pinnings.each { |pinning| pinnings.push(pinning) unless pinning.is_private? }
+      followee.pins.each { |pin| pins.push(pin) unless pin.is_private? }
     end
-    pinnings
+    pins
   end
 
   def password=(password)
