@@ -1,7 +1,7 @@
 class Api::UsersController < ApplicationController
 
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(:boards, out_follows: [:followee]).find(params[:id])
     @boards = @user.boards
     unless current_user.id == @user.id
       @boards = @boards.select { |board| !board.private }
@@ -25,12 +25,12 @@ class Api::UsersController < ApplicationController
   end
 
   def followers
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]).includes(:in_follows)
     @follows = @user.in_follows
   end
 
   def following
-    @user = User.find(params[:id])
+    @user = User.find(params[:id]).includes(:out_follows)
     @follows = @user.out_follows
   end
 

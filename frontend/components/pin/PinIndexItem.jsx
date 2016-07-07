@@ -30,7 +30,7 @@ const PinIndexItem = React.createClass({
               <h3>{pin.description}</h3>
             </div>
           </div>
-          <img src={pin.image_url} key={pin.pin_id} alt="a hipster" className="pin-image" />
+          <img src={pin.image_url} key={pin.id} alt="a hipster" className="pin-image" />
         </div>
 
         <Modal show={this.state.detailShown} onHide={this.closePinDetail} >

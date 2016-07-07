@@ -13,7 +13,7 @@ function resetPins(pins) {
 }
 
 function updatePin(pin) {
-  _pins[pin.pin_id] = pin;
+  _pins[pin.id] = pin;
   PinStore.__emitChange();
 }
 
@@ -23,7 +23,7 @@ function addNewPhoto(photo) {
 }
 
 function removePin(pin) {
-  delete _pins[pin.pin_id];
+  delete _pins[pin.id];
   PinStore.__emitChange();
 }
 
@@ -57,7 +57,7 @@ PinStore.all = function () {
   const pins = Object.keys(_pins).map(id =>
     _pins[id]
   );
-  return pins.sort((x, y) => y.pin_id - x.pin_id);
+  return pins.sort((x, y) => y.id - x.id);
 };
 
 PinStore.newPhoto = function () {

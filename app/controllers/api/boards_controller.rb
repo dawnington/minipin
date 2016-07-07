@@ -1,12 +1,12 @@
 class Api::BoardsController < ApplicationController
   def show
-    @board = Board.find(params[:id])
+    @board = Board.includes(:owner).find(params[:id])
   end
 
   def index
-    @user = User.find(params[:user_id])
+    @user = User.includes(:boards).find(params[:user_id])
     @boards = @user.boards
-    unless current_user.id == @user.id
+    unless current_user == @user
       @boards = @boards.select { |board| !board.private }
     end
   end

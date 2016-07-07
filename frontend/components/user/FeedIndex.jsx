@@ -40,7 +40,7 @@ const FeedIndex = React.createClass({
           <Masonry className="pin-index" elementType={'div'}>
             {
               this.state.shownPins.map(pin =>
-                <PinIndexItem pin={pin} key={pin.pin_id} />
+                <PinIndexItem pin={pin} key={pin.id} />
               )
             }
           </Masonry>

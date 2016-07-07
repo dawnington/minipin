@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
 
   has_many :boards, dependent: :destroy
   has_many :pins, through: :boards
-  has_many :pins, through: :boards
 
   has_many :in_follows, class_name: "Follow", foreign_key: "followee_id"
   has_many :out_follows, class_name: "Follow", foreign_key: "follower_id"
@@ -16,7 +15,7 @@ class User < ActiveRecord::Base
 
   def feed
     pins = []
-    followees = self.followees
+    followees = self.followees.includes(pins: [:board, :photo])
     followees.each do |followee|
       followee.pins.each { |pin| pins.push(pin) unless pin.is_private? }
     end

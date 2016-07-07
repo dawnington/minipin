@@ -11,9 +11,9 @@ class Api::PinsController < ApplicationController
 
   def index
     if params[:user_id]
-      @pins = User.find(params[:user_id]).pins
+      @pins = User.includes(pins: [:photo, :board]).find(params[:user_id]).pins
     elsif params[:board_id]
-      @pins = Board.find(params[:board_id]).pins
+      @pins = Pin.where('board_id = ?', params[:board_id]).includes(:photo, :board)
     end
   end
 
