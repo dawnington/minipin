@@ -17,8 +17,8 @@
 
   <script type="text/javascript">
     window.CLOUDINARY_OPTIONS = {
-      cloud_name: '<%= cloud_name %>',
-      upload_preset: '<%= cloud_presets %>',
+      cloud_name: '<%= ENV['CLOUD_NAME'] %>',
+      upload_preset: '<%= ENV['UPLOAD_PRESET'] %>',
       cropping: "server",
       stylesheet: 'https://googledrive.com/host/0B-Kd0TUROtfCMlk2NmI3MGc3bGM'
     };

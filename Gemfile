@@ -32,6 +32,8 @@ gem 'bcrypt', '~> 3.1.7'
 
 gem 'cloudinary'
 
+gem 'figaro'
+
 group :production do
   gem 'rails_12factor'
   gem 'newrelic_rpm'
