@@ -7,6 +7,7 @@ const PinActions = require('../actions/PinActions');
 const PinForm = require('./pin/PinForm');
 const PinStore = require('../stores/PinStore');
 const React = require('react');
+const SearchBar = require('./SearchBar');
 const SessionActions = require('../actions/SessionActions');
 const SessionStore = require('../stores/SessionStore');
 
@@ -69,6 +70,7 @@ const NavBar = React.createClass({
         <i className="fa fa-bars"></i>
         <div className="sidebar-content">
           <div className="nav-content">
+            <SearchBar />
             <div className="nav-item feed-button">
               <i className="fa fa-chevron-right"></i>
               <h3>Feed</h3>
