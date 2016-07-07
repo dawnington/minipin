@@ -125,36 +125,48 @@ User.create(username: 'RetiredAssassin', name: 'Naomi Brooks', password: 'joejoe
 
 
 Board.create(user_id: 1, name: 'Dwell', description: 'Ideas for making a house a home.')
-Board.create(user_id: 2, name: 'Explore', description: 'Our bucket list')
+Board.create(user_id: 3, name: 'Explore', description: 'Our bucket list')
 Board.create(user_id: 2, name: 'Planes, Trains, and Automobiles', description: 'Need for speed yo.')
 Board.create(user_id: 1, name: 'Architecture', description: "'The greatest thing a man can do in this world, is to make the most possible out of the stuff that has been given him.'")
 
-2.times do
-  INSPIRATION.each do |desc, pic|
-    pin = Pin.create(image_url: pic)
-    Pinning.create(pin_id: pin.id, description: desc, board_id: 1)
-  end
+INSPIRATION.each do |desc, pic|
+  pin = Pin.create(image_url: pic)
+  Pinning.create(pin_id: pin.id, description: desc, board_id: 1)
 end
 
-2.times do
-  TRAVEL.each do |desc, pic|
-    pin = Pin.create(image_url: pic)
-    Pinning.create(pin_id: pin.id, description: desc, board_id: 2)
-  end
+TRAVEL.each do |desc, pic|
+  pin = Pin.create(image_url: pic)
+  Pinning.create(pin_id: pin.id, description: desc, board_id: 2)
 end
 
-2.times do
-  CARS.each do |desc, pic|
-    pin = Pin.create(image_url: pic)
-    Pinning.create(pin_id: pin.id, description: desc, board_id: 3)
-  end
+CARS.each do |desc, pic|
+  pin = Pin.create(image_url: pic)
+  Pinning.create(pin_id: pin.id, description: desc, board_id: 3)
 end
 
-2.times do
-  ARCHITECTURE.each do |desc, pic|
-    pin = Pin.create(image_url: pic)
-    Pinning.create(pin_id: pin.id, description: desc, board_id: 4)
-  end
+ARCHITECTURE.each do |desc, pic|
+  pin = Pin.create(image_url: pic)
+  Pinning.create(pin_id: pin.id, description: desc, board_id: 4)
+end
+
+INSPIRATION.each do |desc, pic|
+  pin = Pin.create(image_url: pic)
+  Pinning.create(pin_id: pin.id, description: desc, board_id: 1)
+end
+
+TRAVEL.each do |desc, pic|
+  pin = Pin.create(image_url: pic)
+  Pinning.create(pin_id: pin.id, description: desc, board_id: 2)
+end
+
+CARS.each do |desc, pic|
+  pin = Pin.create(image_url: pic)
+  Pinning.create(pin_id: pin.id, description: desc, board_id: 3)
+end
+
+ARCHITECTURE.each do |desc, pic|
+  pin = Pin.create(image_url: pic)
+  Pinning.create(pin_id: pin.id, description: desc, board_id: 4)
 end
 
 Follow.create(follower_id: 1, followee_id: 2)

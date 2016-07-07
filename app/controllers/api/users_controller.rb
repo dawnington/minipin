@@ -17,6 +17,7 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       login!(@user)
+      @boards = @user.boards
       render :show
     else
       render json: @user.errors, status: 422
