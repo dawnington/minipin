@@ -40,7 +40,7 @@ const Board = React.createClass({
   },
   ownerButton() {
     if (SessionStore.currentUser().id === this.state.board.owner.id) {
-      return <i className="fa fa-cog" onClick={this.showBoardForm}></i>;
+      return <i className="fa fa-cog hover-item" onClick={this.showBoardForm}></i>;
     }
     return <h3 className="board-owner hover-item" onClick={this.goToOwner}>by {this.state.board.owner.name}</h3>;
   },
