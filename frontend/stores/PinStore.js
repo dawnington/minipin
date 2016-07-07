@@ -3,7 +3,7 @@ const Store = require('flux/utils').Store;
 const PinConstants = require('../constants/PinConstants');
 
 let _pins = {};
-let _newPin = {};
+let _newPhoto = {};
 
 const PinStore = new Store(Dispatcher);
 
@@ -13,17 +13,17 @@ function resetPins(pins) {
 }
 
 function updatePin(pin) {
-  _pins[pin.pinning_id] = pin;
+  _pins[pin.pin_id] = pin;
   PinStore.__emitChange();
 }
 
-function addNewPin(pin) {
-  _newPin = pin;
+function addNewPhoto(photo) {
+  _newPhoto = photo;
   PinStore.__emitChange();
 }
 
 function removePin(pin) {
-  delete _pins[pin.pinning_id];
+  delete _pins[pin.pin_id];
   PinStore.__emitChange();
 }
 
@@ -39,11 +39,11 @@ PinStore.__onDispatch = function (payload) {
     case PinConstants.PIN_RECEIVED:
       updatePin(payload.pin);
       break;
-    case PinConstants.NEW_PIN_RECEIVED:
-      addNewPin(payload.pin);
+    case PinConstants.NEW_PHOTO_RECEIVED:
+      addNewPhoto(payload.photo);
       break;
-    case PinConstants.PINNING_REMOVED:
-      removePin(payload.pinning);
+    case PinConstants.PIN_REMOVED:
+      removePin(payload.pin);
       break;
     case PinConstants.EMPTY_STORE:
       emptyStore();
@@ -57,11 +57,11 @@ PinStore.all = function () {
   const pins = Object.keys(_pins).map(id =>
     _pins[id]
   );
-  return pins.sort((x, y) => y.pinning_id - x.pinning_id);
+  return pins.sort((x, y) => y.pin_id - x.pin_id);
 };
 
-PinStore.newPin = function () {
-  return _newPin;
+PinStore.newPhoto = function () {
+  return _newPhoto;
 };
 
 PinStore.find = function (id) {

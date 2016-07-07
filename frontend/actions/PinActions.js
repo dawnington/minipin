@@ -6,9 +6,6 @@ const PinConstants = require('../constants/PinConstants');
 // TODO: replace printSomething
 
 module.exports = {
-  fetchAllPins() {
-    PinApiUtil.fetchAllPins(this.receiveAllPins);
-  },
   fetchFeed(id) {
     PinApiUtil.fetchFeed(id, this.receiveAllPins);
   },
@@ -18,14 +15,14 @@ module.exports = {
   fetchBoardPins(id) {
     PinApiUtil.fetchBoardPins(id, this.receiveAllPins);
   },
-  createPin(pin) {
-    PinApiUtil.createPin(pin, this.receiveNewPin, ErrorActions.setErrors);
+  createPhoto(photo) {
+    PinApiUtil.createPhoto(photo, this.receiveNewPhoto, ErrorActions.setErrors);
   },
-  addPin(pinning) {
-    PinApiUtil.createPinning(pinning);
+  addPin(pin) {
+    PinApiUtil.createPin(pin);
   },
-  deletePinning(id) {
-    PinApiUtil.deletePinning(id, this.removePinning);
+  deletePin(id) {
+    PinApiUtil.deletePin(id, this.removePin);
   },
   receiveAllPins(pins) {
     Dispatcher.dispatch({
@@ -39,16 +36,16 @@ module.exports = {
       pin,
     });
   },
-  receiveNewPin(pin) {
+  receiveNewPhoto(photo) {
     Dispatcher.dispatch({
-      actionType: PinConstants.NEW_PIN_RECEIVED,
-      pin,
+      actionType: PinConstants.NEW_PHOTO_RECEIVED,
+      photo,
     });
   },
-  removePinning(pinning) {
+  removePin(pin) {
     Dispatcher.dispatch({
-      actionType: PinConstants.PINNING_REMOVED,
-      pinning,
+      actionType: PinConstants.PIN_REMOVED,
+      pin,
     });
   },
   emptyStore() {

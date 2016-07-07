@@ -21,7 +21,7 @@ const PinDetail = React.createClass({
   deletePin() {
     const checkDelete = confirm('Are you sure you want to delete this pin?');
     if (checkDelete) {
-      PinActions.deletePinning(this.props.pin.pinning_id);
+      PinActions.deletePin(this.props.pin.pin_id);
       this.props.modalCallback();
     }
   },

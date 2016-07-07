@@ -36,8 +36,8 @@ class Api::UsersController < ApplicationController
 
   def feed
     user = User.find(params[:id])
-    @pinnings = user.feed
-    render 'api/pinnings/index'
+    @pins = user.feed
+    render 'api/pins/index'
   end
 
   private

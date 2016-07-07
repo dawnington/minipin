@@ -4,8 +4,7 @@ class Board < ActiveRecord::Base
   after_initialize :set_defaults
 
   belongs_to :owner, primary_key: :id, foreign_key: :user_id, class_name: 'User'
-  has_many :pinnings, dependent: :destroy
-  has_many :pins, through: :pinnings
+  has_many :pins, dependent: :destroy
 
   def set_defaults
     self.private ||= false

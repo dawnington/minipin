@@ -12,10 +12,10 @@ const SessionStore = require('../stores/SessionStore');
 
 const NavBar = React.createClass({
   getInitialState() {
-    return { boardModalShown: false, boards: SessionStore.currentUser().boards, pinModalShown: false, pinCreated: false };
+    return { boardModalShown: false, boards: SessionStore.currentUser().boards, pinModalShown: false, photoCreated: false };
   },
   componentDidMount() {
-    this.pinListener = PinStore.addListener(this.createNewPinning);
+    this.pinListener = PinStore.addListener(this.createNewPin);
     this.sessionListener = SessionStore.addListener(this.onChange);
   },
   componentWillUnmount() {
@@ -25,8 +25,8 @@ const NavBar = React.createClass({
   onChange() {
     this.setState({ boards: SessionStore.currentUser().boards });
   },
-  createNewPinning() {
-    if (this.state.pinCreated) {
+  createNewPin() {
+    if (this.state.photoCreated) {
       this.setState({ pinModalShown: true });
     }
   },
@@ -36,7 +36,7 @@ const NavBar = React.createClass({
   closeBoardForm() {
     this.setState({ boardModalShown: false });
   },
-  addPinImage() {
+  addPhoto() {
     let that = this;
 
     cloudinary.openUploadWidget(
@@ -44,16 +44,16 @@ const NavBar = React.createClass({
       function (error, images) {
         if (error === null) {
           for (let i = 0; i < images.length; i++) {
-            const pin = { image_url: images[i].url };
-            that.setState({ pinCreated: true });
-            PinActions.createPin(pin);
+            const photo = { image_url: images[i].url };
+            that.setState({ photoCreated: true });
+            PinActions.createPhoto(photo);
           }
         }
       }
     );
   },
   closePinForm() {
-    this.setState({ pinModalShown: false, pinCreated: false });
+    this.setState({ pinModalShown: false, photoCreated: false });
   },
   redirectToProfile() {
     const profilePath = `users/${this.props.user.id}`;
@@ -90,7 +90,7 @@ const NavBar = React.createClass({
               })
             }
             <div className="new-button-container">
-              <div className="nav-item new-button" onClick={this.addPinImage}>New Pin</div>
+              <div className="nav-item new-button" onClick={this.addPhoto}>New Pin</div>
               <div className="nav-item new-button" onClick={this.showBoardForm}>New Board</div>
             </div>
           </div>
@@ -106,7 +106,7 @@ const NavBar = React.createClass({
         </Modal>
         <Modal show={this.state.pinModalShown} onHide={this.closePinForm} >
           <Modal.Body>
-            <PinForm userId={user.id} pin={PinStore.newPin()} modalCallback={this.closePinForm} />
+            <PinForm userId={user.id} pin={PinStore.newPhoto()} modalCallback={this.closePinForm} />
           </Modal.Body>
         </Modal>
       </div>
