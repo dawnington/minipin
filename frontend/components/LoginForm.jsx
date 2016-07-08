@@ -50,7 +50,7 @@ const LoginForm = React.createClass({
       <div className="background">
         <div className="form-container">
           <form className="login-form" onSubmit={this.login}>
-            <img src="http://res.cloudinary.com/dojinyoct/image/upload/v1467162069/MiniPin-logo_1_pjf9zc.png" alt="pin logo" className="login-logo" />
+            <img src="https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_1000/v1467162069/Minipin/MiniPin-logo_1_pjf9zc.png" alt="pin logo" className="login-logo" />
             <br />
             {this.fieldErrors('base')}
             <input

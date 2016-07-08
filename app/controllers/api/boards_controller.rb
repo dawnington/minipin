@@ -4,8 +4,7 @@ class Api::BoardsController < ApplicationController
   end
 
   def index
-    @user = User.includes(:boards).find(params[:user_id])
-    @boards = @user.boards
+    @boards = Board.where(user_id: params[:user_id])
     unless current_user == @user
       @boards = @boards.select { |board| !board.private }
     end
