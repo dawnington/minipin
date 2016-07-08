@@ -14,7 +14,7 @@ const SearchIndex = React.createClass({
             <input
               type="text"
               className="header-search-bar"
-              placeholder="Search"
+              placeholder="Search pins"
               onInput={this.onQueryChange}
             />
           </div>

@@ -140,18 +140,15 @@ Board.create(user_id: 1, name: 'Private Board', description: 'This board and its
 INSPIRATION.each do |desc, pic|
   photo = Photo.create(image_url: pic)
   Pin.create(photo_id: photo.id, description: desc, board_id: 1, tag_list: TAGS['home'])
-  Pin.create(photo_id: photo.id, description: desc, board_id: 1, tag_list: TAGS['home'])
 end
 
 TRAVEL.each do |desc, pic|
   photo = Photo.create(image_url: pic)
   Pin.create(photo_id: photo.id, description: desc, board_id: 2, tag_list: TAGS['travel'])
-  Pin.create(photo_id: photo.id, description: desc, board_id: 2, tag_list: TAGS['travel'])
 end
 
 CARS.each do |desc, pic|
   photo = Photo.create(image_url: pic)
-  Pin.create(photo_id: photo.id, description: desc, board_id: 3, tag_list: TAGS['cars'])
   Pin.create(photo_id: photo.id, description: desc, board_id: 3, tag_list: TAGS['cars'])
   Pin.create(photo_id: photo.id, description: "I'm a private pin!", board_id: 5, tag_list: TAGS['cars'])
 end
@@ -159,6 +156,25 @@ end
 ARCHITECTURE.each do |desc, pic|
   photo = Photo.create(image_url: pic)
   Pin.create(photo_id: photo.id, description: desc, board_id: 4, tag_list: TAGS['architecture'])
+end
+
+INSPIRATION.each do |desc, pic|
+  photo = Photo.find_by_image_url(pic)
+  Pin.create(photo_id: photo.id, description: desc, board_id: 1, tag_list: TAGS['home'])
+end
+
+TRAVEL.each do |desc, pic|
+  photo = Photo.find_by_image_url(pic)
+  Pin.create(photo_id: photo.id, description: desc, board_id: 2, tag_list: TAGS['travel'])
+end
+
+CARS.each do |desc, pic|
+  photo = Photo.find_by_image_url(pic)
+  Pin.create(photo_id: photo.id, description: desc, board_id: 3, tag_list: TAGS['cars'])
+end
+
+ARCHITECTURE.each do |desc, pic|
+  photo = Photo.find_by_image_url(pic)
   Pin.create(photo_id: photo.id, description: desc, board_id: 4, tag_list: TAGS['architecture'])
 end
 

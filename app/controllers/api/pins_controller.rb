@@ -21,8 +21,8 @@ class Api::PinsController < ApplicationController
         'LEFT OUTER JOIN "tags" ON "tags"."id" = "taggings"."tag_id"'
         ).where(
         [
-          'tags.name LIKE :query OR pins.description LIKE :query',
-          {query: "%#{params[:query]}%"}
+          'tags.name LIKE :query OR lower(pins.description) LIKE :query',
+          {query: "%#{params[:query].downcase}%"}
         ]).includes(:photo, :board)
     else
       @pins = []
