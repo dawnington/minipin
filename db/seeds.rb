@@ -29,7 +29,8 @@ INSPIRATION = {
   'Looks great for a Jane Austen themed party' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467766808/Minipin/backyard_ngy0mq.jpg',
   'More peonies!' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467766804/Minipin/morepeonies_cejiz9.jpg',
   'I love antiques around the house' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467766805/Minipin/vintagesewingmachine_mn1k0c.jpg',
-  'Looks like a well-equipped kitchen' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467766801/Minipin/wellusedkitchen_ca3hxq.jpg'
+  'Looks like a well-equipped kitchen' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467766801/Minipin/wellusedkitchen_ca3hxq.jpg',
+  'tag_list' => 'house, home, cozy, comfort'
 }
 
 TRAVEL = {
@@ -58,7 +59,8 @@ TRAVEL = {
   'Breathtaking' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467760973/Minipin/mountainclimbing_qv4uqk.jpg',
   'Amazing view' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467760982/Minipin/ricepaddies_rx57ns.jpg',
   'Great place for a meeting' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467761667/Minipin/powow_zunsyl.jpg',
-  'Gorgeous sand dunes' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467762032/Minipin/sanddunes_awyoui.jpg'
+  'Gorgeous sand dunes' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467762032/Minipin/sanddunes_awyoui.jpg',
+  'tag_list' => 'travel, exploration, journey, view, earth'
 }
 
 CARS = {
@@ -80,7 +82,8 @@ CARS = {
   'Nice shade of blue' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467774318/Minipin/bluecar_ssfyo3.jpg',
   'Thai tuk tuk' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467774300/Minipin/tuktuk_dsviqd.jpg',
   'Those missiles look like matches' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467774335/Minipin/warplane_yupbbs.jpg',
-  'Love the antique white' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467774346/Minipin/whitebus_tclgte.jpg'
+  'Love the antique white' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467774346/Minipin/whitebus_tclgte.jpg',
+  'tag_list' => 'car, automobile, speed, wheel'
 }
 
 ARCHITECTURE = {
@@ -116,7 +119,8 @@ ARCHITECTURE = {
   'So solitary' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467766808/Minipin/solitarybuilding_qnxfi1.jpg',
   'Unique use of color' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467774319/Minipin/colorblock_fo4tor.jpg',
   'Can I live there?' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467774352/Minipin/library_ac5msd.jpg',
-  'Needle' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467774309/Minipin/needle_kwtsos.jpg'
+  'Needle' => 'https://res.cloudinary.com/dojinyoct/image/upload/c_scale,w_600/v1467774309/Minipin/needle_kwtsos.jpg',
+  'tag_list' => 'building, window, architecture, design'
 }
 
 User.create(username: 'janeDoe9000', name: 'Jane Doe', password: 'joejoe')
@@ -132,47 +136,47 @@ Board.create(user_id: 1, name: 'Private Board', description: 'This board and its
 
 INSPIRATION.each do |desc, pic|
   photo = Photo.create(image_url: pic)
-  Pin.create(photo_id: photo.id, description: desc, board_id: 1)
+  Pin.create(photo_id: photo.id, description: desc, board_id: 1, tag_list: INSPIRATION['tag_list'])
 end
 
 TRAVEL.each do |desc, pic|
   photo = Photo.create(image_url: pic)
-  Pin.create(photo_id: photo.id, description: desc, board_id: 2)
+  Pin.create(photo_id: photo.id, description: desc, board_id: 2, tag_list: TRAVEL['tag_list'])
 end
 
 CARS.each do |desc, pic|
   photo = Photo.create(image_url: pic)
-  Pin.create(photo_id: photo.id, description: desc, board_id: 3)
+  Pin.create(photo_id: photo.id, description: desc, board_id: 3, tag_list: CARS['tag_list'])
 end
 
 ARCHITECTURE.each do |desc, pic|
   photo = Photo.create(image_url: pic)
-  Pin.create(photo_id: photo.id, description: desc, board_id: 4)
+  Pin.create(photo_id: photo.id, description: desc, board_id: 4, tag_list: ARCHITECTURE['tag_list'])
 end
 
 INSPIRATION.each do |desc, pic|
   photo = Photo.create(image_url: pic)
-  Pin.create(photo_id: photo.id, description: desc, board_id: 1)
+  Pin.create(photo_id: photo.id, description: desc, board_id: 1, tag_list: INSPIRATION['tag_list'])
 end
 
 TRAVEL.each do |desc, pic|
   photo = Photo.create(image_url: pic)
-  Pin.create(photo_id: photo.id, description: desc, board_id: 2)
+  Pin.create(photo_id: photo.id, description: desc, board_id: 2, tag_list: TRAVEL['tag_list'])
 end
 
 CARS.each do |desc, pic|
   photo = Photo.create(image_url: pic)
-  Pin.create(photo_id: photo.id, description: desc, board_id: 3)
+  Pin.create(photo_id: photo.id, description: desc, board_id: 3, tag_list: CARS['tag_list'])
 end
 
 ARCHITECTURE.each do |desc, pic|
   photo = Photo.create(image_url: pic)
-  Pin.create(photo_id: photo.id, description: desc, board_id: 4)
+  Pin.create(photo_id: photo.id, description: desc, board_id: 4, tag_list: ARCHITECTURE['tag_list'])
 end
 
 CARS.each do |desc, pic|
   photo = Photo.create(image_url: pic)
-  Pin.create(photo_id: photo.id, description: "I'm a private pin!", board_id: 5)
+  Pin.create(photo_id: photo.id, description: "I'm a private pin!", board_id: 5, tag_list: CARS['tag_list'])
 end
 
 Follow.create(follower_id: 1, followee_id: 2)
