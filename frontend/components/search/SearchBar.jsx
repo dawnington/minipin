@@ -6,11 +6,15 @@ const SearchBar = React.createClass({
   getInitialState() {
     return { query: '' };
   },
-  onQueryChange(e) {
+  _onQueryChange(e) {
     this.setState({ query: e.target.value });
   },
-  redirectToSearch(e) {
-    e.preventDefault();
+  _handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      this._redirectToSearch();
+    }
+  },
+  _redirectToSearch() {
     PinActions.searchPins(this.state);
     hashHistory.push('search');
   },
@@ -22,10 +26,11 @@ const SearchBar = React.createClass({
           className="search-input"
           value={this.state.query}
           placeholder="Search"
-          onChange={this.onQueryChange}
-          onSubmit={this.redirectToSearch}
+          onChange={this._onQueryChange}
+          onSubmit={this._redirectToSearch}
+          onKeyPress={this._handleKeyPress}
         />
-        <i className="fa fa-search" onClick={this.redirectToSearch}></i>
+        <i className="fa fa-search" onClick={this._redirectToSearch}></i>
       </div>
     );
   },
