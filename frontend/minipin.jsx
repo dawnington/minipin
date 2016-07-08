@@ -23,9 +23,13 @@ const SignupForm = require('./components/SignupForm');
 const PinApiUtil = require('./util/PinApiUtil');
 const PinActions = require('./actions/PinActions');
 const PinStore = require('./stores/PinStore');
+const TagApiUtil = require('./util/TagApiUtil');
+const TagStore = require('./stores/TagStore');
 window.PinApiUtil = PinApiUtil;
 window.PinActions = PinActions;
 window.PinStore = PinStore;
+window.TagApiUtil = TagApiUtil;
+window.TagStore = TagStore;
 
 function ensureLoggedIn(nextState, replace) {
   if (!SessionStore.loggedIn()) {

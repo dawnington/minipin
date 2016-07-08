@@ -11,9 +11,9 @@ class Api::PinsController < ApplicationController
 
   def index
     if params[:user_id]
-      @pins = User.includes(pins: [:photo, :board, :tags]).find(params[:user_id]).pins
+      @pins = User.includes(pins: [:photo, :board]).find(params[:user_id]).pins
     elsif params[:board_id]
-      @pins = Pin.where('board_id = ?', params[:board_id]).includes(:photo, :board, :tags).distinct
+      @pins = Pin.where('board_id = ?', params[:board_id]).includes(:photo, :board)
     elsif params[:query] && !params[:query].empty?
       @pins = Pin.joins(
         'LEFT OUTER JOIN "taggings" ON "taggings"."pin_id" = "pins"."id"'
@@ -23,7 +23,7 @@ class Api::PinsController < ApplicationController
         [
           'tags.name LIKE :query OR pins.description LIKE :query',
           {query: "%#{params[:query]}%"}
-        ]).includes(:photo, :board, :tags)
+        ]).includes(:photo, :board)
     else
       @pins = []
     end

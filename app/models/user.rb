@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
 
   def feed
     pins = []
-    followees = self.followees.includes(pins: [:photo, :taggings, :tags])
+    followees = self.followees.includes(pins: [:photo, :board])
     followees.each do |followee|
       followee.pins.each { |pin| pins.push(pin) unless pin.is_private? }
     end

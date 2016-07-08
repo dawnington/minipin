@@ -2,8 +2,23 @@ const hashHistory = require('react-router').hashHistory;
 const PinActions = require('../../actions/PinActions');
 const React = require('react');
 const SessionStore = require('../../stores/SessionStore');
+const TagActions = require('../../actions/TagActions');
+const TagStore = require('../../stores/TagStore');
 
 const PinDetail = React.createClass({
+  getInitialState() {
+    return { tags: TagStore.all() };
+  },
+  componentDidMount() {
+    this.tagListener = TagStore.addListener(this._onChange);
+    TagActions.fetchTags(this.props.pin.id);
+  },
+  componentWillUnmount() {
+    this.tagListener.remove();
+  },
+  _onChange() {
+    this.setState({ tags: TagStore.all() });
+  },
   showPinForm() {
     this.props.showForm();
   },
@@ -27,7 +42,7 @@ const PinDetail = React.createClass({
   },
   render() {
     const pin = this.props.pin;
-    const tagNames = pin.tags.map(tag => `#${tag.name}`).join(', ');
+    const tagNames = TagStore.all().map(name => `#${name}`).join(', ');
     return (
       <div className="pin-detail">
         <div className="pin-detail-sub">

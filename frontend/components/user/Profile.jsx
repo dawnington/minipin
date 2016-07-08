@@ -20,9 +20,11 @@ const Profile = React.createClass({
     PinActions.fetchUserPins(this.userId);
   },
   componentWillReceiveProps(newProps) {
-    this.userId = newProps.params.userId;
-    UserActions.fetchUserProfile(this.userId);
-    PinActions.fetchUserPins(this.userId);
+    if (this.userId !== newProps.params.userId) {
+      this.userId = newProps.params.userId;
+      UserActions.fetchUserProfile(this.userId);
+      PinActions.fetchUserPins(this.userId);
+    }
   },
   componentWillUnmount() {
     this.sessionListener.remove();
