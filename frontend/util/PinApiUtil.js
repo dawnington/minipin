@@ -7,6 +7,13 @@ module.exports = {
       success,
     });
   },
+  fetchPins(data, success) {
+    $.ajax({
+      url: 'api/pins',
+      data,
+      success,
+    });
+  },
   createPhoto(photo, successCb, errorCb) {
     $.ajax({
       method: 'POST',
@@ -29,25 +36,6 @@ module.exports = {
     $.ajax({
       method: 'DELETE',
       url: `api/pins/${id}`,
-      success,
-    });
-  },
-  fetchUserPins(id, success) {
-    $.ajax({
-      url: `api/users/${id}/pins`,
-      success,
-    });
-  },
-  fetchBoardPins(id, success) {
-    $.ajax({
-      url: `api/boards/${id}/pins`,
-      success,
-    });
-  },
-  searchPins(query, success) {
-    $.ajax({
-      url: 'api/pins',
-      data: query,
       success,
     });
   },

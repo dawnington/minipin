@@ -15,7 +15,7 @@ const SearchBar = React.createClass({
     }
   },
   _redirectToSearch() {
-    PinActions.searchPins(this.state);
+    PinActions.fetchPins(this.state);
     hashHistory.push('search');
     this.setState({ query: '' });
   },

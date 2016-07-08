@@ -7,14 +7,8 @@ module.exports = {
   fetchFeed(id) {
     PinApiUtil.fetchFeed(id, this.receiveAllPins);
   },
-  fetchUserPins(id) {
-    PinApiUtil.fetchUserPins(id, this.receiveAllPins);
-  },
-  fetchBoardPins(id) {
-    PinApiUtil.fetchBoardPins(id, this.receiveAllPins);
-  },
-  searchPins(query) {
-    PinApiUtil.searchPins(query, this.receiveAllPins);
+  fetchPins(data) {
+    PinApiUtil.fetchPins(data, this.receiveAllPins);
   },
   createPhoto(photo) {
     PinApiUtil.createPhoto(photo, this.receiveNewPhoto, ErrorActions.setErrors);

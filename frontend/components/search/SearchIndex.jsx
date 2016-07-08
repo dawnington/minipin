@@ -4,7 +4,7 @@ const React = require('react');
 
 const SearchIndex = React.createClass({
   onQueryChange(e) {
-    PinActions.searchPins({ query: e.target.value });
+    PinActions.fetchPins({ query: e.target.value });
   },
   render() {
     return (

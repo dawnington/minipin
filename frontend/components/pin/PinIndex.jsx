@@ -22,7 +22,7 @@ const PinIndex = React.createClass({
   },
   fetchPins() {
     if (this.props.hasOwnProperty('userId')) {
-      PinActions.fetchUserPins(this.props.userId);
+      PinActions.fetchPins({ user_id: this.props.userId });
     }
   },
   loadFunc(pageNum) {

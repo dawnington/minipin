@@ -17,12 +17,12 @@ const Board = React.createClass({
   componentDidMount() {
     this.boardListener = BoardStore.addListener(this.onChange);
     BoardActions.fetchSingleBoard(this.boardId);
-    PinActions.fetchBoardPins(this.boardId);
+    PinActions.fetchPins({ board_id: this.boardId });
   },
   componentWillReceiveProps(newProps) {
     this.boardId = newProps.params.boardId;
     BoardActions.fetchSingleBoard(this.boardId);
-    PinActions.fetchBoardPins(this.boardId);
+    PinActions.fetchPins({ board_id: this.boardId });
   },
   componentWillUnmount() {
     this.boardListener.remove();
