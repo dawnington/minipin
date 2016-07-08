@@ -1,3 +1,5 @@
+const hashHistory = require('react-router').hashHistory;
+const PinActions = require('../../actions/PinActions');
 const React = require('react');
 
 const SearchBar = React.createClass({
@@ -6,6 +8,11 @@ const SearchBar = React.createClass({
   },
   onQueryChange(e) {
     this.setState({ query: e.target.value });
+  },
+  redirectToSearch(e) {
+    e.preventDefault();
+    // PinActions.searchPins(this.state);
+    hashHistory.push('search');
   },
   render() {
     return (
@@ -16,8 +23,9 @@ const SearchBar = React.createClass({
           value={this.state.query}
           placeholder="Search"
           onChange={this.onQueryChange}
+          onSubmit={this.redirectToSearch}
         />
-      <i className="fa fa-search"></i>
+      <i className="fa fa-search" onClick={this.redirectToSearch}></i>
       </div>
     );
   },

@@ -7,7 +7,7 @@ const PinActions = require('../actions/PinActions');
 const PinForm = require('./pin/PinForm');
 const PinStore = require('../stores/PinStore');
 const React = require('react');
-const SearchBar = require('./SearchBar');
+const SearchBar = require('./search/SearchBar');
 const SessionActions = require('../actions/SessionActions');
 const SessionStore = require('../stores/SessionStore');
 

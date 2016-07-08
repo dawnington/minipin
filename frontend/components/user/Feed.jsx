@@ -1,7 +1,14 @@
-const FeedIndex = require('./FeedIndex');
+const PinIndex = require('../pin/PinIndex');
+const PinActions = require('../../actions/PinActions');
 const React = require('react');
 
 const Feed = React.createClass({
+  componentDidMount() {
+    PinActions.fetchFeed(this.props.userId);
+  },
+  componentWillReceiveProps(newProps) {
+    PinActions.fetchFeed(newProps.userId);
+  },
   render() {
     return (
       <div className="main">
@@ -11,10 +18,10 @@ const Feed = React.createClass({
             <h5 className="board-description">Pins from those you follow</h5>
           </div>
         </hgroup>
-        <FeedIndex userId={this.props.userId} />
+        <PinIndex />
       </div>
-    )
-  }
+    );
+  },
 });
 
 module.exports = Feed;

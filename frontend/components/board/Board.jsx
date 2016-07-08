@@ -2,8 +2,9 @@ const BoardActions = require('../../actions/BoardActions');
 const BoardForm = require('./BoardForm');
 const BoardStore = require('../../stores/BoardStore');
 const hashHistory = require('react-router').hashHistory;
-const Modal = require('react-bootstrap').Modal;
 const PinIndex = require('../pin/PinIndex');
+const Modal = require('react-bootstrap').Modal;
+const PinActions = require('../../actions/PinActions');
 const React = require('react');
 const SessionStore = require('../../stores/SessionStore');
 
@@ -16,10 +17,12 @@ const Board = React.createClass({
   componentDidMount() {
     this.boardListener = BoardStore.addListener(this.onChange);
     BoardActions.fetchSingleBoard(this.boardId);
+    PinActions.fetchBoardPins(this.boardId);
   },
   componentWillReceiveProps(newProps) {
     this.boardId = newProps.params.boardId;
     BoardActions.fetchSingleBoard(this.boardId);
+    PinActions.fetchBoardPins(this.boardId);
   },
   componentWillUnmount() {
     this.boardListener.remove();

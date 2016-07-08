@@ -13,9 +13,10 @@ const Board = require('./components/board/Board');
 const BoardIndex = require('./components/board/BoardIndex');
 const Feed = require('./components/user/Feed');
 const FollowIndex = require('./components/user/FollowIndex');
-const LoginForm = require('./components/LoginForm');
 const PinIndex = require('./components/pin/PinIndex');
+const LoginForm = require('./components/LoginForm');
 const Profile = require('./components/user/Profile');
+const SearchIndex = require('./components/search/SearchIndex');
 const SignupForm = require('./components/SignupForm');
 
 // Testing
@@ -45,6 +46,7 @@ const routes = (
         <Route path="followers" component={FollowIndex} />
         <Route path="following" component={FollowIndex} />
       </Route>
+      <Route path="search" component={SearchIndex} />
     </Route>
     <Route path="login" component={LoginForm} onEnter={ensureLoggedOut} />
     <Route path="signup" component={SignupForm} onEnter={ensureLoggedOut} />

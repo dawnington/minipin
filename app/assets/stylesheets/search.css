@@ -1,0 +1,30 @@
+.search-bar {
+  display: flex;
+  align-items: baseline;
+  width: 238px;
+  padding: 5px 0px 5px 47px;
+}
+
+.search-input {
+  background-color: #f2d737;
+  border-bottom: 2px solid #96820a;
+}
+
+.search-input::-webkit-input-placeholder {
+  color: #96820a;
+}
+
+.fa.fa-search {
+  cursor: pointer;
+}
+
+.search-header {
+  width: 100%;
+  padding-top: 10px;
+}
+
+.header-search-bar {
+  margin: 10px;
+  border-bottom: 2px solid lightgray;
+  width: 100%;
+}
