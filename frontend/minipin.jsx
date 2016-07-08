@@ -20,8 +20,12 @@ const SearchIndex = require('./components/search/SearchIndex');
 const SignupForm = require('./components/SignupForm');
 
 // Testing
-const BoardActions = require('./actions/BoardActions');
-window.BoardActions = BoardActions;
+const PinApiUtil = require('./util/PinApiUtil');
+const PinActions = require('./actions/PinActions');
+const PinStore = require('./stores/PinStore');
+window.PinApiUtil = PinApiUtil;
+window.PinActions = PinActions;
+window.PinStore = PinStore;
 
 function ensureLoggedIn(nextState, replace) {
   if (!SessionStore.loggedIn()) {

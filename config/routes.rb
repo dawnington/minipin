@@ -16,7 +16,7 @@ Rails.application.routes.draw do
 
     resources :follows, only: [:create, :destroy]
     resources :photos, only: [:create]
-    resources :pins, only: [:create, :destroy]
+    resources :pins, only: [:create, :destroy, :index]
     resource :session, only: [:create, :destroy]
   end
 end

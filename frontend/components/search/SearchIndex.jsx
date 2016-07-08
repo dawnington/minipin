@@ -3,12 +3,8 @@ const PinIndex = require('../pin/PinIndex');
 const React = require('react');
 
 const SearchIndex = React.createClass({
-  getInitialState() {
-    return { query: '' };
-  },
   onQueryChange(e) {
-    this.setState({ query: e.target.value });
-    // PinActions.searchPins(this.state);
+    PinActions.searchPins({ query: e.target.value });
   },
   render() {
     return (
@@ -18,15 +14,14 @@ const SearchIndex = React.createClass({
             <input
               type="text"
               className="header-search-bar"
-              value={this.state.query}
               placeholder="Search"
-              onChange={this.onQueryChange}
+              onInput={this.onQueryChange}
             />
           </div>
         </hgroup>
-
+        <PinIndex />
       </div>
-    )
+    );
   },
 });
 

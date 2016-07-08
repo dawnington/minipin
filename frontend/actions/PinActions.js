@@ -3,8 +3,6 @@ const ErrorActions = require('./ErrorActions');
 const PinApiUtil = require('../util/PinApiUtil');
 const PinConstants = require('../constants/PinConstants');
 
-// TODO: replace printSomething
-
 module.exports = {
   fetchFeed(id) {
     PinApiUtil.fetchFeed(id, this.receiveAllPins);
@@ -15,11 +13,14 @@ module.exports = {
   fetchBoardPins(id) {
     PinApiUtil.fetchBoardPins(id, this.receiveAllPins);
   },
+  searchPins(query) {
+    PinApiUtil.searchPins(query, this.receiveAllPins);
+  },
   createPhoto(photo) {
     PinApiUtil.createPhoto(photo, this.receiveNewPhoto, ErrorActions.setErrors);
   },
   addPin(pin) {
-    PinApiUtil.createPin(pin, this.printSomething, this.printSomething);
+    PinApiUtil.createPin(pin);
   },
   deletePin(id) {
     PinApiUtil.deletePin(id, this.removePin);
@@ -52,8 +53,5 @@ module.exports = {
     Dispatcher.dispatch({
       actionType: PinConstants.EMPTY_STORE,
     });
-  },
-  printSomething(thing) {
-    console.log(thing);
   },
 };

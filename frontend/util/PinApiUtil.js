@@ -44,4 +44,11 @@ module.exports = {
       success,
     });
   },
+  searchPins(query, success) {
+    $.ajax({
+      url: 'api/pins',
+      data: query,
+      success,
+    });
+  },
 };

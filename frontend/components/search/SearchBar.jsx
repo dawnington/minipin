@@ -11,7 +11,7 @@ const SearchBar = React.createClass({
   },
   redirectToSearch(e) {
     e.preventDefault();
-    // PinActions.searchPins(this.state);
+    PinActions.searchPins(this.state);
     hashHistory.push('search');
   },
   render() {
@@ -25,7 +25,7 @@ const SearchBar = React.createClass({
           onChange={this.onQueryChange}
           onSubmit={this.redirectToSearch}
         />
-      <i className="fa fa-search" onClick={this.redirectToSearch}></i>
+        <i className="fa fa-search" onClick={this.redirectToSearch}></i>
       </div>
     );
   },

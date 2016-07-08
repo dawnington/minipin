@@ -14,6 +14,18 @@ class Api::PinsController < ApplicationController
       @pins = User.includes(pins: [:photo, :board, :tags]).find(params[:user_id]).pins
     elsif params[:board_id]
       @pins = Pin.where('board_id = ?', params[:board_id]).includes(:photo, :board, :tags)
+    elsif params[:query] && !params[:query].empty?
+      @pins = Pin.joins(
+        'LEFT OUTER JOIN "taggings" ON "taggings"."pin_id" = "pins"."id"'
+        ).joins(
+        'LEFT OUTER JOIN "tags" ON "tags"."id" = "taggings"."tag_id"'
+        ).where(
+        [
+          'tags.name LIKE :query OR pins.description LIKE :query',
+          {query: "%#{params[:query]}%"}
+        ]).includes(:photo, :board, :tags)
+    else
+      @pins = []
     end
   end
 
