@@ -40,9 +40,17 @@ const PinDetail = React.createClass({
       this.props.modalCallback();
     }
   },
+  tagRedirect(e) {
+    PinActions.fetchPins({ query: e.target.value });
+  },
+  tagLinks() {
+    const tagLinks = this.state.tags.map(tag => {
+      return <a href="#/search" className="tag-link" onClick={this.tagRedirect} key={tag} value={tag}>#{tag} </a>;
+    });
+    return <ul>{tagLinks}</ul>;
+  },
   render() {
     const pin = this.props.pin;
-    const tagNames = TagStore.all().map(name => `#${name}`).join(', ');
     return (
       <div className="pin-detail">
         <div className="pin-detail-sub">
@@ -51,7 +59,7 @@ const PinDetail = React.createClass({
             <div className="pin-description">
               <h3>{pin.description}</h3>
               <h5 className="board-name hover-item" onClick={this.goToBoard}>from {pin.board_name}</h5>
-              <h5>{tagNames}</h5>
+              <h5>{this.tagLinks()}</h5>
             </div>
             <div className="pin-detail-icons">
               <i className="fa fa-thumb-tack hover-item" onClick={this.showPinForm}></i>

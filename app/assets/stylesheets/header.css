@@ -34,6 +34,15 @@
   color: grey;
 }
 
+.board-description {
+  display: flex;
+  align-items: baseline;
+}
+
+.fa.fa-lock {
+  margin: 0;
+}
+
 .fa.fa-cog {
   color: grey;
   font-size: 22px;

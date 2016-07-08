@@ -48,3 +48,12 @@
 .board-name {
   cursor: pointer;
 }
+
+.tag-link {
+  text-decoration: none;
+  color: grey;
+}
+
+.tag-link:hover {
+  color: #f2d737;
+}

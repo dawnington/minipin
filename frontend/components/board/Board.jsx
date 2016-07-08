@@ -47,6 +47,12 @@ const Board = React.createClass({
     }
     return <h3 className="board-owner hover-item" onClick={this.goToOwner}>by {this.state.board.owner.name}</h3>;
   },
+  privateBoard() {
+    if (this.state.board.private) {
+      return <i className="fa fa-lock"></i>;
+    }
+    return <div></div>;
+  },
   render() {
     const board = this.state.board;
     return (
@@ -54,7 +60,7 @@ const Board = React.createClass({
         <hgroup className="header">
           <div className="header-title">
             <h3 className="header-name">{board.name}</h3>
-            <h5 className="board-description">{board.description}</h5>
+            <h5 className="board-description">{board.description}&nbsp;{this.privateBoard()}</h5>
           </div>
           {this.ownerButton()}
         </hgroup>
