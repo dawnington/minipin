@@ -11,6 +11,7 @@ const PinIndex = React.createClass({
   },
   componentDidMount() {
     this.pinListener = PinStore.addListener(this.onChange);
+    this.fetchPins();
   },
   componentWillUnmount() {
     this.pinListener.remove();
@@ -18,6 +19,11 @@ const PinIndex = React.createClass({
   },
   onChange() {
     this.setState({ pins: PinStore.all(), shownPins: PinStore.all().slice(0, 10) });
+  },
+  fetchPins() {
+    if (this.props.hasOwnProperty('userId')) {
+      PinActions.fetchUserPins(this.props.userId);
+    }
   },
   loadFunc(pageNum) {
     const allPins = PinStore.all();

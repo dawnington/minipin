@@ -5,11 +5,10 @@ class Api::SessionsController < ApplicationController
   end
 
   def create
-    @user = User.find_by_credentials(params[:user][:username], params[:user][:password]).includes(:followee)
+    @user = User.includes(:boards, out_follows: [:followee]).find_by_credentials(params[:user][:username], params[:user][:password])
 
     if @user
       login!(@user)
-      @boards = @user.boards
       render 'api/users/show'
     else
       render json: { base: ['Invalid credentials'] }, status: 401

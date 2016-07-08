@@ -1,7 +1,6 @@
 const FollowActions = require('../../actions/FollowActions');
 const IndexLink = require('react-router').IndexLink;
 const Link = require('react-router').Link;
-const PinActions = require('../../actions/PinActions');
 const React = require('react');
 const SessionStore = require('../../stores/SessionStore');
 const UserActions = require('../../actions/UserActions');
@@ -17,13 +16,11 @@ const Profile = React.createClass({
     this.userListener = UserStore.addListener(this.onChange);
     this.sessionListener = SessionStore.addListener(this.currentUserChange);
     UserActions.fetchUserProfile(this.userId);
-    PinActions.fetchUserPins(this.userId);
   },
   componentWillReceiveProps(newProps) {
     if (this.userId !== newProps.params.userId) {
       this.userId = newProps.params.userId;
       UserActions.fetchUserProfile(this.userId);
-      PinActions.fetchUserPins(this.userId);
     }
   },
   componentWillUnmount() {
