@@ -48,8 +48,4 @@ module.exports = {
       board,
     });
   },
-  printThings(thing, thing2) {
-    console.log(thing);
-    console.log(thing2);
-  },
 };
