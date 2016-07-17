@@ -10,9 +10,9 @@ MiniPin is a full-stack web application inspired by Pinterest and minimalist des
 
 ### Boards and Pins
 
-  Users can create boards, and boards can be private or public. Private boards and their pins will not be accessible by other users. Boards can be edited by their users.
+  Users can create and edit boards, and boards can be private or public. Private boards and their pins will not be accessible by other users. The simple design allows users easy access their boards.
 
-  ![board]
+  ![sidebar]
 
   Pins can be created by adding an image through the Cloudinary widget, or added from another board.
 
@@ -30,11 +30,12 @@ MiniPin is a full-stack web application inspired by Pinterest and minimalist des
 
 ### Tags and Search
 
-  Pins can have tags, and pins can be searched by their tags or by their description.
+  Pins can have tags and are searchable. Searching utilizes a custom Rails query that searches tags and pin descriptions in order to find the widest range of results.
 
   ![search]
 
-[board]: ./docs/screenshots/board.png
+<!-- [board]: ./docs/screenshots/board.png -->
+[sidebar]: ./docs/screenshots/sidebar.png
 [pinform]: ./docs/screenshots/pinform.png
 [feed]: ./docs/screenshots/feed.png
 [following]: ./docs/screenshots/following.png
