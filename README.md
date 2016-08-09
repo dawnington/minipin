@@ -2,7 +2,7 @@
 
 [MiniPin live][heroku]
 
-[heroku]: http://www.minipin.herokuapp.com
+[heroku]: http://www.minipin.site
 
 MiniPin is a full-stack web application inspired by Pinterest and minimalist design.
 
