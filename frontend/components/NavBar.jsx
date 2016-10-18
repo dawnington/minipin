@@ -97,6 +97,7 @@ const NavBar = React.createClass({
             </div>
           </div>
           <div className="nav-profile">
+          <div className="nav-item nav-button"><a href="https://dawnington.github.io/">About</a></div>
             <div className="nav-item nav-button" onClick={this.redirectToProfile}>{user.name}</div>
             <div className="nav-item nav-button" onClick={this.logout}>Log Out</div>
           </div>
